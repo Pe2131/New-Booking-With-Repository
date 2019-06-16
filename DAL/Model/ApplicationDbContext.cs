@@ -30,8 +30,6 @@ namespace DAL.Model
         public DbSet<Tbl_Weblog> tbl_Weblogs { get; set; }
         public DbSet<Tbl_NewsLetter> tbl_NewsLetters { get; set; }
         public DbSet<Tbl_Contact> tbl_Contacts { get; set; }
-        public DbSet<Tbl_Source> tbl_Sources { get; set; }
-        public DbSet<Tbl_Destination> tbl_Destinations { get; set; }
 
 
     }

@@ -158,32 +158,6 @@ namespace DAL.Model
                 return _ContactRepositori;
             }
         }
-        private GenericRepositori<Tbl_Source> _SourceRepositori;
-        public GenericRepositori<Tbl_Source> SourceRepositori
-        {
-            get
-            {
-                if (_SourceRepositori == null)
-                {
-                    _SourceRepositori = new GenericRepositori<Tbl_Source>(db);
-                }
-
-                return _SourceRepositori;
-            }
-        }
-        private GenericRepositori<Tbl_Destination> _DestinationRepositori;
-        public GenericRepositori<Tbl_Destination> DestinationRepositori
-        {
-            get
-            {
-                if (_DestinationRepositori == null)
-                {
-                    _DestinationRepositori = new GenericRepositori<Tbl_Destination>(db);
-                }
-
-                return _DestinationRepositori;
-            }
-        }
         public void Dispose()
         {
             db.Dispose();
