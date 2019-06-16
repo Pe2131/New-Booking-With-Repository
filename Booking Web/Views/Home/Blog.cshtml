@@ -1,0 +1,123 @@
+﻿@model Tbl_Weblog;
+@{
+    ViewData["Title"] = "Blog1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles{
+    <style>
+    a {
+        color: black !important;
+    }
+
+    .section-header {
+        background: none;
+        height: unset;
+    }
+
+    footer .social ul li a {
+        color: #fff !important;
+    }
+
+  </style>
+
+}
+<div class="container-fluid all">
+    <section class="container-fluid p-0 subscript">
+        <p>Насладете се на пътуването си</p>
+        <h2>Грабнете Вашето първо <br> пътуване с отстъпка</h2>
+        <form>
+            <input type="email" placeholder="Имейл адрес">
+            <button type="button" onclick="addnewsletter();">Абонирайте се</button>
+
+            <span class="s-bg s-1"></span>
+            <span class="s-bg s-2"></span>
+            <span class="s-bg s-3"></span>
+        </form>
+    </section>
+
+    <section class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12 news-content">
+
+
+                <div class="col-lg-12 col-12 blog-content">
+                    <strong><span class="squar"></span>Blog</strong>
+                    <div class="item-content">
+                        <img src="~/Files/Images/Weblog/@Model.image" style="        object-fit: cover;" />
+                        <p>@Model.Title</p>
+                        <p id="text-about" class="m-0">
+                            @Html.Raw(Model.Description)
+                        </p>
+                    </div><!--/item-content-->
+                </div><!--/blog content -->
+            </div><!--/row-->
+        </div>
+    </section>
+</div>
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+    <script src="~/Home/js/Notify.min.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+    <script>
+        function addnewsletter() {
+
+            var email = $('#email').val();
+            if (email != null && email != '') {
+
+                $.ajax({
+                    url: "/Home/insertEmail",
+                    type: "Post",
+                    data: { Email: email },
+                    cache: false
+                }).done(function (res) {
+
+                    console.log(res);
+                    $("#email").notify(
+
+                        res, "success",
+                        {
+                            autoHideDelay: 100000,
+                            position: "bottom"
+                        }
+                    );
+                });
+
+            }
+            else {
+                $("#email").notify(
+                    "please insert your email!", "warn",
+                    {
+                        autoHideDelay: 100000,
+                        position: "bottom"
+                    }
+                );
+            }
+        }
+    </script>
+    <script>
+        function Search() {
+            $("#container").empty();
+            var city1 = $('#city1').val();
+            var city2 = $('#city2').val();
+            var date = $('#datepicker').val();
+            var count = $('#count').val();
+            $.ajax({
+                url: "/Home/ShowReservation/",
+                type: "POST",
+                data: { source: city1, dest: city2, date: date, count: count },
+                AllowCache: false
+            }).done(function (res) {
+                $('#myModal').modal('show');
+                $("#container").append(res);
+            });
+
+        }
+    </script>
+}

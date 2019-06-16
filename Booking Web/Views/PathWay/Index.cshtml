@@ -1,0 +1,281 @@
+﻿@model List<ViewModel_PathWay>
+@{
+    ViewData["Title"] = "Manage PathWay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title">Routes</h4>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-1">
+                        <a href="/PathWay/">
+                            <i class="fas fa-home"></i> Routes
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-2">
+                        <a href="javascript:void(0);">Manage Forms</a>
+                    </li>
+                    <li class="breadcrumb-item active">Manage Routes</li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row clearfix js-sweetalert">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            @if (TempData["Style"] != null)
+                            {
+                                <div class="@TempData["Style"]">
+                                    @TempData["Message"]
+                                </div>
+                            }
+                            <div class="header">
+                                <h2 class="co-md-6 col-lg-6">
+                                    <strong>Routes List</strong>
+                                </h2>
+                                <a href="/PathWay/Create" class="btn btn-success waves-effect" style="float:right;">
+                                    <i class="material-icons">add</i>
+                                    <span>Add</span>
+                                </a>
+
+                            </div>
+                            <!--for active path-->
+                            <h4>
+                                <strong style="color:#18ce0f; margin-left:20px;">Ative Routes</strong>
+                            </h4>
+                            <div class="body table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" style="text-align:center;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Source</th>
+                                            <th>Destination</th>
+                                            <th>start Time</th>
+                                            <th>arrive Time</th>
+                                            <th>Price For Adult</th>
+                                            <th>Price For Baby</th>
+                                            <th>status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    @if (Model.Any())
+                                    {
+                                        int count = 1;
+
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+
+                                                <tr id="@item.id-R">
+                                                    <th scope="row">@(count++)</th>
+                                                    <td>@item.GetSourceName</td>
+                                                    <td>@item.GetDestinationName</td>
+                                                    <td>@item.StartDate</td>
+                                                    <td>@item.ArrivalDate</td>
+                                                    <td>@item.PriceForAdultUro € - @item.PriceForAdultDollar $ </td>
+                                                    <td>@item.PriceForBabyUro € - @item.PriceForBabyDollar $</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            @if (item.Status == "Active")
+                                                            {
+                                                                <button type="button" id="Status_@item.id" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false" style="width:83px;">
+                                                                    Active
+                                                                </button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" id="@item.id">Active</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" id="@item.id">Deactive</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" id="@item.id">Delay</a>
+                                                                    </li>
+                                                                </ul>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button type="button" id="Status_@item.id" class="btn btn-Default dropdown-toggle" data-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false" style="width:83px;">
+                                                                    Delay
+                                                                </button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" id="@item.id">Active</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" id="@item.id">Deactive</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0);" id="@item.id">Delay</a>
+                                                                    </li>
+                                                                </ul>
+                                                            }
+
+                                                        </div>
+                                                        <div class="preloader pl-size-xs" id="preloader" style="display:none">
+                                                            <div class="spinner-layer pl-red-grey">
+                                                                <div class="circle-clipper left">
+                                                                    <div class="circle"></div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                    <div class="circle"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="/PathWay/Edit/@item.id" class="btn tblActnBtn">
+                                                            <i class="material-icons">mode_edit</i>
+                                                        </a>
+
+                                                        <a id="@item.id" class="btn tblActnBtn" onclick="showConfirmMessage(this)">
+                                                            <i class="material-icons">delete</i>
+                                                        </a>
+                                                    </td>
+
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    }
+
+                                </table>
+                            </div>
+                            <!--end active path-->
+                            <button type="button" id="Show" class="btn bg-red waves-effect">
+                                <i class="material-icons">sync_disabled</i>
+                                <span>Show Deactive Routes</span>
+                            </button>
+                            <div class="preloader pl-size-xl" id="preloaderX" style="margin-left:50%;display:none;">
+                                <div class="spinner-layer pl-red-grey">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--for deactive path-->
+                            <div id="Deactive">
+
+                            </div>
+                            <!--end deactive path-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Your content goes here  -->
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/assets/js/table.min.js"></script>
+    <script src="~/assets/js/pages/tables/jquery-datatable.js"></script>
+    <script>
+        function Delete(id) {
+            var id = id;
+            $.post("@Url.Action("Delete", "Pathway")",
+                {
+                    id: id
+                },
+                function (data) {
+                    if (data == 0) {
+                        swal("Not Deleted!", "this record has some related record in anotehr table", "error");
+                    }
+                    if (data == 1) {
+                        swal("Deleted!", "this record file has been deleted.", "success");
+                        $('#' + id +'-R').hide();
+                    }
+
+                });
+
+        }
+
+        function showConfirmMessage(input) {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this record!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                var id = input.getAttribute('id');
+                Delete(id);
+            });
+        }
+    </script>
+    <script>
+        $(function () {
+            $(".dropdown-menu").on('click', 'li a', function () {
+                $('#preloader').show();
+                var id = $(this).attr('id');
+                if ($(this).text() == 'Deactive')
+                {
+                    EditStatus(id, 'Deactive');
+                    $('#Status_'+id).removeClass('btn-success');
+                    $('#Status_' + id).removeClass('btn-Default');
+                    $('#Status_' + id).addClass('btn-danger');
+                    $("#Status_"+id+":first-child").text($(this).text());
+                    $("#Status_" + id + ":first-child").val($(this).text());
+                }
+                if ($(this).text() == 'Delay')
+                {
+                    EditStatus(id, 'Delay');
+                    $('#Status_' + id).removeClass('btn-success');
+                    $('#Status_' + id).removeClass('btn-danger');
+                    $('#Status_' + id).addClass('btn-Default');
+                    $("#Status_" + id + ":first-child").text($(this).text());
+                    $("#Status_" + id + ":first-child").val($(this).text());
+                }
+                if ($(this).text() == 'Active') {
+                    EditStatus(id, 'Active');
+                    $('#Status_' + id).removeClass('btn-Default');
+                    $('#Status_' + id).removeClass('btn-danger');
+                    $('#Status_' + id).addClass('btn-success');
+                    $("#Status_" + id + ":first-child").text($(this).text());
+                    $("#Status_" + id + ":first-child").val($(this).text());
+                }
+                $('#preloader').hide();
+            });
+
+        });
+        function EditStatus(id,status) {
+            $.ajax({
+                url: "/PathWay/ChangeStatus/",
+                data: { id: id, status: status },
+                type: "Post",
+                cache: false,
+                success: function (data) {
+                    if (data == 0) {
+                        swal("Not Edited!", "this record has a problem", "error");
+                    }
+                    else {
+
+                    }
+                }
+            });
+        }
+        $('#Show').click(function () {
+            $('#Show').hide();
+            $("#preloaderX").show();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("/PathWay/GetDeactivePath")',
+                success: function (data) {
+                    $('#Deactive').children().remove();
+                    $("#preloaderX").hide();
+                    $('#Show').show();
+                    $('#Deactive').append(data);
+                }
+            });
+        });
+    </script>
+}

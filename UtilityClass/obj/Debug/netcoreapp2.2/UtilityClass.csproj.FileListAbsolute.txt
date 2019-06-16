@@ -1,0 +1,9 @@
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\bin\Debug\netcoreapp2.2\UtilityClass.deps.json
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\bin\Debug\netcoreapp2.2\UtilityClass.dll
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\obj\Debug\netcoreapp2.2\UtilityClass.csprojAssemblyReference.cache
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\obj\Debug\netcoreapp2.2\UtilityClass.csproj.CoreCompileInputs.cache
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\obj\Debug\netcoreapp2.2\UtilityClass.AssemblyInfoInputs.cache
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\obj\Debug\netcoreapp2.2\UtilityClass.AssemblyInfo.cs
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\bin\Debug\netcoreapp2.2\UtilityClass.pdb
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\obj\Debug\netcoreapp2.2\UtilityClass.dll
+E:\c#project\asp\Work\Booking\Booking\UtilityClass\obj\Debug\netcoreapp2.2\UtilityClass.pdb

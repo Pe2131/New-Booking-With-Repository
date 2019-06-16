@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Dashboard</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a href="/Account/Index">
+                                <i class="fas fa-home"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Your content goes here  -->
+        <div class="row">
+
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="counter-box text-center white">
+                            <div class="text font-17 m-b-5">Total Routs</div>
+                            <h3 class="m-b-10">
+                                @ViewBag.TotalPath
+                            </h3>
+                            <i class="material-icons col-green">directions_bus</i>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="counter-box text-center white">
+                            <div class="text font-17 m-b-5">Total Country</div>
+                            <h3 class="m-b-10">
+                                @ViewBag.TotalCountry
+
+                            </h3>
+                            <i class="material-icons col-red">flag</i>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="counter-box text-center white">
+                            <div class="text font-17 m-b-5">Total City</div>
+                            <h3 class="m-b-10">
+                                @ViewBag.TotalCity
+                            </h3>
+                            <i class="material-icons col-green">location_city</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="counter-box text-center white">
+                            <div class="text font-17 m-b-5">Total Agent</div>
+                            <h3 class="m-b-10">
+                                @ViewBag.TotalAgent
+                            </h3>
+                            <i class="material-icons col-green">mood</i>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="counter-box text-center white">
+                            <div class="text font-17 m-b-5">Total User</div>
+                            <h3 class="m-b-10">
+                                @ViewBag.TotalUser
+                            </h3>
+                            <i class="material-icons col-red">person</i>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="counter-box text-center white">
+                            <div class="text font-17 m-b-5">Total Newsletter</div>
+                            <h3 class="m-b-10">
+                                @ViewBag.Newsletter
+                            </h3>
+                            <i class="material-icons col-green">email</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                <div class="plain-card" style="margin-bottom:43px;">
+                    <div class="card-inner">
+                        <h6 class="tx-primary m-b-10">Sales Report</h6>
+                        <div class="row">
+                            <div class="col col-block">
+                                <label class="font-14">Today</label>
+                                <p>1,898</p>
+                            </div>
+                            <div class="col col-block">
+                                <label class="font-14">This Week</label>
+                                <p>32,112</p>
+                            </div>
+                            <div class="col col-block">
+                                <label class="font-14">This Month</label>
+                                <p>72,067</p>
+                            </div>
+                        </div>
+                        <div class="progress shadow-style">
+                            <div class="progress-bar l-bg-cyan width-per-70" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">70%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plain-card">
+                    <div class="card-inner">
+                        <h6 class="tx-primary m-b-10">Sales Report(in number)</h6>
+                        <div class="row">
+                            <div class="col col-block">
+                                <label class="font-14">Today</label>
+                                <p>1,898</p>
+                            </div>
+                            <div class="col col-block">
+                                <label class="font-14">This Week</label>
+                                <p>32,112</p>
+                            </div>
+                            <div class="col col-block">
+                                <label class="font-14">This Month</label>
+                                <p>72,067</p>
+                            </div>
+                        </div>
+                        <div class="progress shadow-style">
+                            <div class="progress-bar l-bg-purple width-per-70" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">70%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

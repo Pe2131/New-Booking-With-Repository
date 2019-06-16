@@ -1,0 +1,219 @@
+﻿@model List<ViewModel_User>
+@{
+    ViewData["Title"] = "getUsers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title">Users</h4>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-1">
+                        <a href="/Account/index">
+                            <i class="fas fa-home"></i> Users
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-2">
+                        <a href="javascript:void(0);">Manage Users</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row clearfix js-sweetalert">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            @if (TempData["Style"] != null)
+                            {
+                                <div class="@TempData["Style"]">
+                                    @TempData["Message"]
+                                </div>
+                            }
+                            <div class="header">
+                                <h2 class="co-md-6 col-lg-6">
+                                    <strong>Users List</strong>
+                                </h2>
+                            </div>
+                            <div class="body table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="TblUsers" style="text-align:center;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>FullName</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    @if (Model.Any())
+                                    {
+                                        int count = 1;
+
+                                        <tbody>
+
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr id="@item.Id-R" style="text-align:center;">
+                                                    <th scope="row">@(count++)</th>
+                                                    <td>@item.FullName</td>
+                                                    <td>@item.Email</td>
+                                                    <td>@item.Mobile</td>
+                                                    @if (item.image != null)
+                                                    {
+                                                        <td style="text-align:center;">
+                                                            <img style="width:50px;height:50px; border-radius:50%;" src="~/Files/Images/Users/@item.image" />
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td style="text-align:center;">
+                                                            <img style="width:50px;height:50px; border-radius:50%;" src="~/Files/Images/Users/User.png" />
+                                                        </td>
+                                                    }
+                                                    <td>
+                                                        <button class="btn tblActnBtn" onclick='GetDetails("@item.Id")'>
+                                                            <i class="material-icons">account_circle</i>
+                                                        </button>
+
+                                                        <button id="@item.Id" class="btn tblActnBtn" onclick='showrole("@item.Id")'>
+                                                            <i class="material-icons">vpn_key</i>
+                                                        </button>
+                                                    </td>
+
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    }
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Your content goes here  -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--start Info Modal-->
+<div class="modal fade" id="gridModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalGrid"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalGrid">User Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="Information">
+
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-info waves-effect">Save</button>-->
+                <button type="button" class="btn btn-danger waves-effect"
+                        data-dismiss="modal">
+                    close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--start Role Modal-->
+<div class="modal fade" id="RoleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalGrid"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalGrid">User Roles</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="Role">
+            </div>
+            <div class="modal-footer">
+                <div class="preloader" id="loading" style="display:none;">
+                    <div class="spinner-layer pl-cyan">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info waves-effect" onclick='addOrRemove()'>Save</button>
+                <button type="button" class="btn btn-danger waves-effect"
+                        data-dismiss="modal">
+                    close
+                </button>
+            </div>
+            </div>
+    </div>
+</div>
+@section Scripts{
+       <script src="~/assets/js/table.min.js"></script>
+    <script src="~/assets/js/pages/tables/jquery-datatable.js"></script>
+    <script src="~/assets/js/form.min.js"></script>
+}
+<script>
+    function GetDetails(id) {
+
+        $.ajax({
+            url: "/Account/GetUserDetail/" + id,
+            type: "Get",
+            AllowCache: false
+        }).done(function (res) {
+            $("#Information").empty();
+            $("#Information").append(res);
+            $("#gridModal").modal('show');
+        });
+    }
+    function showrole(id) {
+        //$("#RoleModal").modal('show');
+     
+         $.ajax({
+             url: "/Account/GetUserRoles/" + id,
+             type: "Get",
+             AllowCache: false
+         }).done(function (res) {
+             $("#Role").empty();
+             $("#Role").append(res);
+             $("#RoleModal").modal('show');
+         });
+    }
+    function addOrRemove()
+    {
+        var id = $('#userId').val();
+        var roles = $('#roles').val();
+        if (roles == null)
+        {
+            swal("Error!", "roles Must has value", "error");
+            return false;
+        }
+        $('#loading').show();
+        $.ajax({
+            url: "/Account/addOrRemoveRoles",
+            type: "Post",
+            data: { id: id, roles: roles },
+            AllowCache: false
+        }).done(function (res) {
+            if (res == 1)
+            {
+                $('#loading').hide();
+                swal("Updated!", "this record has been Updated.", "success");
+                //$("#RoleModal").modal('hide');
+                //showrole(id);
+            }
+            else {
+                $('#loading').hide();
+                swal("Error!", "there are a problem", "error");
+            }
+        });
+    }
+</script>
