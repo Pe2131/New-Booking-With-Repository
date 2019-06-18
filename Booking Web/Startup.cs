@@ -20,6 +20,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Booking_Web.Models;
+using System.Globalization;
 
 namespace Booking_Web
 {
@@ -40,6 +44,7 @@ namespace Booking_Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalization(options => options.ResourcesPath="Resources"); // this is Multi Language setting
             services.Configure<IdentityOptions>(option =>
             {
                 option.Password.RequireNonAlphanumeric = false;
@@ -73,7 +78,14 @@ namespace Booking_Web
             services.AddTransient<IEmailService, AuthMessageServices>(); // Dependecy injection For Email Service
             services.AddMemoryCache();
             services.AddSession();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
+                    options => { options.ResourcesPath = "Resources"; })
+                    .AddDataAnnotationsLocalization(options =>
+                    {
+                        options.DataAnnotationLocalizerProvider = (type, factory) =>
+                            factory.Create(typeof(ShareResource));
+                    });
             var physicalProvider = _hostingEnvironment.ContentRootFileProvider;
             var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
             var compositeProvider = new CompositeFileProvider(physicalProvider, embeddedProvider);
@@ -121,6 +133,24 @@ namespace Booking_Web
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
+            // this is Multi Language setting
+            var supportedCultures = new List<CultureInfo>()
+            {
+                new CultureInfo("fa-IR"),
+                new CultureInfo("en-US")
+            };
+            var options = new RequestLocalizationOptions()
+            {
+                DefaultRequestCulture = new RequestCulture("fa-IR"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures,
+                RequestCultureProviders = new List<IRequestCultureProvider>()
+                {
+                    new QueryStringRequestCultureProvider(),
+                    new CookieRequestCultureProvider()
+                }
+            };
+            app.UseRequestLocalization(options);
             // elmah مربوط به  middleware تعریف میان افزار یا 
             // بایستی زیر authentication قرار بگیره تا موقع check permission  به مشکل نخوریم
             app.UseElmah();
@@ -130,6 +160,7 @@ namespace Booking_Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
         /// <summary>
         /// elmah متد مربوط به محدود کردن دسترسی به  

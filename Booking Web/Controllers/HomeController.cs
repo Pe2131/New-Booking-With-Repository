@@ -11,6 +11,9 @@ using Booking_Web.ViewModel;
 using AutoMapper;
 using System.Globalization;
 using Booking_Web.Utility;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Localization;
 
 namespace Booking_Web.Controllers
 {
@@ -18,10 +21,15 @@ namespace Booking_Web.Controllers
     {
         UnitOfWork db = new UnitOfWork();
         NormalUtility utility = new NormalUtility();
+        private IStringLocalizer<HomeController> _localizer;
+        public HomeController(IStringLocalizer<HomeController> localizer)
+        {
+            _localizer = localizer;
+        }
         public IActionResult Index()
         {
             ViewModel_Index model = new ViewModel_Index();
-            var cities = db.CityRepository.Get(a => a.ShowInSlider == true).ToList();
+            var cities = db.CityRepository.Get().ToList();
             model.cities = Mapper.Map<List<ViewModel_City>>(cities);
             model.setting = db.SettingRepository.Get().FirstOrDefault();
             model.Blogs = db.WeblogRepositori.Get(null, a => a.OrderByDescending(b => b.id)).ToList();
@@ -37,19 +45,6 @@ namespace Booking_Web.Controllers
         public IActionResult Error(Exception e)
         {
             return View(new ErrorViewModel { ErrorMassage = e.InnerException.ToString(), ErrorTitle = "Error", RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        public Tbl_Setting Get_Setting()
-        {
-            try
-            {
-                var setting = db.SettingRepository.Get().FirstOrDefault();
-                return setting;
-            }
-            catch (Exception e)
-            {
-                Error(e);
-                throw;
-            }
         }
         public async Task<JsonResult> insertEmail(string Email)
         {
@@ -276,6 +271,14 @@ namespace Booking_Web.Controllers
                 error.ErrorMassage = e.Message;
                 return View("Error", error);
             }
+        }
+        public IActionResult ChangeLanguage(string culture)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions() { Expires = DateTimeOffset.UtcNow.AddYears(1) });
+
+            return Redirect(Request.Headers["Referer"].ToString());
         }
     }
 }

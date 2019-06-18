@@ -158,6 +158,19 @@ namespace DAL.Model
                 return _ContactRepositori;
             }
         }
+        private GenericRepositori<Tbl_Routes> _RoutRepositori;
+        public GenericRepositori<Tbl_Routes> RoutRepositori
+        {
+            get
+            {
+                if (_RoutRepositori == null)
+                {
+                    _RoutRepositori = new GenericRepositori<Tbl_Routes>(db);
+                }
+
+                return _RoutRepositori;
+            }
+        }
         public void Dispose()
         {
             db.Dispose();

@@ -227,6 +227,43 @@ namespace DAL.Migrations
                     b.ToTable("Tbl_Reserve");
                 });
 
+            modelBuilder.Entity("DAL.Model.Tables.Tbl_Routes", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArriveDays")
+                        .IsRequired();
+
+                    b.Property<string>("ArriveTime")
+                        .IsRequired();
+
+                    b.Property<string>("DepartureDays")
+                        .IsRequired();
+
+                    b.Property<string>("DepartureTime")
+                        .IsRequired();
+
+                    b.Property<string>("DestStation")
+                        .IsRequired();
+
+                    b.Property<int>("Destination_FG");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<string>("SourceStation")
+                        .IsRequired();
+
+                    b.Property<int>("Source_FG");
+
+                    b.Property<string>("Status");
+
+                    b.HasKey("id");
+
+                    b.ToTable("tbl_Routes");
+                });
+
             modelBuilder.Entity("DAL.Model.Tables.Tbl_Setting", b =>
                 {
                     b.Property<int>("ID")

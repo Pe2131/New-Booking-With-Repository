@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL.Model;
+using DAL.Model.Tables;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -8,6 +10,7 @@ namespace Booking_Web.Utility
 {
     public class NormalUtility
     {
+        private UnitOfWork db = new UnitOfWork();
         public DateTime ConvertStringToDate(string date)
         {
             try
@@ -117,6 +120,18 @@ namespace Booking_Web.Utility
             {
 
                 throw e.InnerException;
+            }
+        }
+        public Tbl_Setting Get_Setting()
+        {
+            try
+            {
+                var setting = db.SettingRepository.Get().FirstOrDefault();
+                return setting;
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
     }

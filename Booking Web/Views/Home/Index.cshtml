@@ -2,8 +2,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
-
 <!-- start Hero Banner -->
 <div class="hero-banner hero-flex" data-dark-overlay="4" id="hero-banner">
 
@@ -52,7 +50,7 @@
                                                             <label>From</label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
-                                                                <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="source">
+                                                                <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()">
                                                                     <option></option>
                                                                     @foreach (var item in Model.cities)
                                                                     {
@@ -68,13 +66,7 @@
                                                             <label>To</label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
-                                                                <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="dest">
-                                                                    <option></option>
-                                                                    @foreach (var item in Model.cities)
-                                                                    {
-                                                                        <option value="@item.Id">@item.Name</option>
-                                                                    }
-                                                                </select>
+                                                                <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="dest" id="To"></select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -145,7 +137,7 @@
                                                     </div>
                                                     -->
                                                     <div>
-                                                        <button type="submit"  class="btn btn-primary btn-wide">Search now </button>
+                                                        <button type="submit" class="btn btn-primary btn-wide">Search now </button>
                                                     </div>
                                                 </div>
 
@@ -319,10 +311,25 @@
 
     <script>
         function SumCount() {
-        var countadult= parseInt($('#adult').val());
+            var countadult = parseInt($('#adult').val());
             var countbaybe = parseInt($('#child').val());
             var count = countadult + countbaybe;
             $('#count').val(count);
+        }
+        function GetDestination() {
+            var id = $('#FromCity').val();
+            $('#To').empty();
+            $.ajax({
+                url: "/Routes/GetDestination/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    $('#To').append(data);
+                     $('#To').trigger("chosen:updated"); // for update select that is credential
+                }
+            });
         }
     </script>
 }
