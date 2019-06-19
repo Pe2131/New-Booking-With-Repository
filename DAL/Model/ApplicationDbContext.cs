@@ -31,6 +31,9 @@ namespace DAL.Model
         public DbSet<Tbl_NewsLetter> tbl_NewsLetters { get; set; }
         public DbSet<Tbl_Contact> tbl_Contacts { get; set; }
         public DbSet<Tbl_Routes> tbl_Routes { get; set; }
+        public DbSet<Tbl_NewReseve> tbl_NewReseves { get; set; }
+        public DbSet<Tbl_DaysCapacity> tbl_DaysCapacities { get; set; }
+        public DbSet<Tbl_ReservCount> tbl_ReservCounts { get; set; }
 
 
     }

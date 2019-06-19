@@ -165,8 +165,8 @@
 
                                                     <div>
 
-                                                        <p class="rating-text text-muted font13">One-way flight, non-stop</p>
-                                                        <h5><a href="#">@item.GetSourceName, @item.GetDestinationName</a></h5>
+                                                    
+                                                        <h5><a href="#">@item.GetSourceName To @item.GetDestinationName</a></h5>
 
 
                                                     </div>
@@ -174,7 +174,7 @@
                                                     <div class="ml-auto">
                                                         <div class="price">
 
-                                                            <span class="text-secondary">$ @item.PriceForAdultDollar</span>
+                                                            <span class="text-secondary">$ @item.Price</span>
                                                         </div>
                                                     </div>
 
@@ -185,14 +185,20 @@
                                             <div class="content">
                                                 <p>New the her nor case that lady paid read eat everything the out two...</p>
                                             </div>
-
+                                            @{
+                                                // for get name day of week
+                                                var departurdays = string.Join(",",
+                                                from g in item.DepartureDays.Split(new char[] { ',' })
+                                                select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
+                                   
+                                            }
                                             <div class="content-bottom mt-auto">
                                                 <div class="d-flex align-items-center">
                                                     <div>
-                                                        <p><i class="far fa-clock mt-10"></i><strong>@item.StartDate</strong>-<i class="far fa-clock mt-10"></i><strong>@item.ArrivalDate</strong></p>
+                                                        <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;<strong>every week</strong></p>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <a href="#" class="btn btn-primary btn-sm btn-wide">Book</a>
+                                                        <a href="~/Home/Book/@item.id" class="btn btn-primary btn-sm btn-wide">Book</a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -43,9 +43,6 @@
         "resources": {
           "en-US/Booking Web.resources.dll": {
             "locale": "en-US"
-          },
-          "fa-IR/Booking Web.resources.dll": {
-            "locale": "fa-IR"
           }
         },
         "compile": {

@@ -42,7 +42,7 @@
                     <div class="d-lg-flex mb-30 mb-lg-0">
                         <div>
                             <h3 class="heading-title"><span>Guides <span class="text-lowercase">in</span> </span> <span class="text-primary">Rome, Italy</span></h3>
-                            <p class="text-muted post-heading">2478 results found available now</p>
+                            <p class="text-muted post-heading">@ViewBag.Count results found available now</p>
                         </div>
                         <div class="ml-auto">
                             <button class="btn btn-secondary btn-wide btn-toggle collapsed btn-sm btn-change-search" data-toggle="collapse" data-target="#change-search"></button>
@@ -73,7 +73,7 @@
                                                         <option></option>
                                                         @foreach (var item in Model.cities)
                                                         {
-                                                            <option value="@item.Id">@item.Name</option>
+                                                        <option value="@item.Id">@item.Name</option>
                                                         }
                                                     </select>
                                                 </div>
@@ -89,7 +89,7 @@
                                                         <option></option>
                                                         @foreach (var item in Model.cities)
                                                         {
-                                                            <option value="@item.Id">@item.Name</option>
+                                                        <option value="@item.Id">@item.Name</option>
                                                         }
                                                     </select>
                                                 </div>
@@ -170,81 +170,52 @@
                     <div class="row equal-height cols-1 cols-sm-2 cols-lg-2 gap-10 gap-lg-20">
                         @foreach (var item in Model.PathWays)
                         {
-                            <div class="col">
+                        <div class="col">
 
-                                <div class="product-grid-item">
+                            <div class="product-grid-item">
 
-                                    <a href="~/Home/book/@item.id">
+                                <a href="~/Home/book/@item.id">
 
-                                        <div class="image">
-                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images">
-                                        </div>
+                                    <div class="image">
+                                        <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images">
+                                    </div>
 
-                                        <div class="content pt-10 clearfix">
+                                    <div class="content pt-10 clearfix">
 
-                                            <div class="short-info mr-0 mb-15">
-                                                <h5 class="mt-5">@item.GetSourceName To  @item.GetDestinationName</h5>
-
-                                            </div>
-
-                                            <p><i class="far fa-clock"></i> Start: <strong>@item.StartDate</strong></p>
-
-                                            <div class="price">
-                                                <div class="float-right">
-                                                    start from
-                                                    <span class="text-secondary">$@item.PriceForAdultDollar</span>
-                                                    per person
-                                                </div>
-                                            </div>
+                                        <div class="short-info mr-0 mb-15">
+                                            <h5 class="mt-5">@item.GetSourceName To  @item.GetDestinationName</h5>
 
                                         </div>
+                                        @{
+                                            // for get name day of week
+                                            var days = string.Join(",",
+                                            from g in item.DepartureDays.Split(new char[] { ',' })
+                                            select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
+                                        }
+                                        <p><i class="far fa-clock"></i> Start: <strong>@days</strong></p>
+                                        <p class="location">evry week</p>
+                                        <div class="price">
+                                            <div class="float-right">
+                                                start from
+                                                <span class="text-secondary">$@item.Price</span>
+                                                per person
+                                            </div>
+                                        </div>
 
-                                    </a>
+                                    </div>
 
-                                </div>
+                                </a>
 
                             </div>
+
+                        </div>
                         }
 
                     </div>
 
                     <div class="pager-wrappper mt-40">
 
-                        <div class="pager-innner">
-
-                            <div class="row align-items-center text-center text-md-left">
-
-                                <div class="col-12 col-md-5">
-                                    Showing reslut 1 to 15 from 248
-                                </div>
-
-                                <div class="col-12 col-md-7">
-                                    <nav class="float-lg-right mt-10 mt-md-0">
-                                        <ul class="pagination justify-content-center justify-content-lg-left">
-                                            <li>
-                                                <a href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">«</span>
-                                                </a>
-                                            </li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><span>...</span></li>
-                                            <li><a href="#">11</a></li>
-                                            <li><a href="#">12</a></li>
-                                            <li><a href="#">13</a></li>
-                                            <li>
-                                                <a href="#" aria-label="Next">
-                                                    <span aria-hidden="true">»</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-
-                            </div>
-
-                        </div>
+                    
 
                     </div>
 
@@ -259,17 +230,17 @@
 </section>
 
 @section Scripts{
-    <script type="text/javascript" src="~/Home/js/custom-core.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
-    <script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
+<script type="text/javascript" src="~/Home/js/custom-core.js"></script>
+<script type="text/javascript" src="~/Home/js/plugins.js"></script>
+<script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
+<script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
 
-    <script>
-        function SumCount() {
-            var countadult = parseInt($('#adult').val());
-            var countbaybe = parseInt($('#child').val());
-            var count = countadult + countbaybe;
-            $('#count').val(count);
-        }
-    </script>
+<script>
+    function SumCount() {
+        var countadult = parseInt($('#adult').val());
+        var countbaybe = parseInt($('#child').val());
+        var count = countadult + countbaybe;
+        $('#count').val(count);
+    }
+</script>
 }

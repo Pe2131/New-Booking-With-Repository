@@ -85,6 +85,21 @@ namespace DAL.Migrations
                     b.ToTable("tbl_Countries");
                 });
 
+            modelBuilder.Entity("DAL.Model.Tables.Tbl_DaysCapacity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capacity");
+
+                    b.Property<int>("DayOfWeek");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_DaysCapacities");
+                });
+
             modelBuilder.Entity("DAL.Model.Tables.Tbl_Discount", b =>
                 {
                     b.Property<int>("Id")
@@ -148,6 +163,64 @@ namespace DAL.Migrations
                     b.ToTable("tbl_Factores");
                 });
 
+            modelBuilder.Entity("DAL.Model.Tables.Tbl_NewReseve", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Adult");
+
+                    b.Property<int>("AdultName");
+
+                    b.Property<string>("AgentId");
+
+                    b.Property<int>("Childup2To7");
+
+                    b.Property<string>("Childup2To7Names");
+
+                    b.Property<int>("Childup7To12");
+
+                    b.Property<string>("Childup7To12Names");
+
+                    b.Property<int>("ChildupTo2");
+
+                    b.Property<string>("ChildupTo2Name");
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("Fullname")
+                        .IsRequired();
+
+                    b.Property<string>("Mobile")
+                        .IsRequired();
+
+                    b.Property<DateTime>("ReservedDate");
+
+                    b.Property<int>("RouteId");
+
+                    b.Property<string>("Status");
+
+                    b.Property<int>("StudentOrRetirs");
+
+                    b.Property<int>("SumCount");
+
+                    b.Property<decimal>("SumPrice");
+
+                    b.Property<DateTime>("TripdDate");
+
+                    b.Property<string>("studentOrRetirsName");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AgentId");
+
+                    b.HasIndex("RouteId");
+
+                    b.ToTable("tbl_NewReseves");
+                });
+
             modelBuilder.Entity("DAL.Model.Tables.Tbl_NewsLetter", b =>
                 {
                     b.Property<int>("Id")
@@ -191,6 +264,25 @@ namespace DAL.Migrations
                     b.HasKey("id");
 
                     b.ToTable("tbl_PathWays");
+                });
+
+            modelBuilder.Entity("DAL.Model.Tables.Tbl_ReservCount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("ReservDate");
+
+                    b.Property<int>("RoutId_FG");
+
+                    b.Property<int>("count");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoutId_FG");
+
+                    b.ToTable("tbl_ReservCounts");
                 });
 
             modelBuilder.Entity("DAL.Model.Tables.Tbl_Reserve", b =>
@@ -548,6 +640,26 @@ namespace DAL.Migrations
                     b.HasOne("DAL.Model.Tables.Tbl_Users", "Tbl_User")
                         .WithMany("Tbl_Factores")
                         .HasForeignKey("UserId_FG");
+                });
+
+            modelBuilder.Entity("DAL.Model.Tables.Tbl_NewReseve", b =>
+                {
+                    b.HasOne("DAL.Model.Tables.Tbl_Users", "Tbl_Users")
+                        .WithMany()
+                        .HasForeignKey("AgentId");
+
+                    b.HasOne("DAL.Model.Tables.Tbl_Routes", "Tbl_Routes")
+                        .WithMany()
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DAL.Model.Tables.Tbl_ReservCount", b =>
+                {
+                    b.HasOne("DAL.Model.Tables.Tbl_Routes", "Tbl_Routes")
+                        .WithMany("tbl_ReservCounts")
+                        .HasForeignKey("RoutId_FG")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DAL.Model.Tables.Tbl_Reserve", b =>

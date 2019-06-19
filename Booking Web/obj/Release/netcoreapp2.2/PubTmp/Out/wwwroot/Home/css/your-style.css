@@ -1,0 +1,42 @@
+
+
+/*------------------------------------------------------------------
+* Project:        Travel Material 
+* Author:         Crenoveative 
+* URL:            http://crenoveative.com or https://themeforest.net/user/crenoveative/portfolio 
+* Created:        20/05/2019 
+-------------------------------------------------------------------*/
+.header-top {
+    height: 100px;
+}
+
+.header-logo img {
+    height: 65px !important;
+}
+
+#header-waypoint-sticky {
+    position: inherit !important;
+}
+#hero-banner {
+    background-image: url('../images/image-bg/02.jpg');
+}
+#bg-image {
+    background-image: url('../images/image-bg-on-left/01.jpg');
+    background-position: center bottom;
+    height: 390px;
+}
+#login {
+    background-color: #d7dbde;
+}
+@media(max-width:575px) {
+    #imgdiv {
+        height: 209px !important;
+    }
+}
+
+@media(max-width:468px) {
+    #aboutus {
+        line-height: 26px !important;
+        margin-top: -26px;
+    }
+}

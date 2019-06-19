@@ -437,12 +437,9 @@ E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debu
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Booking Web.dll
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Booking Web.pdb
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\bin\Debug\netcoreapp2.2\en-Us\Booking Web.resources.dll
-E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\bin\Debug\netcoreapp2.2\fa-IR\Booking Web.resources.dll
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Booking Web.csproj.GenerateResource.cache
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\en-Us\Booking Web.resources.dll
-E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\fa-IR\Booking Web.resources.dll
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Booking_Web.Resources.Views.Shared._Layout.en-US.resources
-E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Booking_Web.Resources.Views.Shared._Layout.fa-IR.resources
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Routes\Index.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Routes\Create.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Routes\Edit.g.cshtml.cs

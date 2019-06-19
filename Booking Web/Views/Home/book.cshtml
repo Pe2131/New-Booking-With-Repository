@@ -36,16 +36,15 @@
 
                             <ul class="booking-amount-list clearfix mb-20">
                                 <li>
-                                    @Model.Start.ToString("dd-MM-yyyy")<span class="font700">@Model.Start.ToString("dddd")</span>@Model.Start.ToString("HH:mm")
+                                    @Model.Start<span class="font700"></span>@Model.StartTime
                                 </li>
                                 <li class="text-right">
-                                    @Model.End.ToString("dd-MM-yyyy")<span class="font700">@Model.End.ToString("dddd")</span>@Model.End.ToString("HH:mm")
+                                    @Model.End<span class="font700"></span>@Model.EndTime
                                 </li>
                             </ul>
                             <h5 class="font-serif font400">Price</h5>
                             <ul class="summary-price-list">
-                                <li>Price For Adult<span class="absolute-right">$@Model.PriceForAdult</span></li>
-                                <li>Price For Child<span class="absolute-right">$@Model.PriceForBaybe</span></li>
+                                <li>Price For Adult<span class="absolute-right">$@Model.Price</span></li>
                                 <li>taxes and fees <span class="absolute-right">$26.36</span></li>
                             </ul>
 
@@ -84,94 +83,106 @@
                         <div class="bg-white-shadow pt-25 ph-30">
                             <div class="row gap-20 mb-0">
 
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>First name <span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>Last name <span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light">
-                                    </div>
-                                </div>
-
                                 <div class="col-12 col-sm-12">
                                     <div class="form-group">
-                                        <label>Company name</label>
+                                        <label>Full name <span class="font12 text-danger">*</span></label>
                                         <input type="text" class="form-control form-bg-light">
                                     </div>
                                 </div>
-
-                                <div class="col-12 col-sm-12">
-                                    <div class="form-group">
-                                        <label>Street <span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light">
-                                        <input type="text" class="form-control form-bg-light mt-5">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>City <span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>State <span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-5">
-                                    <div class="form-group">
-                                        <label>Zip code <span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-7">
-                                    <div class="form-group chosen-bg-light">
-                                        <label>Country <span class="font12 text-danger">*</span></label>
-                                        <select data-placeholder="Country" class="chosen-the-basic form-control" tabindex="-1" style="display: none;">
-                                            <option value=""></option>
-                                            <option value="0">Thailand</option>
-                                            <option value="1">Malaysia</option>
-                                            <option value="2">Indonesia</option>
-                                            <option value="3">Japan</option>
-                                        </select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" title="" style="width: 383px;">
-                                            <a class="chosen-single chosen-default">
-                                                <span>Country</span>
-                                                <div><b></b></div>
-                                            </a>
-                                            <div class="chosen-drop">
-                                                <div class="chosen-search">
-                                                    <input class="chosen-search-input" type="text" autocomplete="off" readonly="" tabindex="2">
-                                                </div>
-                                                <ul class="chosen-results"><li class="active-result" data-option-array-index="1">Thailand</li><li class="active-result" data-option-array-index="2">Malaysia</li><li class="active-result" data-option-array-index="3">Indonesia</li><li class="active-result" data-option-array-index="4">Japan</li></ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>Phone <span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light">
-                                    </div>
-                                </div>
-
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>Email <span class="font12 text-danger">*</span></label>
                                         <input type="text" class="form-control form-bg-light">
                                     </div>
                                 </div>
-
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mobile<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>date for reserv<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Available seat<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light" style="display:none;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>adult<span class="font12 text-danger">*</span></label>
+                                        <input type="number" class="form-control form-bg-light">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Adult Name<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Child Up to 2 years<span class="font12 text-danger">*</span></label>
+                                        <input type="number" class="form-control form-bg-light">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>child name<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Child between 2 and 7<span class="font12 text-danger">*</span></label>
+                                        <input type="number" class="form-control form-bg-light">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>child name<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Child between 7 and 12<span class="font12 text-danger">*</span></label>
+                                        <input type="number" class="form-control form-bg-light">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>child name<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>student or retire<span class="font12 text-danger">*</span></label>
+                                        <input type="number" class="form-control form-bg-light">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>student or retire<span class="font12 text-danger">*</span></label>
+                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Count of Passanger<span class="font12 text-danger">*</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Sum price<span class="font12 text-danger">*</span></label>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

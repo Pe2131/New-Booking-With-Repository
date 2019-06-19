@@ -6,11 +6,6 @@
     <RootNamespace>Booking_Web</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="Resources\Views\Shared._Layout.en-US.resx" />
-    <Content Include="Resources\Views\Shared._Layout.fa-IR.resx" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
@@ -34,6 +29,7 @@
 
 
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="wwwroot\assets\css\css\bootstrap\" />
     <Folder Include="wwwroot\assets\css\images\portfolio\" />
     <Folder Include="wwwroot\assets\css\images\slides\" />

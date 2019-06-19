@@ -77,7 +77,7 @@ namespace Booking_Web.Utility
             return 0;      // both are equal
 
         }
-        public string StaringArrayToString(string[] input)
+        public string StringArrayToString(string[] input)
         {
             string output=null;
             try
@@ -105,7 +105,7 @@ namespace Booking_Web.Utility
                 throw e.InnerException;
             }
         }
-        public string[] StringToarrayStarin( string input)
+        public string[] StringToarrayString( string input)
         {
             string[] Output = new string[] { "" };
             try
@@ -133,6 +133,12 @@ namespace Booking_Web.Utility
             {
                 throw e;
             }
+        }
+        public DateTime ConvertStaringToDate(string date,string format)
+        {
+            DateTime dt = DateTime.ParseExact(date, format,
+                                                      CultureInfo.InvariantCulture);
+            return dt;
         }
     }
 }

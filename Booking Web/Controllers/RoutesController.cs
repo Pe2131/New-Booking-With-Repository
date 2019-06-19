@@ -196,21 +196,6 @@ namespace Booking_Web.Controllers
                 return Json(0);
             }
         }
-        public IActionResult SearchPath(int source, int dest, string date, int count)
-        {
-            try
-            {
-                var pathways = Db.RoutRepositori.Get(a => a.Status != "Deactive" & a.Source_FG == source & a.Destination_FG == dest, orderby: a => a.OrderByDescending(b => b.id));
-                return PartialView("P_SearchPath", pathways);
-            }
-            catch (Exception e)
-            {
-                ErrorViewModel error = new ErrorViewModel();
-                error.ErrorTitle = "Error";
-                error.ErrorMassage = e.Message;
-                return View("Error", error);
-            }
-        }
         public List<ViewModel_PathWay> SearchPathForReserv(int source, int dest, string date, int count)
         {
             try

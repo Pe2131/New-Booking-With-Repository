@@ -38,6 +38,11 @@
         "runtime": {
           "Booking Web.dll": {}
         },
+        "resources": {
+          "en-US/Booking Web.resources.dll": {
+            "locale": "en-US"
+          }
+        },
         "compile": {
           "Booking Web.dll": {}
         }

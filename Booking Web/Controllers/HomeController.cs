@@ -21,11 +21,6 @@ namespace Booking_Web.Controllers
     {
         UnitOfWork db = new UnitOfWork();
         NormalUtility utility = new NormalUtility();
-        private IStringLocalizer<HomeController> _localizer;
-        public HomeController(IStringLocalizer<HomeController> localizer)
-        {
-            _localizer = localizer;
-        }
         public IActionResult Index()
         {
             ViewModel_Index model = new ViewModel_Index();
@@ -137,22 +132,10 @@ namespace Booking_Web.Controllers
         {
             try
             {
-                PathWayController pathWayController = new PathWayController();
                 ViewModel_Search model = new ViewModel_Search();
-                var paths = new List<ViewModel_PathWay>();
-                if (date != null)
-                {
-                    DateTime dt = DateTime.ParseExact(date, "MM/dd/yyyy",
-                                                       CultureInfo.InvariantCulture);
-                    string dat = utility.ConvertDateToStringOnlydate(dt);
-                    paths = pathWayController.SearchPathForReserv(source, dest, dat, count);
-                }
-                else
-                {
-                    paths = pathWayController.SearchPathForReserv(source, dest, date, count);
-                }
+                RoutesTools routesTools = new RoutesTools();
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
-                model.PathWays = paths;
+                model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
                 return View(model);
             }
             catch (Exception e)
@@ -229,13 +212,12 @@ namespace Booking_Web.Controllers
         {
             try
             {
-                PathWayController pathWay = new PathWayController();
                 ViewModel_Search model = new ViewModel_Search();
-                pathWay.CheckActivePass();
-                var pathways = db.PathWayRepository.Get(a => a.Status != "Deactive", orderby: a => a.OrderByDescending(b => b.id));
+                var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive", orderby: a => a.OrderBy(b => b.id));
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
-                model.PathWays = Mapper.Map<List<ViewModel_PathWay>>(pathways);
+                model.PathWays = Mapper.Map<List<ViewModel_Routes>>(Routes);
                 ViewBag.phone = db.SettingRepository.Get().FirstOrDefault().Phone;
+                ViewBag.Count = model.PathWays.Count();
                 return View(model);
             }
             catch (Exception e)
@@ -250,17 +232,22 @@ namespace Booking_Web.Controllers
         {
             try
             {
-                var path = db.PathWayRepository.GetById(id);
-                var DestinationCity = db.CityRepository.GetById(path.Destination_FG);
+                var route = db.RoutRepositori.GetById(id);
+                var DestinationCity = db.CityRepository.GetById(route.Destination_FG);
                 ViewModel_BookDetail model = new ViewModel_BookDetail();
                 model.DestImage = DestinationCity.Image;
-                model.Id = path.id;
-                model.PriceForAdult = path.PriceForAdultDollar.ToString() ;
-                model.PriceForBaybe = path.PriceForBabyDollar.ToString();
-                model.Start = path.StartDate;
-                model.End = path.ArrivalDate;
+                model.Id = route.id;
+                model.Price = route.Price.ToString();
+                model.Start = string.Join(",",
+                                                from g in route.DepartureDays.Split(new char[] { ',' })
+                                                select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
+                model.End = string.Join(",",
+                                                from g in route.ArriveDays.Split(new char[] { ',' })
+                                                select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
+                model.StartTime = route.DepartureTime;
+                model.EndTime = route.ArriveTime;
                 model.DestName = DestinationCity.name;
-                model.SourceName = db.CityRepository.GetById(path.Source_FG).name;
+                model.SourceName = db.CityRepository.GetById(route.Source_FG).name;
                 return View(model);
 
             }

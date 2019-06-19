@@ -74,3 +74,4 @@ E:\c#project\asp\Work\BookingNew\BookingNew With Repository\DAL\obj\Debug\netcor
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\DAL\obj\Debug\netcoreapp2.2\DAL.AssemblyInfo.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\DAL\obj\Debug\netcoreapp2.2\DAL.dll
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\DAL\obj\Debug\netcoreapp2.2\DAL.pdb
+E:\c#project\asp\Work\BookingNew\BookingNew With Repository\DAL\obj\Debug\netcoreapp2.2\DAL.csprojAssemblyReference.cache

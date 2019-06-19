@@ -38,5 +38,9 @@ namespace DAL.Model.Tables
         public decimal Price { get; set; }
         [Display(Name = "Status")]
         public string Status { get; set; }
+
+        #region Relation
+        public ICollection<Tbl_ReservCount> tbl_ReservCounts { get; set; }
+        #endregion
     }
 }

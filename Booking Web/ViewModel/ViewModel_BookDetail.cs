@@ -11,9 +11,10 @@ namespace Booking_Web.ViewModel
         public string SourceName { get; set; }
         public string DestName { get; set; }
         public string DestImage { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public string PriceForBaybe { get; set; }
-        public string PriceForAdult { get; set; }
+        public string Start { get; set; }
+        public string End { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        public string Price { get; set; }
     }
 }

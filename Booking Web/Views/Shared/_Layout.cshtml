@@ -2,11 +2,11 @@
     NormalUtility utility = new NormalUtility();
     var setting = utility.Get_Setting();
 }
-@using System.Globalization
 @using Microsoft.AspNetCore.Mvc.Localization
+
 @inject IViewLocalizer Localizer
 <!doctype html>
-<html lang="en">
+<html>
 
 
 <head>
@@ -54,12 +54,8 @@
 <body class="with-waypoint-sticky">
     <!-- start Body Inner -->
     <div class="body-inner">
-
-        <h1>@Localizer["test"] @CultureInfo.CurrentCulture.Name</h1>
-
         <!-- start Header -->
         <header id="header-waypoint-sticky" class="header-main header-mobile-menu with-absolute-navbar">
-
             <div class="header-top">
 
                 <div class="container">
@@ -233,11 +229,13 @@
                                 <nav class="main-nav-menu main-menu-nav navbar-arrow">
 
                                     <ul class="main-nav">
-                                        <li><a href="/Home">@Localizer["Home"]</a></li>
+                                        <li><a href="/Home">@Localizer["home"]</a></li>
                                         <li><a href="~/Home/Routes">@Localizer["Routes"]</a></li>
                                         <li><a href="SearchResult.html">@Localizer["Services"]</a></li>
                                         <li><a href="~/Home/About">@Localizer["About"]</a></li>
                                         <li><a href="~/Home/ContactUs">@Localizer["Contact"]</a></li>
+                                        <li><a href="/Home/ChangeLanguage?culture=en-US">En</a></li>
+                                        <li><a href="/Home/ChangeLanguage?culture=fa-IR">fa</a></li>
 
                                     </ul>
 

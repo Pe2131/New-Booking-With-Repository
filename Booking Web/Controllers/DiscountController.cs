@@ -55,7 +55,7 @@ namespace Booking_Web.Controllers
                         return View();
                     }
                     Model = SetDiscountType(Model, TypeOfDiscount, Money); // this method correct descount mode 
-                    Model.PathWays = UtilTools.StaringArrayToString(Pathways);
+                    Model.PathWays = UtilTools.StringArrayToString(Pathways);
                     Model.IsSpecific = (Model.PathWays != null) ? true : false;
                     if (ModelState.IsValid)
                     {
@@ -96,7 +96,7 @@ namespace Booking_Web.Controllers
                 ViewBag.Start = UtilTools.ConvertDateToString(Discount.StartTime);
                 ViewBag.End = UtilTools.ConvertDateToString(Discount.EndTime);
                 ViewBag.paths = Mapper.Map<List<ViewModel_PathWay>>(Db.PathWayRepository.Get());
-                ViewBag.Selected = UtilTools.StringToarrayStarin(Discount.PathWays);
+                ViewBag.Selected = UtilTools.StringToarrayString(Discount.PathWays);
                 return View(Discount);
             }
             catch (Exception e)
@@ -117,7 +117,7 @@ namespace Booking_Web.Controllers
                 ViewBag.Start = Start;
                 ViewBag.End = End;
                 ViewBag.paths = Mapper.Map<List<ViewModel_PathWay>>(Db.PathWayRepository.Get());
-                ViewBag.Selected = UtilTools.StringToarrayStarin(Discount.PathWays);
+                ViewBag.Selected = UtilTools.StringToarrayString(Discount.PathWays);
                 if (ConfirmModel(Start, End) == null)
                 {
                     Model.StartTime = UtilTools.ConvertStringToDate(Start);  // for convert string date format to dateTime
@@ -136,7 +136,7 @@ namespace Booking_Web.Controllers
                     Discount.Count = Model.Count;
                     Discount.Price = Model.Price;
                     Discount.Type = Model.Type;
-                    Discount.PathWays =UtilTools.StaringArrayToString(Pathways);
+                    Discount.PathWays =UtilTools.StringArrayToString(Pathways);
                     Discount.IsSpecific = (Discount.PathWays != null) ? true : false;
                     if (ModelState.IsValid)
                     {

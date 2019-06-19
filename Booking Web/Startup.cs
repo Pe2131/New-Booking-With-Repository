@@ -29,9 +29,8 @@ namespace Booking_Web
 {
     public class Startup
     {
-
-        IConfigurationRoot configurationRoot;
-        private IHostingEnvironment _hostingEnvironment;
+         IConfigurationRoot configurationRoot;
+        private readonly IHostingEnvironment _hostingEnvironment;
         public Startup(IHostingEnvironment env)
         {
             configurationRoot = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
@@ -44,7 +43,21 @@ namespace Booking_Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLocalization(options => options.ResourcesPath="Resources"); // this is Multi Language setting
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+               .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
+                   options => { options.ResourcesPath = "Resources"; })
+               .AddDataAnnotationsLocalization(options =>
+               {
+                   options.DataAnnotationLocalizerProvider = (type, factory) =>
+                       factory.Create(typeof(ShareResource));
+               });
             services.Configure<IdentityOptions>(option =>
             {
                 option.Password.RequireNonAlphanumeric = false;
@@ -56,13 +69,6 @@ namespace Booking_Web
               .AddDefaultTokenProviders()
               .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddTransient<ApplicationDbContext>();
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-            // identity Configuration cookie    
             services.ConfigureApplicationCookie(options =>
             {
                 //options.AccessDeniedPath = "/Identity/Account/AccessDenied";
@@ -78,14 +84,6 @@ namespace Booking_Web
             services.AddTransient<IEmailService, AuthMessageServices>(); // Dependecy injection For Email Service
             services.AddMemoryCache();
             services.AddSession();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
-                    options => { options.ResourcesPath = "Resources"; })
-                    .AddDataAnnotationsLocalization(options =>
-                    {
-                        options.DataAnnotationLocalizerProvider = (type, factory) =>
-                            factory.Create(typeof(ShareResource));
-                    });
             var physicalProvider = _hostingEnvironment.ContentRootFileProvider;
             var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
             var compositeProvider = new CompositeFileProvider(physicalProvider, embeddedProvider);
@@ -109,6 +107,7 @@ namespace Booking_Web
                 map.CreateMap<Tbl_PathWay, ViewModel_PathWay>();
                 map.CreateMap<Tbl_Reserve, ViewModel_Reserve>();
                 map.CreateMap<Tbl_Users, ViewModel_Agents>();
+                map.CreateMap<Tbl_Routes, ViewModel_Routes>();
             });  // this line Use AutoMapper for map Model to View Model
 
             services.AddTransient<AccountController>();
@@ -128,11 +127,9 @@ namespace Booking_Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseSession();
             // this is Multi Language setting
             var supportedCultures = new List<CultureInfo>()
             {
@@ -151,6 +148,8 @@ namespace Booking_Web
                 }
             };
             app.UseRequestLocalization(options);
+            app.UseSession();
+            app.UseAuthentication();
             // elmah مربوط به  middleware تعریف میان افزار یا 
             // بایستی زیر authentication قرار بگیره تا موقع check permission  به مشکل نخوریم
             app.UseElmah();
