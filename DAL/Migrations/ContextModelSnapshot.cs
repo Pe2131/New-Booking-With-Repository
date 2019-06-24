@@ -344,12 +344,18 @@ namespace DAL.Migrations
 
                     b.Property<decimal>("Price");
 
+                    b.Property<decimal>("Price2");
+
                     b.Property<string>("SourceStation")
                         .IsRequired();
 
                     b.Property<int>("Source_FG");
 
                     b.Property<string>("Status");
+
+                    b.Property<decimal>("twoWayPrice");
+
+                    b.Property<decimal>("twoWayPrice2");
 
                     b.HasKey("id");
 

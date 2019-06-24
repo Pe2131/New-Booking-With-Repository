@@ -19,7 +19,8 @@ namespace Booking_Web.Utility
                 if (date != null)
                 {
                     DateTime mydate = utility.ConvertStaringToDate(date, "MM/dd/yyyy");
-                    String dayofweek = mydate.DayOfWeek.ToString();
+                    int daynumber = (int)mydate.DayOfWeek;
+                    string dayofweek = daynumber.ToString();
                     List<Tbl_Routes> routes = new List<Tbl_Routes>();
                     foreach (var item in Routes)
                     {
@@ -40,6 +41,37 @@ namespace Booking_Web.Utility
                 throw e;
             }
         }
+        public int RoutsCapacity(string date , int routesId)
+        {
+            try
+            {
+                if (date != null)
+                {
+                    DateTime mydate = utility.ConvertStaringToDate(date, "MM/dd/yyyy");
+                    int daynumber = (int)mydate.DayOfWeek;
+                    string dayofweek = daynumber.ToString();
+                    List<Tbl_Routes> routes = new List<Tbl_Routes>();
+                    int DayCapacity = Db.DaysCapacityRepositori.Get(a => a.DayOfWeek == daynumber).SingleOrDefault().Capacity;
+                    var ReservedCount = Db.ReservCountRepositori.Get(a => a.ReservDate == mydate & a.RoutId_FG==routesId).SingleOrDefault();
+                    if (ReservedCount != null)
+                    {
+                        return (DayCapacity - ReservedCount.count);
+                    }
+                    else
+                    {
+                        return DayCapacity;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception e)
+            {
 
+                throw e;
+            }
+        }
     }
 }

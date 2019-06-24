@@ -59,7 +59,7 @@
                                                             <select asp-for="Source_FG" name="Source_FG" class="form-group col-12" id="Source_FG" tabindex="-1">
                                                                 @foreach (var item in cities)
                                                                 {
-                                                                    <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
+                                                                <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
                                                                 }
 
                                                             </select>
@@ -78,7 +78,7 @@
                                                             <select asp-for="Destination_FG" name="Destination_FG" class="form-group col-12" id="Destination_FG" tabindex="-1">
                                                                 @foreach (var item in cities)
                                                                 {
-                                                                    <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
+                                                                <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
                                                                 }
                                                             </select>
                                                         </div>
@@ -142,6 +142,42 @@
                                                     </div>
                                                 </div>
                                                 <span asp-validation-for="Price" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group form-float col-md-6" id="price">
+                                                <b>twoWayPrice</b>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="material-icons">attach_money</i>
+                                                    </span>
+                                                    <div class="form-line">
+                                                        <input asp-for="twoWayPrice" name="twoWayPrice" type="number" class="form-control" placeholder="Ex: 99,99 $">
+                                                    </div>
+                                                </div>
+                                                <span asp-validation-for="twoWayPrice" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group form-float col-md-6" id="price">
+                                                <b>Price in uro</b>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="material-icons">attach_money</i>
+                                                    </span>
+                                                    <div class="form-line">
+                                                        <input asp-for="Price2" name="Price2" type="number" class="form-control" placeholder="Ex: 99,99 $">
+                                                    </div>
+                                                </div>
+                                                <span asp-validation-for="Price2" class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group form-float col-md-6" id="price">
+                                                <b>Price uro</b>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="material-icons">attach_money</i>
+                                                    </span>
+                                                    <div class="form-line">
+                                                        <input asp-for="twoWayPrice2" name="twoWayPrice2" type="number" class="form-control" placeholder="Ex: 99,99 $">
+                                                    </div>
+                                                </div>
+                                                <span asp-validation-for="twoWayPrice2" class="text-danger"></span>
                                             </div>
                                             <div class="form-group form-float col-md-6">
                                                 <b>Statuse</b>

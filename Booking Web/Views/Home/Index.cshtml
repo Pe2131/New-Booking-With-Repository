@@ -18,7 +18,7 @@
 
 
 
-                            <a href="#formSearchMain-02" style="color: #fff;">Flight</a>
+                            <a id="searchheader" href="#formSearchMain-02" style="color: #fff;">Купи билет онлайн</a>
 
 
 
@@ -39,7 +39,7 @@
 
                                                 <div class="mb-10">
 
-                                                    <span>test test test test</span>
+                                                    @*<span>test test test test</span>*@
 
                                                 </div>
 
@@ -47,10 +47,10 @@
 
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label>From</label>
+                                                            <label>От</label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
-                                                                <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()">
+                                                                <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()" required>
                                                                     <option></option>
                                                                     @foreach (var item in Model.cities)
                                                                     {
@@ -63,10 +63,10 @@
 
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label>To</label>
+                                                            <label>До</label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
-                                                                <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="dest" id="To"></select>
+                                                                <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="dest" id="To" required></select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -77,10 +77,10 @@
 
                                                                 <div class="col-12">
                                                                     <div class="form-group">
-                                                                        <label>Check-in</label>
+                                                                        <label>Тръгване</label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-calendar"></i></span>
-                                                                            <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date">
+                                                                            <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date" autocomplete="off" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -95,31 +95,62 @@
                                                             <div class="row gap-5">
                                                                 <div class="col-4">
                                                                     <div class="form-group form-spin-group">
-                                                                        <label for="room-amount">Adult <small class="text-muted font10 line-1">(12-75)</small></label>
+                                                                        <label for="room-amount"> Възрастен <small class="text-muted font10 line-1">(12-75)</small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" readonly id="adult" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="adult" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="form-group form-spin-group">
-                                                                        <label for="room-amount">Child <small class="text-muted font10 line-1">(2-12)</small></label>
+                                                                        <label for="room-amount">Дете <small class="text-muted font10 line-1">(0-2)</small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" readonly id="child" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="form-group form-spin-group">
-                                                                        <label for="room-amount">Infant <small class="text-muted font10 line-1">(0-2)</small></label>
+                                                                        <label for="room-amount">Дете <small class="text-muted font10 line-1">(2-7)</small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" readonly />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child2" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group form-spin-group">
+                                                                        <label for="room-amount">Дете<small class="text-muted font10 line-1">(7-12)</small></label>
+                                                                        <div class="form-icon-left">
+                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child7" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group form-spin-group">
+                                                                        <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
+                                                                        <div class="form-icon-left">
+                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                @*<div class="col-8" style=" padding-top: 25px;padding-left: 22px;">
+                                                               
+                                                                        <div class="custom-control custom-radio  custom-control-inline">
+                                                                            <input type="radio" id="flightSearchRadio-2" name="flightSearchRadio" class="custom-control-input">
+                                                                            <label class="custom-control-label" for="flightSearchRadio-2">One-way</label>
+                                                                        </div>
+
+                                                                        <div class="custom-control custom-radio  custom-control-inline">
+                                                                            <input type="radio" id="flightSearchRadio-3" name="flightSearchRadio" class="custom-control-input">
+                                                                            <label class="custom-control-label" for="flightSearchRadio-3">Multicities</label>
+                                                                        </div>
+                                                                    
+                                                                </div>*@
                                                             </div>
                                                         </div>
                                                     </div>
@@ -137,7 +168,7 @@
                                                     </div>
                                                     -->
                                                     <div>
-                                                        <button type="submit" class="btn btn-primary btn-wide">Search now </button>
+                                                        <button type="submit" class="btn btn-primary btn-wide" id="searchbtn">Търси</button>
                                                     </div>
                                                 </div>
 
@@ -158,8 +189,8 @@
 
                 <div class="col-12 col-lg-6 col-xl-7">
 
-                    <div id="imgdiv" style="width: 100%;height: 400px;border: 1px solid;background: gray;">
-
+                    <div id="imgdiv" style="width: 100%;height: 400px;">
+                        <img src="~/Files/Images/imgbus1.png" alt="Bus" />
 
                     </div>
 
@@ -182,7 +213,7 @@
 
         <div class="section-title text-center">
 
-            <h2>Our Top Destinations</h2>
+            <h2>Градовете до които пътуваме всяка седмицаs</h2>
 
         </div>
 
@@ -194,7 +225,7 @@
 
                     <figure class="image-caption-01">
 
-                        <a href="#">
+                        <a>
 
                             <div class="image overlay-relative caption-relative">
                                 <img src="~/Files/Images/Citis/@item.Image" alt="@item.Name" style="width:253px;height:253px;">
@@ -217,12 +248,12 @@
         </div>
         <div class="section-title text-center" style="margin-top: 80px;margin-bottom: 20px;">
 
-            <h2>Today’s most popular deals</h2>
+            <h2>Блог и новини</h2>
 
             <div class="container">
 
 
-                <div class="row equal-height cols-2 cols-md-2 cols-lg-4 gap-10 gap-md-20 gap-xl-30">
+                <div class="row equal-height cols-2 cols-md-2 cols-lg-4 gap-10 gap-md-20 gap-xl-30" id="blogs">
                     @foreach (var item in Model.Blogs.Take(4))
                     {
                         <div class="col">
@@ -234,9 +265,9 @@
                                 <figcaption class="content">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>
-                                            <span class="item-highlight text-secondary">
-                                                Save up to<span>35%</span>
-                                            </span>
+                                            @*<span class="item-highlight text-secondary">
+                                                    Save up to<span>35%</span>
+                                                </span>*@
                                         </div>
                                         @if (item.isnews)
                                         {
@@ -247,10 +278,10 @@
 
                                     </div>
 
-                                    <p>@item.Title</p>
-                                    <span class="act-as-btn text-secondary">Read More<i class="material-icons">arrow_forward</i></span>
+                                    <p style="font-size:20px;">@item.Title</p>
+                                    <span class="act-as-btn text-secondary">Разгледайте още...<i class="material-icons">arrow_forward</i></span>
                                 </figcaption>
-                                <a href="#" class="position-absolute-href"></a>
+                                <a href="~/Home/Blog/@item.id" class="position-absolute-href"></a>
                             </figure>
 
                         </div>
@@ -277,14 +308,11 @@
 
             <div class="col-12 col-md-8 col-lg-8">
 
-                <h2 class="heading-title">About Us</h2>
+                <h2 class="heading-title">ЗА НАС</h2>
 
                 <p class="font-lg" id="aboutus">
                     @Model.setting.Description
                 </p>
-
-
-
             </div>
 
         </div>
@@ -295,11 +323,11 @@
 <section class="partners-wrapper border-top pv-60">
     <div class="container">
         <div class="d-md-flex justify-content-center">
-            <img src="~/Home/images/image-logo-grid/20.png" class="image-partner" alt="Partners">
-            <img src="~/Home/images/image-logo-grid/21.png" class="image-partner" alt="Partners">
-            <img src="~/Home/images/image-logo-grid/22.png" class="image-partner" alt="Partners">
-            <img src="~/Home/images/image-logo-grid/23.png" class="image-partner" alt="Partners">
-            <img src="~/Home/images/image-logo-grid/25.png" class="image-partner" alt="Partners">
+            <img src="~/Home/images/image-logo-grid/1.jpg" class="image-partner" alt="Partners">
+            <img src="~/Home/images/image-logo-grid/2.png" class="image-partner" alt="Partners">
+            <img src="~/Home/images/image-logo-grid/3.jpg" class="image-partner" alt="Partners">
+            <img src="~/Home/images/image-logo-grid/4.png" class="image-partner" alt="Partners">
+            <img src="~/Home/images/image-logo-grid/5.png" class="image-partner" alt="Partners">
         </div>
     </div>
 </section>
@@ -308,12 +336,14 @@
     <script type="text/javascript" src="~/Home/js/plugins.js"></script>
     <script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
     <script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
-
     <script>
         function SumCount() {
             var countadult = parseInt($('#adult').val());
             var countbaybe = parseInt($('#child').val());
-            var count = countadult + countbaybe;
+            var countbaybe2 = parseInt($('#child2').val());
+            var countbaybe7 = parseInt($('#child7').val());
+            var student = parseInt($('#student').val());
+            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student;
             $('#count').val(count);
         }
         function GetDestination() {
@@ -325,11 +355,44 @@
                 type: "Get",
                 cache: false,
                 success: function (data) {
-                    console.log(data);
                     $('#To').append(data);
-                     $('#To').trigger("chosen:updated"); // for update select that is credential
+                    $('#To').trigger("chosen:updated"); // for update select that is credential
+                }
+            });
+            //$.ajax({
+            //    url: "/Routes/GetDeparture/",
+            //    data: { id: id },
+            //    type: "Get",
+            //    cache: false,
+            //    success: function (data) {
+            //        GetEnableDay(data);
+            //    }
+            //});
+        }
+
+        function GetEnableDay(days) {
+            var DaysWeek = [0, 1, 2, 3, 4, 5, 6]
+            var disabledDays = [];
+            // Make  disabled day by array in below
+            var enabldays = days.split(',').map(Number); // map for convert string number to int number
+            // enabldays = enabldays.map(function (val) { return --val; });
+            console.log(enabldays);
+            jQuery.grep(DaysWeek, function (el) {
+                if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
+            });
+            $('#dateStart-flight').datepicker({
+                language: 'en',
+                onRenderCell: function (date, cellType) {
+                    if (cellType == 'day') {
+                        var day = date.getDay(),
+                            isDisabled = disabledDays.indexOf(day) != -1;
+                        return {
+                            disabled: isDisabled
+                        }
+                    }
                 }
             });
         }
+
     </script>
 }

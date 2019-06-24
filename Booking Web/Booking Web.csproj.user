@@ -12,5 +12,9 @@
     <ShowAllFiles>true</ShowAllFiles>
     <NameOfLastUsedPublishProfile>FolderProfile</NameOfLastUsedPublishProfile>
     <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_Layout.cshtml</WebStackScaffolding_LayoutPageFile>
+    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

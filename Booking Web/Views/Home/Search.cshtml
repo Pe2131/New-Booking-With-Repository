@@ -16,10 +16,10 @@
 
                     <div class="d-lg-flex mb-30 mb-lg-0">
                         <div>
-                            <h3 class="heading-title"><span>Flights <span class="text-lowercase">in</span> </span> <span class="text-primary">Rome, Italy</span></h3>
+                            <h3 class="heading-title"><span>МАРШРУТИ</span></h3>
                         </div>
                         <div class="ml-auto">
-                            <button class="btn btn-secondary btn-wide btn-toggle collapsed btn-sm btn-change-search" data-toggle="collapse" data-target="#change-search"></button>
+                            <button class="btn btn-secondary btn-wide btn-toggle collapsed btn-sm btn" data-toggle="collapse" data-target="#change-search">Промени търсенето</button>
                         </div>
                     </div>
 
@@ -40,14 +40,14 @@
 
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>From</label>
+                                                <label>От</label>
                                                 <div class="form-icon-left">
                                                     <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
-                                                    <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="source">
+                                                    <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()" required>
                                                         <option></option>
                                                         @foreach (var item in Model.cities)
                                                         {
-                                                            <option value="@item.Id">@item.Name</option>
+                                                        <option value="@item.Id">@item.Name</option>
                                                         }
                                                     </select>
                                                 </div>
@@ -56,26 +56,20 @@
 
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>To</label>
+                                                <label>До</label>
                                                 <div class="form-icon-left">
                                                     <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
-                                                    <select data-placeholder="Please select" class="chosen-no-search form-control" tabindex="2" name="dest">
-                                                        <option></option>
-                                                        @foreach (var item in Model.cities)
-                                                        {
-                                                            <option value="@item.Id">@item.Name</option>
-                                                        }
-                                                    </select>
+                                                    <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="dest" id=To required></select>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="col-6 col-md-6">
                                             <div class="form-group">
-                                                <label>Departure</label>
+                                                <label>Тръгване</label>
                                                 <div class="form-icon-left">
                                                     <span class="icon-font text-muted"><i class="bx bx-calendar"></i></span>
-                                                    <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date">
+                                                    <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date" autocomplete="off" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,30 +79,48 @@
                                         <div class="col-12 col-md-6">
                                             <div class="col-inner">
                                                 <div class="row gap-2 gap-md-10">
-                                                    <div class="col-4">
+                                                    <div class="col-5">
                                                         <div class="form-group form-spin-group">
-                                                            <label for="room-amount">Adult <small class="text-muted font10 line-1">(12-75)</small></label>
+                                                            <label for="room-amount">Възрастен <small class="text-muted font10 line-1">(12-75)</small></label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" readonly id="adult" />
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="adult" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="form-group form-spin-group">
-                                                            <label for="room-amount">Child <small class="text-muted font10 line-1">(2-12)</small></label>
+                                                            <label for="room-amount">Дете <small class="text-muted font10 line-1">(0-2)</small></label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" readonly id="child" />
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="child" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="form-group form-spin-group">
-                                                            <label for="room-amount">Infant <small class="text-muted font10 line-1">(0-2)</small></label>
+                                                            <label for="room-amount">Дете <small class="text-muted font10 line-1">(2-7)</small></label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" readonly />
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="child2" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group form-spin-group">
+                                                            <label for="room-amount">Дете <small class="text-muted font10 line-1">(7-12)</small></label>
+                                                            <div class="form-icon-left">
+                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="child7" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group form-spin-group">
+                                                            <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
+                                                            <div class="form-icon-left">
+                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="student" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -126,7 +138,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-primary btn-wide">Search now</button>
+                                            <button type="submit" class="btn btn-primary btn-wide">Търси</button>
                                         </div>
                                     </div>
 
@@ -150,7 +162,7 @@
                                     <div class="col-12 col-shrink">
 
                                         <div class="image height-auto">
-                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images">
+                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images" style="height:230px !important;">
                                         </div>
 
                                     </div>
@@ -164,17 +176,20 @@
                                                 <div class="d-flex">
 
                                                     <div>
-
-                                                    
-                                                        <h5><a href="#">@item.GetSourceName To @item.GetDestinationName</a></h5>
-
-
+                                                        <h5><a href="#">@item.GetSourceName До @item.GetDestinationName</a></h5>
                                                     </div>
 
                                                     <div class="ml-auto">
                                                         <div class="price">
+                                                            <div class="float-right">
+                                                                per person
+                                                                <span class="text-secondary">@item.Price.ToString("N0") лв - €@item.Price2.ToString("N0")</span>
 
-                                                            <span class="text-secondary">$ @item.Price</span>
+
+                                                                Двупосочен
+                                                                <span class="text-secondary">@item.twoWayPrice.ToString("N0") лв - €@item.twoWayPrice2.ToString("N0")</span>
+                                                            </div>
+
                                                         </div>
                                                     </div>
 
@@ -183,22 +198,22 @@
                                             </div>
 
                                             <div class="content">
-                                                <p>New the her nor case that lady paid read eat everything the out two...</p>
+                                                <p>Вие сте @ViewBag.count пътник/а  @*passenger and this route has @(item.Capacity == 0 ? "noset" : item.Capacity.ToString()) seat available*@</p>
                                             </div>
                                             @{
                                                 // for get name day of week
                                                 var departurdays = string.Join(",",
                                                 from g in item.DepartureDays.Split(new char[] { ',' })
                                                 select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
-                                   
+
                                             }
                                             <div class="content-bottom mt-auto">
                                                 <div class="d-flex align-items-center">
                                                     <div>
-                                                        <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;<strong>every week</strong></p>
+                                                        <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;<strong>Всяка седмица</strong></p>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <a href="~/Home/Book/@item.id" class="btn btn-primary btn-sm btn-wide">Book</a>
+                                                        <a href="~/Home/Book/@item.id" class="btn btn-primary btn-sm btn-wide">Купи</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -224,7 +239,7 @@
                                 <div class="col-12 col-md-5">
                                     @if (Model.PathWays.Any())
                                     {
-                                        <span>@Model.PathWays.Count() results found</span>
+                                    <span>@Model.PathWays.Count() Открити маршрута</span>
                                     }
                                     else
                                     {
@@ -258,8 +273,58 @@
         function SumCount() {
             var countadult = parseInt($('#adult').val());
             var countbaybe = parseInt($('#child').val());
-            var count = countadult + countbaybe;
+            var countbaybe2 = parseInt($('#child2').val());
+            var countbaybe7 = parseInt($('#child7').val());
+            var student = parseInt($('#student').val());
+            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student;
             $('#count').val(count);
+        }
+               function GetDestination() {
+            var id = $('#FromCity').val();
+            $('#To').empty();
+            $.ajax({
+                url: "/Routes/GetDestination/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    $('#To').append(data);
+                    $('#To').trigger("chosen:updated"); // for update select that is credential
+                }
+            });
+            //$.ajax({
+            //    url: "/Routes/GetDeparture/",
+            //    data: { id: id },
+            //    type: "Get",
+            //    cache: false,
+            //    success: function (data) {
+            //        GetEnableDay(data);
+            //    }
+            //});
+        }
+
+        function GetEnableDay(days) {
+            var DaysWeek = [0, 1, 2, 3, 4, 5, 6]
+            var disabledDays = [];
+            // Make  disabled day by array in below
+            var enabldays = days.split(',').map(Number); // map for convert string number to int number
+           // enabldays = enabldays.map(function (val) { return --val; });
+             console.log(enabldays);
+            jQuery.grep(DaysWeek, function (el) {
+                if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
+            });
+            $('#dateStart-flight').datepicker({
+                language: 'en',
+                onRenderCell: function (date, cellType) {
+                    if (cellType == 'day') {
+                        var day = date.getDay(),
+                            isDisabled = disabledDays.indexOf(day) != -1;
+                        return {
+                            disabled: isDisabled
+                        }
+                    }
+                }
+            });
         }
     </script>
 }

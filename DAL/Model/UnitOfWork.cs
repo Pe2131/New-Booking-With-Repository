@@ -171,6 +171,45 @@ namespace DAL.Model
                 return _RoutRepositori;
             }
         }
+        private GenericRepositori<Tbl_NewReseve> _NewReservRepositori;
+        public GenericRepositori<Tbl_NewReseve> NewReservRepositori
+        {
+            get
+            {
+                if (_NewReservRepositori == null)
+                {
+                    _NewReservRepositori = new GenericRepositori<Tbl_NewReseve>(db);
+                }
+
+                return _NewReservRepositori;
+            }
+        }
+        private GenericRepositori<Tbl_DaysCapacity> _DaysCapacityRepositori;
+        public GenericRepositori<Tbl_DaysCapacity> DaysCapacityRepositori
+        {
+            get
+            {
+                if (_DaysCapacityRepositori == null)
+                {
+                    _DaysCapacityRepositori = new GenericRepositori<Tbl_DaysCapacity>(db);
+                }
+
+                return _DaysCapacityRepositori;
+            }
+        }
+        private GenericRepositori<Tbl_ReservCount> _ReservCountRepositori;
+        public GenericRepositori<Tbl_ReservCount> ReservCountRepositori
+        {
+            get
+            {
+                if (_ReservCountRepositori == null)
+                {
+                    _ReservCountRepositori = new GenericRepositori<Tbl_ReservCount>(db);
+                }
+
+                return _ReservCountRepositori;
+            }
+        }
         public void Dispose()
         {
             db.Dispose();

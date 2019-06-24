@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Title Of Site -->
-    <title>Travel Material - Resposnive HTML Template for Travel Booking Based on Bootstrap 4.x.x</title>
+    <title>@setting.Title</title>
     <meta name="description" content="Resposnive HTML Template for Travel Booking Based on Bootstrap 4.x.x" />
     <meta name="keywords" content="accommodation, booking, holiday, hostel, hotel, motel, reservation, resort, tour, tourism, travel, travel agency, trip, vacation, flight, guide, journey, rental, destination, travel booking" />
     <meta name="author" content="crenoveative">
@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.html">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.html">
     <link rel="shortcut icon" href="images/ico/favicon.html">
-
+    <link rel="icon" href="~/favicon.png" type="image/x-icon">
     <!-- Font face -->
     <link href="https://fonts.googleapis.com/css?family=Aleo:300,300i,400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
 
@@ -62,7 +62,7 @@
                     <div class="row align-items-center ">
                         <div class="col-4">
                             <div class="header-logo">
-                                <a href="index.html"><img src="~/Files/Images/@setting.Logo" alt="Logo" /></a>
+                                <a href="/Home"><img src="~/Files/Images/@setting.Logo" alt="Logo" /></a>
                             </div>
                         </div>
                         <div class="col-8">
@@ -94,12 +94,12 @@
                                     <li class="d-none d-md-block">
                                         <div class="dropdown dropdown-language">
                                             <a href="#" class="btn btn-text-inherit btn-interactive" id="dropdownLangauge" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="image"><img src="~/Home/font-icons/img-flaticon-flags-4/png/260-united-kingdom.png" alt="image" /></span> English
+                                                <span class="image"><img src="~/Home/font-icons/img-flaticon-flags-4/png/bol.jpg" alt="image" /></span> Български
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLangauge">
                                                 <div class="dropdown-menu-inner">
-                                                    <a class="dropdown-item active" href="/Home/ChangeLanguage?culture=en-US"><span class="image"><img src="~/Home/font-icons/img-flaticon-flags-4/png/260-united-kingdom.png" alt="image" /></span> English</a>
-                                                    <a class="dropdown-item" href="/Home/ChangeLanguage?culture=fa-IR"><span class="image"><img src="~/Home/font-icons/img-flaticon-flags-4/png/013-italy.png" alt="image" /></span> Italiano</a>
+                                                    <a class="dropdown-item active" href="/Home/ChangeLanguage?culture=en-US"><span class="image"><img src="~/Home/font-icons/img-flaticon-flags-4/png/260-united-kingdom.png" alt="image" /></span> Английски</a>
+                                                    <a class="dropdown-item" href="/Home/ChangeLanguage?culture=fa-IR"><span class="image"><img src="~/Home/font-icons/img-flaticon-flags-4/png/bol.jpg" alt="image" /></span> Български</a>
 
                                                 </div>
                                             </div>
@@ -108,15 +108,15 @@
                                     <li>
                                         <div class="dropdown dropdown-login dropdown-tab">
                                             <a href="#" class="btn btn-text-inherit btn-interactive" id="dropdownSignIn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Login
+                                                Вход
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right tab-in-dropdown padding-0" aria-labelledby="dropdownSignIn">
 
                                                 <nav class="menu-horizontal-01">
-                                                    <ul class="nav external-link-navs">
-                                                        <li><a class="active" data-toggle="tab" id="login" href="#loginTabInDropdown01-01s">Login</a></li>
+                                                    <ul class="nav external-link-navs" style="background:#d7dbde;">
+                                                        <li><a class="active" data-toggle="tab" id="login" href="#loginTabInDropdown01-01s">Вход</a></li>
 
-                                                        <li class="d-none"><a data-toggle="tab" href="#loginTabInDropdown01-03s">Forgot Password </a></li>
+                                                        <li class="d-none"><a data-toggle="tab" href="#loginTabInDropdown01-03s"> Забравена парола</a></li>
                                                     </ul>
                                                 </nav>
 
@@ -142,18 +142,18 @@
                                                                         <div class="col-12 col-sm-6">
                                                                             <div class="custom-control custom-checkbox style-01 mt-5">
                                                                                 <input type="checkbox" class="custom-control-input" id="loginForm-02-checkbox-in-tab">
-                                                                                <label class="custom-control-label line-145 pt-5" for="loginForm-02-checkbox-in-tab">Remember me</label>
+                                                                                <label class="custom-control-label line-145 pt-5" for="loginForm-02-checkbox-in-tab">Запомни не</label>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-12 col-sm-6 text-right">
                                                                             <div class="nav text-right d-inline-block">
-                                                                                <a href="#loginTabInDropdown01-03s" class="btn btn-link tab-external-link">Forgot pass?</a>
+                                                                                <a href="#loginTabInDropdown01-03s" class="btn btn-link tab-external-link"> Забравена парола?</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="mt-5">
-                                                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                                                        <button type="submit" class="btn btn-primary btn-block">Вход</button>
                                                                     </div>
 
                                                                 </div>
@@ -229,13 +229,11 @@
                                 <nav class="main-nav-menu main-menu-nav navbar-arrow">
 
                                     <ul class="main-nav">
-                                        <li><a href="/Home">@Localizer["home"]</a></li>
-                                        <li><a href="~/Home/Routes">@Localizer["Routes"]</a></li>
-                                        <li><a href="SearchResult.html">@Localizer["Services"]</a></li>
-                                        <li><a href="~/Home/About">@Localizer["About"]</a></li>
-                                        <li><a href="~/Home/ContactUs">@Localizer["Contact"]</a></li>
-                                        <li><a href="/Home/ChangeLanguage?culture=en-US">En</a></li>
-                                        <li><a href="/Home/ChangeLanguage?culture=fa-IR">fa</a></li>
+                                        <li><a href="/Home">@Localizer["НАЧАЛО"]</a></li>
+                                        <li><a href="~/Home/Routes">@Localizer["МАРШРУТИ"]</a></li>
+                                        <li><a href="#">@Localizer["УСЛУГИ"]</a></li>
+                                        <li><a href="~/Home/About">@Localizer["ЗА НАС"]</a></li>
+                                        <li><a href="~/Home/ContactUs">@Localizer["КОНТАКТИ"]</a></li>
 
                                     </ul>
 
@@ -245,7 +243,7 @@
                             </div>
 
                             <div class="navbar-phone d-none d-lg-block">
-                                <i class="material-icons">phone</i> Hotline: @setting.Phone
+                                <i class="material-icons">phone</i> Обадете се: @setting.Phone
                             </div>
 
                         </div>
@@ -270,17 +268,18 @@
                 <div class="row gap-40 gap-md-50">
                     <div class="col-12 col-lg-6">
                         <div class="col-inner">
-                            <h4 class="footer-title">About us</h4>
-                            @if (setting.Description.Length > 100)
-                            {
-                                <p class="font-lg line-145">@setting.Description.Substring(0, 99) ...<a href="/Home/About">read more</a></p>
+                            <h4 class="footer-title">АДРЕС</h4>
+                            <p class="font-lg line-145">@setting.Address</p>
+                            @*@if (setting.Description.Length > 100)
+                                {
+                                    <p class="font-lg line-145">@setting.Description.Substring(0, 99) ...<a href="/Home/About">read more</a></p>
 
-                            }
-                            else
-                            {
-                                <p class="font-lg line-145">@setting.Description</p>
+                                }
+                                else
+                                {
+                                    <p class="font-lg line-145">@setting.Description</p>
 
-                            }
+                                }*@
                             <span class="d-block footer-phone text-white"><i class="material-icons">phone</i> @setting.Phone</span>
                             <a href="#">@setting.Email</a>
 
@@ -291,35 +290,34 @@
                             <div class="row gap-40 gap-md-20">
                                 <div class="col-12 col-md-5">
                                     <div class="col-inner mt-15-sm">
-                                        <h5 class="footer-title">Quick Menu</h5>
+                                        <h5 class="footer-title">Меню</h5>
 
                                         <ul class="footer-menu">
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="#">Terms</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
-                                            <li><a href="#">FAQ</a></li>
-                                            <li><a href="#">Press</a></li>
-                                            <li><a href="#">Contact</a></li>
+                                            <li><a href="/Home">@Localizer["НАЧАЛО"]</a></li>
+                                            <li><a href="~/Home/Routes">@Localizer["МАРШРУТИ"]</a></li>
+                                            <li><a href="#">@Localizer["УСЛУГИ"]</a></li>
+                                            <li><a href="~/Home/About">@Localizer["ЗА НАС"]</a></li>
+                                            <li><a href="~/Home/ContactUs">@Localizer["КОНТАКТИ"]</a></li>
                                         </ul>
                                     </div>
 
                                 </div>
                                 <div class="col-12 col-md-7">
                                     <div class="col-inner mt-25-sm">
-                                        <h5 class="footer-title">Newsletter</h5>
-                                        <p>Subsribe to get our latest updates and oeffers</p>
+                                        <h5 class="footer-title">Бюлетин</h5>
+                                        <p>Абонирайте се за бюлетина ни, за да получите последните актуализации и оферти</p>
                                         <form class="footer-newsletter">
 
                                             <div class="input-group">
-                                                <input type="email" class="form-control" placeholder="Email address" id="Newsletter">
+                                                <input type="email" class="form-control" placeholder="Вашият имейл" id="Newsletter">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-secondary" type="button" onclick="addnewsletter()">Subsribe</button>
+                                                    <button class="btn btn-secondary" type="button" onclick="addnewsletter()">Абонирай се</button>
                                                 </div>
                                             </div>
 
                                         </form>
 
-                                        <h5 class="footer-title">Socials</h5>
+                                        <h5 class="footer-title">Следвай ни</h5>
 
                                         <div class="footer-socials">
                                             <a href="@setting.facebook"><i class="fab fa-facebook"></i></a>

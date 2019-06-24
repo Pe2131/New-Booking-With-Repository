@@ -36,6 +36,15 @@ namespace DAL.Model.Tables
         [Display(Name = "Price")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
         public decimal Price { get; set; }
+        [Display(Name = "two way price")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
+        public decimal twoWayPrice { get; set; }
+        [Display(Name = "Price")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
+        public decimal Price2 { get; set; }
+        [Display(Name = "two way price")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
+        public decimal twoWayPrice2 { get; set; }
         [Display(Name = "Status")]
         public string Status { get; set; }
 

@@ -136,6 +136,12 @@ namespace Booking_Web.Controllers
                 RoutesTools routesTools = new RoutesTools();
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
+                int RoutesCapacity = 
+                ViewBag.count = count;
+                foreach (var item in model.PathWays)
+                {
+                   item.Capacity= routesTools.RoutsCapacity(date,item.id);
+                }
                 return View(model);
             }
             catch (Exception e)
@@ -232,6 +238,7 @@ namespace Booking_Web.Controllers
         {
             try
             {
+                ViewBag.phone = db.SettingRepository.Get().FirstOrDefault().Phone;
                 var route = db.RoutRepositori.GetById(id);
                 var DestinationCity = db.CityRepository.GetById(route.Destination_FG);
                 ViewModel_BookDetail model = new ViewModel_BookDetail();

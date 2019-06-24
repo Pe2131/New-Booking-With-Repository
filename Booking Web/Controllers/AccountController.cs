@@ -176,7 +176,8 @@ namespace Booking_Web.Controllers
                             RedirectToLocal(returnUrl);
                         }
                         ModelState.AddModelError(string.Empty, "Your Account is locked");
-                        return View(model);
+                        // return View(model);
+                        return RedirectToAction("index", "Home");
                     }
                     else
                     {
@@ -185,7 +186,8 @@ namespace Booking_Web.Controllers
                             RedirectToLocal(returnUrl);
                         }
                         ModelState.AddModelError(string.Empty, "username or password is invalid");
-                        return View(model);
+                        //return View(model);
+                        return RedirectToAction("index", "Home");
                     }
                 }
                 else
@@ -361,7 +363,8 @@ namespace Booking_Web.Controllers
             {
                 await signInManager.SignOutAsync();
             }
-            return RedirectToAction(nameof(Login));
+            // return RedirectToAction(nameof(Login));
+            return RedirectToAction("index", "Home");
         }
         //  [Authorize(Roles = "admin")]
         public async Task<IActionResult> getUsers() //get all user with their Roles

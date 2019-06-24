@@ -236,5 +236,18 @@ namespace Booking_Web.Controllers
                 throw e;
             }
         }
+        public JsonResult GetDeparture(int id)
+        {
+            try
+            {
+                String departure = Db.RoutRepositori.Get(a => a.Source_FG == id).FirstOrDefault().DepartureDays;
+                return Json(departure);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
     }
 }

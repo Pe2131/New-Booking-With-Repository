@@ -67,8 +67,13 @@ section, .section { padding: 50px 0; }
 /**
  * Header
  */
- 
-.header-main .header-top { background-color: #3F51B5; color: #FFF; font-size: 13px; padding: 15px 0; }
+
+.header-main .header-top {
+    background-image: linear-gradient( 112.1deg, rgba(77,238,253,1) 0.7%, rgba(3,151,232,1) 26.1%, rgba(47,31,116,1) 95.7% );
+    color: #FFF;
+    font-size: 13px;
+    padding: 15px 0;
+}
 .with-waypoint-sticky .header-main .header-top {   -moz-transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 .header-main .header-top .header-logo img { height: 20px; width: auto; margin-top: 8px; }
 .header-main .header-top .mini-menu > ul { float: right; }
@@ -371,8 +376,14 @@ section, .section { padding: 50px 0; }
 /**
  * Menu
  */
- 
-.menu-horizontal-01 ul { margin-bottom: 20px; background-color: #D7DBDE; text-align: center; display: block; border-radius: 5px 5px 0 0; }
+
+.menu-horizontal-01 ul {
+    margin-bottom: 20px;
+    background-image: radial-gradient( circle 770.6px at 10% 20%, rgba(246,71,71,1) 0%, rgba(189,35,35,1) 74.9% );
+    text-align: center;
+    display: block;
+    border-radius: 5px 5px 0 0;
+}
 .menu-horizontal-01 ul li { display: inline-block; }
 .menu-horizontal-01 ul li a { display: block;  line-height: 1; padding: 20px 20px 15px; color: inherit; font-size: 12px; }
 .menu-horizontal-01 ul li a.active, .menu-horizontal-01 ul li.active a, .menu-horizontal-01 ul li a:hover {  background-color: #FFF; }
@@ -466,8 +477,13 @@ ul.menu-vertical-02 li a:hover, ul.menu-vertical-02 li.active a { background: #F
 /**
  * Footer
  */
- 
-.footer-wrapper { background-color: #1A1A1A; color: rgba(255,255,255,0.7); line-height: 1.5; padding-top: 55px;  }
+
+.footer-wrapper {
+    background-image: linear-gradient( 68.1deg, rgba(0,29,137,1) 2.5%, rgba(0,48,165,1) 31.5%, rgba(0,70,195,1) 51.5%, rgba(0,94,224,1) 69.8%, rgba(0,119,255,1) 98.3% );
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    padding-top: 55px;
+}
 .footer-wrapper .footer-title { line-height: 1.1; color: #FFF; text-transform: uppercase; margin-bottom: 25px; }
 .footer-wrapper a { color: #FFF; }
 .footer-wrapper .footer-phone { font-size: 30px; }

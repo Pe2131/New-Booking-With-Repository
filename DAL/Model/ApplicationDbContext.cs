@@ -11,8 +11,8 @@ namespace DAL.Model
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=Booking;User Id=pe2131;Password =2131; MultipleActiveResultSets =true");
-            //optionsBuilder.UseSqlServer("Data Source=SQL6001.site4now.net;Initial Catalog=DB_A48CF1_booking1;User Id=DB_A48CF1_booking1_admin;Password= KnBccxdFreTo0oxXx;"); //for server cccdevelopers
+            //optionsBuilder.UseSqlServer("Server=.;Database=Booking;User Id=pe2131;Password =2131; MultipleActiveResultSets =true");
+            optionsBuilder.UseSqlServer("Data Source=SQL6001.site4now.net;Initial Catalog=DB_A48CF1_booking1;User Id=DB_A48CF1_booking1_admin;Password= KnBccxdFreTo0oxXx;"); //for server cccdevelopers
             //optionsBuilder.UseSqlServer("Data Source=plesk2500a.trouble-free.net;Initial Catalog=bookingw_vip;User Id=peymandb1;Password= kM9uc04_;"); //for server vip.webiim
         }
         protected override void OnModelCreating(ModelBuilder builder)

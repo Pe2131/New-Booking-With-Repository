@@ -1,39 +1,9 @@
 ﻿@model Tbl_Weblog;
 @{
-    ViewData["Title"] = "Blog1";
+    ViewData["Title"] = "Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section Styles{
-    <style>
-    a {
-        color: black !important;
-    }
-
-    .section-header {
-        background: none;
-        height: unset;
-    }
-
-    footer .social ul li a {
-        color: #fff !important;
-    }
-
-  </style>
-
-}
 <div class="container-fluid all">
-    <section class="container-fluid p-0 subscript">
-        <p>Насладете се на пътуването си</p>
-        <h2>Грабнете Вашето първо <br> пътуване с отстъпка</h2>
-        <form>
-            <input type="email" placeholder="Имейл адрес">
-            <button type="button" onclick="addnewsletter();">Абонирайте се</button>
-
-            <span class="s-bg s-1"></span>
-            <span class="s-bg s-2"></span>
-            <span class="s-bg s-3"></span>
-        </form>
-    </section>
 
     <section class="container">
         <div class="row">
@@ -42,9 +12,8 @@
 
 
                 <div class="col-lg-12 col-12 blog-content">
-                    <strong><span class="squar"></span>Blog</strong>
                     <div class="item-content">
-                        <img src="~/Files/Images/Weblog/@Model.image" style="        object-fit: cover;" />
+                        <img src="~/Files/Images/Weblog/@Model.image" style="object-fit: cover; width:100%;" />
                         <p>@Model.Title</p>
                         <p id="text-about" class="m-0">
                             @Html.Raw(Model.Description)

@@ -20,7 +20,11 @@ namespace Booking_Web.ViewModel
         public string SourceStation { get; set; }
         public string DestStation { get; set; }
         public decimal Price { get; set; }
+        public decimal twoWayPrice { get; set; }
+        public decimal Price2 { get; set; }
+        public decimal twoWayPrice2 { get; set; }
         public string Status { get; set; }
+        public int Capacity { get; set; }  // just for show in view and this isnt exist in table
         public String GetSourceName {
             get
             {
