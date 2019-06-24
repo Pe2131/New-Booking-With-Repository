@@ -149,7 +149,6 @@ jQuery(function($) {
 	/**
 	 * Sticky sidebar
 	 */
-	 
 	$(".sticky-kit").stick_in_parent({
 		offset_top: 105,
 	});
@@ -159,7 +158,6 @@ jQuery(function($) {
 	/**
 	 * Input Spinner
 	 */
-	 
 	$(".touch-spin-03").TouchSpin({
 		min: 0,
 		max: 100,
@@ -174,12 +172,12 @@ jQuery(function($) {
 	 * Date Picker
 	 */
 	 
-	$('.air-datepicker').datepicker({
-		minDate: new Date(),
-	})
-	$('.air-datepicker-with-time').datepicker({
-		minDate: new Date(),
-	})
+    $('.air-datepicker').datepicker({
+        minDate: new Date()
+    });
+    $('.air-datepicker-with-time').datepicker({
+        minDate: new Date()
+    });
 	
 	var $airDatepickerRangeStartGeneral = $('#airDatepickerRange-general #dateStart-general'),
 		$airDatepickerRangeEndGeneral = $('#airDatepickerRange-general #dateEnd-general');
@@ -193,13 +191,13 @@ jQuery(function($) {
 		minDate: new Date(),
 	})
 
-	$airDatepickerRangeEndGeneral.datepicker({
-		onSelect: function (fd, date) {
-			$airDatepickerRangeStartGeneral.data('datepicker').update('maxDate', date)
-		},
-		autoClose: true,
-		language : "en",
-	})
+    $airDatepickerRangeEndGeneral.datepicker({
+        onSelect: function (fd, date) {
+            $airDatepickerRangeStartGeneral.data('datepicker').update('maxDate', date);
+        },
+        autoClose: true,
+        language: "en"
+    });
 	
 	var $airDatepickerRangeStartHotel = $('#airDatepickerRange-hotel #dateStart-hotel'),
 		$airDatepickerRangeEndHotel = $('#airDatepickerRange-hotel #dateEnd-hotel');
@@ -224,14 +222,15 @@ jQuery(function($) {
 	var $airDatepickerRangeStartFlight = $('#airDatepickerRange-flight #dateStart-flight'),
 		$airDatepickerRangeEndFlight = $('#airDatepickerRange-flight #dateEnd-flight');
 
-	$airDatepickerRangeStartFlight.datepicker({
-		onSelect: function (fd, date) {
-			$airDatepickerRangeEndFlight.data('datepicker').update('minDate', date);
-			$airDatepickerRangeEndFlight.focus();
-		},
-		language : "en",
-		minDate: new Date(),
-	})
+    $airDatepickerRangeStartFlight.datepicker({
+        onSelect: function (fd, date) {
+            //$airDatepickerRangeEndFlight.data('datepicker').update('minDate', date);
+            $airDatepickerRangeEndFlight.focus();
+        },
+        autoClose: true,
+        language: "en",
+        minDate: new Date()
+    });
 
 	$airDatepickerRangeEndFlight.datepicker({
 		onSelect: function (fd, date) {

@@ -75,7 +75,7 @@
 
                     </div>
 
-                    @*<form class="payment-form-wrapper">
+                    <form class="payment-form-wrapper">
 
                         <h3 class="heading-title"><span>Billing Information</span></h3>
                         <p class="post-heading">Two before narrow not relied how except moment myself.</p>
@@ -119,71 +119,87 @@
                                         <input type="number" class="form-control form-bg-light">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>Adult Name<span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                @for (int i = 0; i < ViewBag.adult; i++)
+                                {
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Adult Name<span class="font12 text-danger">*</span></label>
+                                            <input type="text" name="adult[@i]" class="form-control form-bg-light" placeholder="please enter adult name">
+                                        </div>
                                     </div>
-                                </div>
+                                }
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>Child Up to 2 years<span class="font12 text-danger">*</span></label>
                                         <input type="number" class="form-control form-bg-light">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>child name<span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                @for (int i = 0; i < ViewBag.Child; i++)
+                                {
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>child name<span class="font12 text-danger">*</span></label>
+                                            <input type="text" name="child[@i]" class="form-control form-bg-light" placeholder="please enter child(0-2) name">
+                                        </div>
                                     </div>
-                                </div>
+                                }
+
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>Child between 2 and 7<span class="font12 text-danger">*</span></label>
                                         <input type="number" class="form-control form-bg-light">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>child name<span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                @for (int i = 0; i < ViewBag.child2; i++)
+                                {
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>child name<span class="font12 text-danger">*</span></label>
+                                            <input type="text" name="child2[@i]" class="form-control form-bg-light" placeholder="please enter child(2-7) name">
+                                        </div>
                                     </div>
-                                </div>
+                                }
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>Child between 7 and 12<span class="font12 text-danger">*</span></label>
                                         <input type="number" class="form-control form-bg-light">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>child name<span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                @for (int i = 0; i < ViewBag.child7; i++)
+                                {
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>child name<span class="font12 text-danger">*</span></label>
+                                            <input type="text" name="child7[@i]" class="form-control form-bg-light" placeholder="please enter child(7-12) name,">
+                                        </div>
                                     </div>
-                                </div>
+                                }
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>student or retire<span class="font12 text-danger">*</span></label>
                                         <input type="number" class="form-control form-bg-light">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>student or retire<span class="font12 text-danger">*</span></label>
-                                        <input type="text" class="form-control form-bg-light" placeholder="please sprate name with ,">
+                                @for (int i = 0; i < ViewBag.child7; i++)
+                                {
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>student or retire<span class="font12 text-danger">*</span></label>
+                                            <input type="text" name="student[@i]" class="form-control form-bg-light" placeholder="please enter student name">
+                                        </div>
+                                    </div>
+                                }
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Count of Passanger<span class="font12 text-danger">*</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Sum price<span class="font12 text-danger">*</span></label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>Count of Passanger<span class="font12 text-danger">*</span></label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label>Sum price<span class="font12 text-danger">*</span></label>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
 
@@ -228,7 +244,7 @@
                         <div class="mb-40"></div>
                         <a href="#" class="btn btn-primary mt-20">Book now <i class="fa fa-long-arrow-right"></i></a>
 
-                    </form>*@
+                    </form>
 
 
 

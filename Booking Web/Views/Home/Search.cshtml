@@ -47,7 +47,7 @@
                                                         <option></option>
                                                         @foreach (var item in Model.cities)
                                                         {
-                                                        <option value="@item.Id">@item.Name</option>
+                                                            <option value="@item.Id">@item.Name</option>
                                                         }
                                                     </select>
                                                 </div>
@@ -212,9 +212,18 @@
                                                     <div>
                                                         <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;<strong>Всяка седмица</strong></p>
                                                     </div>
-                                                    <div class="ml-auto">
-                                                        <a href="~/Home/Book/@item.id" class="btn btn-primary btn-sm btn-wide">Купи</a>
-                                                    </div>
+                                                    <form asp-action="Book" asp-controller="Home" method="post">
+                                                        <input type="hidden" name="id" value=@item.id />
+                                                        <input type="hidden" name="adult" value=@ViewBag.adult />
+                                                        <input type="hidden" name="count" value=@ViewBag.count />
+                                                        <input type="hidden" name="child" value=@ViewBag.Child />
+                                                        <input type="hidden" name="child2" value=@ViewBag.Child2 />
+                                                        <input type="hidden" name="child7" value=@ViewBag.Child7 />
+                                                        <input type="hidden" name="student" value=@ViewBag.student />
+                                                        <div class="ml-auto">
+                                                            <button type="submit" class="btn btn-primary btn-sm btn-wide">Купи</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
 
@@ -239,7 +248,7 @@
                                 <div class="col-12 col-md-5">
                                     @if (Model.PathWays.Any())
                                     {
-                                    <span>@Model.PathWays.Count() Открити маршрута</span>
+                                        <span>@Model.PathWays.Count() Открити маршрута</span>
                                     }
                                     else
                                     {
@@ -279,7 +288,7 @@
             var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student;
             $('#count').val(count);
         }
-               function GetDestination() {
+        function GetDestination() {
             var id = $('#FromCity').val();
             $('#To').empty();
             $.ajax({
@@ -292,15 +301,15 @@
                     $('#To').trigger("chosen:updated"); // for update select that is credential
                 }
             });
-            //$.ajax({
-            //    url: "/Routes/GetDeparture/",
-            //    data: { id: id },
-            //    type: "Get",
-            //    cache: false,
-            //    success: function (data) {
-            //        GetEnableDay(data);
-            //    }
-            //});
+            $.ajax({
+                url: "/Routes/GetDeparture/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    GetEnableDay(data);
+                }
+            });
         }
 
         function GetEnableDay(days) {
@@ -308,8 +317,8 @@
             var disabledDays = [];
             // Make  disabled day by array in below
             var enabldays = days.split(',').map(Number); // map for convert string number to int number
-           // enabldays = enabldays.map(function (val) { return --val; });
-             console.log(enabldays);
+            // enabldays = enabldays.map(function (val) { return --val; });
+            console.log(enabldays);
             jQuery.grep(DaysWeek, function (el) {
                 if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
             });

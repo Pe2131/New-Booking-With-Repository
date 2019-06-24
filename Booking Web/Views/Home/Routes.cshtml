@@ -271,15 +271,15 @@
                     $('#To').trigger("chosen:updated"); // for update select that is credential
                 }
             });
-            //$.ajax({
-            //    url: "/Routes/GetDeparture/",
-            //    data: { id: id },
-            //    type: "Get",
-            //    cache: false,
-            //    success: function (data) {
-            //        GetEnableDay(data);
-            //    }
-            //});
+            $.ajax({
+                url: "/Routes/GetDeparture/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    GetEnableDay(data);
+                }
+            });
         }
 
         function GetEnableDay(days) {

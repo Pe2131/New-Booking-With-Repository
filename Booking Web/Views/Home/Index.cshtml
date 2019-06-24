@@ -98,7 +98,7 @@
                                                                         <label for="room-amount"> Възрастен <small class="text-muted font10 line-1">(12-75)</small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="adult" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="adult" name="adult" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -107,7 +107,7 @@
                                                                         <label for="room-amount">Дете <small class="text-muted font10 line-1">(0-2)</small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child" name="child" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -116,7 +116,7 @@
                                                                         <label for="room-amount">Дете <small class="text-muted font10 line-1">(2-7)</small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child2" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child2" name="child2" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -125,7 +125,7 @@
                                                                         <label for="room-amount">Дете<small class="text-muted font10 line-1">(7-12)</small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child7" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child7" name="child7" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -134,12 +134,12 @@
                                                                         <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" name="student" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 @*<div class="col-8" style=" padding-top: 25px;padding-left: 22px;">
-                                                               
+
                                                                         <div class="custom-control custom-radio  custom-control-inline">
                                                                             <input type="radio" id="flightSearchRadio-2" name="flightSearchRadio" class="custom-control-input">
                                                                             <label class="custom-control-label" for="flightSearchRadio-2">One-way</label>
@@ -149,8 +149,8 @@
                                                                             <input type="radio" id="flightSearchRadio-3" name="flightSearchRadio" class="custom-control-input">
                                                                             <label class="custom-control-label" for="flightSearchRadio-3">Multicities</label>
                                                                         </div>
-                                                                    
-                                                                </div>*@
+
+                                                                    </div>*@
                                                             </div>
                                                         </div>
                                                     </div>
@@ -359,15 +359,15 @@
                     $('#To').trigger("chosen:updated"); // for update select that is credential
                 }
             });
-            //$.ajax({
-            //    url: "/Routes/GetDeparture/",
-            //    data: { id: id },
-            //    type: "Get",
-            //    cache: false,
-            //    success: function (data) {
-            //        GetEnableDay(data);
-            //    }
-            //});
+            $.ajax({
+                url: "/Routes/GetDeparture/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    GetEnableDay(data);
+                }
+            });
         }
 
         function GetEnableDay(days) {
@@ -382,6 +382,7 @@
             });
             $('#dateStart-flight').datepicker({
                 language: 'en',
+                autoClose: true,
                 onRenderCell: function (date, cellType) {
                     if (cellType == 'day') {
                         var day = date.getDay(),
@@ -393,6 +394,5 @@
                 }
             });
         }
-
     </script>
 }

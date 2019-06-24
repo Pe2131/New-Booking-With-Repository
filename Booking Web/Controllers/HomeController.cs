@@ -128,7 +128,7 @@ namespace Booking_Web.Controllers
         /// <param name="date"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public IActionResult Search(int source, int dest, string date, int count)
+        public IActionResult Search(int source, int dest, string date, int count, int adult,int child,int child2 ,int child7,int student )
         {
             try
             {
@@ -138,6 +138,11 @@ namespace Booking_Web.Controllers
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
                 int RoutesCapacity = 
                 ViewBag.count = count;
+                ViewBag.adult = adult;
+                ViewBag.Child = child;
+                ViewBag.Child2 = child2;
+                ViewBag.Child7 = child7;
+                ViewBag.Student = student;
                 foreach (var item in model.PathWays)
                 {
                    item.Capacity= routesTools.RoutsCapacity(date,item.id);
@@ -234,7 +239,7 @@ namespace Booking_Web.Controllers
                 return View("Error", error);
             }
         }
-        public IActionResult book(int id)
+        public IActionResult book(int id, int count, int adult, int child=0, int child2=0, int child7=0, int student=0)
         {
             try
             {
@@ -255,6 +260,12 @@ namespace Booking_Web.Controllers
                 model.EndTime = route.ArriveTime;
                 model.DestName = DestinationCity.name;
                 model.SourceName = db.CityRepository.GetById(route.Source_FG).name;
+                ViewBag.count = count;
+                ViewBag.adult = adult;
+                ViewBag.Child = child;
+                ViewBag.Child2 = child2;
+                ViewBag.Child7 = child7;
+                ViewBag.Student = student;
                 return View(model);
 
             }
