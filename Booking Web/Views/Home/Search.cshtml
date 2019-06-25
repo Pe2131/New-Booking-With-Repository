@@ -212,7 +212,7 @@
                                                     <div>
                                                         <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;<strong>Всяка седмица</strong></p>
                                                     </div>
-                                                    <form asp-action="Book" asp-controller="Home" method="post">
+                                                    <form asp-action="BookForm" asp-controller="Home" method="post">
                                                         <input type="hidden" name="id" value=@item.id />
                                                         <input type="hidden" name="adult" value=@ViewBag.adult />
                                                         <input type="hidden" name="count" value=@ViewBag.count />
@@ -220,6 +220,7 @@
                                                         <input type="hidden" name="child2" value=@ViewBag.Child2 />
                                                         <input type="hidden" name="child7" value=@ViewBag.Child7 />
                                                         <input type="hidden" name="student" value=@ViewBag.student />
+                                                        <input type="hidden" name="tripDate" value=@ViewBag.tripDate />
                                                         <div class="ml-auto">
                                                             <button type="submit" class="btn btn-primary btn-sm btn-wide">Купи</button>
                                                         </div>

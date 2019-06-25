@@ -399,7 +399,6 @@ E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debu
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Discount\Index.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\About.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\Blog.g.cshtml.cs
-E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\book.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\ContactUs.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
@@ -446,3 +445,5 @@ E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debu
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Routes\P_GetDeactivePath.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Routes\P_SearchPath.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Routes\P_DestinationCity.g.cshtml.cs
+E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\Prepay.g.cshtml.cs
+E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Debug\netcoreapp2.2\Razor\Views\Home\bookForm.g.cshtml.cs

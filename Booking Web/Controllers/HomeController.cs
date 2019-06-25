@@ -128,7 +128,7 @@ namespace Booking_Web.Controllers
         /// <param name="date"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public IActionResult Search(int source, int dest, string date, int count, int adult,int child,int child2 ,int child7,int student )
+        public IActionResult Search(int source, int dest, string date, int count, int adult, int child, int child2, int child7, int student)
         {
             try
             {
@@ -136,16 +136,17 @@ namespace Booking_Web.Controllers
                 RoutesTools routesTools = new RoutesTools();
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
-                int RoutesCapacity = 
+                int RoutesCapacity =
                 ViewBag.count = count;
                 ViewBag.adult = adult;
                 ViewBag.Child = child;
                 ViewBag.Child2 = child2;
                 ViewBag.Child7 = child7;
                 ViewBag.Student = student;
+                ViewBag.tripDate = date;
                 foreach (var item in model.PathWays)
                 {
-                   item.Capacity= routesTools.RoutsCapacity(date,item.id);
+                    item.Capacity = routesTools.RoutsCapacity(date, item.id);
                 }
                 return View(model);
             }
@@ -239,7 +240,7 @@ namespace Booking_Web.Controllers
                 return View("Error", error);
             }
         }
-        public IActionResult book(int id, int count, int adult, int child=0, int child2=0, int child7=0, int student=0)
+        public IActionResult bookForm(int id, int count, int adult, int child = 0, int child2 = 0, int child7 = 0, int student = 0,string tripDate="")
         {
             try
             {
@@ -266,8 +267,52 @@ namespace Booking_Web.Controllers
                 ViewBag.Child2 = child2;
                 ViewBag.Child7 = child7;
                 ViewBag.Student = student;
+                ViewBag.tripDate = tripDate;
+                ViewBag.RoutId = id;
                 return View(model);
 
+            }
+            catch (Exception e)
+            {
+                ErrorViewModel error = new ErrorViewModel();
+                error.ErrorTitle = "Error";
+                error.ErrorMassage = e.Message;
+                return View("Error", error);
+            }
+        }
+        public IActionResult Prepay(ViewModel_Prepay model)
+        {
+            try
+            {
+                if (model.sumcount == model.adultcount + model.childcount + model.child2count + model.child7count + model.studentCount)
+                {
+                    if (model.adult != null)
+                    {
+                        ViewBag.AdultName = utility.StringArrayToString(model.adult);
+                    }
+                    if (model.child!=null)
+                    {
+                        ViewBag.Childname = utility.StringArrayToString(model.child);
+                    }
+                    if (model.Child2 != null)
+                    {
+                        ViewBag.Child2name = utility.StringArrayToString(model.Child2);
+                    }
+                    if (model.child7 != null)
+                    {
+                        ViewBag.Child7name = utility.StringArrayToString(model.child7);
+                    }
+                    if (model.student != null)
+                    {
+                        ViewBag.student= utility.StringArrayToString(model.Child2);
+                    }
+                    return View(model);
+                }
+                else
+                {
+                    TempData["message"] = "count of passenger didnt equal names";
+                    return RedirectToAction(nameof(bookForm), new { id = model.RoutId, count = model.sumcount, adult = model.adultcount, child = model.childcount, child2 = model.Child2, child7 = model.child7count, student = model.studentCount });
+                }
             }
             catch (Exception e)
             {
