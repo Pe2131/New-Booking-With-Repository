@@ -34,7 +34,7 @@ namespace DAL.Model
         public DbSet<Tbl_NewReseve> tbl_NewReseves { get; set; }
         public DbSet<Tbl_DaysCapacity> tbl_DaysCapacities { get; set; }
         public DbSet<Tbl_ReservCount> tbl_ReservCounts { get; set; }
-
+        public DbSet<Tbl_DiscountSetting> tbl_DiscountSettings { get; set; }
 
     }
 }
