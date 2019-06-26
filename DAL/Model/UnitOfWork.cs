@@ -210,6 +210,19 @@ namespace DAL.Model
                 return _ReservCountRepositori;
             }
         }
+        private GenericRepositori<Tbl_DiscountSetting> _DiscountSettingRepositori;
+        public GenericRepositori<Tbl_DiscountSetting> DiscountSettingRepositori
+        {
+            get
+            {
+                if (_DiscountSettingRepositori == null)
+                {
+                    _DiscountSettingRepositori = new GenericRepositori<Tbl_DiscountSetting>(db);
+                }
+
+                return _DiscountSettingRepositori;
+            }
+        }
         public void Dispose()
         {
             db.Dispose();

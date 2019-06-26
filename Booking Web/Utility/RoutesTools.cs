@@ -41,7 +41,7 @@ namespace Booking_Web.Utility
                 throw e;
             }
         }
-        public int RoutsCapacity(string date , int routesId)
+        public int RoutsCapacity(string date, int routesId)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Booking_Web.Utility
                     string dayofweek = daynumber.ToString();
                     List<Tbl_Routes> routes = new List<Tbl_Routes>();
                     int DayCapacity = Db.DaysCapacityRepositori.Get(a => a.DayOfWeek == daynumber).SingleOrDefault().Capacity;
-                    var ReservedCount = Db.ReservCountRepositori.Get(a => a.ReservDate == mydate & a.RoutId_FG==routesId).SingleOrDefault();
+                    var ReservedCount = Db.ReservCountRepositori.Get(a => a.ReservDate == mydate & a.RoutId_FG == routesId).SingleOrDefault();
                     if (ReservedCount != null)
                     {
                         return (DayCapacity - ReservedCount.count);
@@ -65,6 +65,31 @@ namespace Booking_Web.Utility
                 else
                 {
                     return 0;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+        public decimal calculatPrice(int count, int adult, int child, int child2, int child7, int student, bool twoWay, int routId)
+        {
+            try
+            {
+                var route = Db.RoutRepositori.GetById(routId);
+                var DiscountSetting = Db.DiscountSettingRepositori.Get().FirstOrDefault();
+                if (twoWay == false)
+                {
+                    decimal totalPrice = count * route.Price;
+                    decimal totalDiscounts = (adult * route.Price) + (child * route.Price * (DiscountSetting.ForChild0 / 100)) + (child2 * route.Price * (DiscountSetting.ForChild2 / 100)) + (child7 * route.Price * (DiscountSetting.ForChild7 / 100)) + (student * route.Price * (DiscountSetting.forStudent / 100));
+                    return totalPrice - totalDiscounts;
+                }
+                else
+                {
+                    decimal totalPrice = count * route.twoWayPrice;
+                    decimal totalDiscounts = (adult * route.twoWayPrice) + (child * route.twoWayPrice * (DiscountSetting.ForChild0 / 100)) + (child2 * route.twoWayPrice * (DiscountSetting.ForChild2 / 100)) + (child7 * route.twoWayPrice * (DiscountSetting.ForChild7 / 100)) + (student * route.twoWayPrice * (DiscountSetting.forStudent / 100));
+                    return totalPrice - totalDiscounts;
                 }
             }
             catch (Exception e)
