@@ -306,6 +306,8 @@ namespace Booking_Web.Controllers
                     {
                         ViewBag.student= utility.StringArrayToString(model.Child2);
                     }
+                    RoutesTools routesTools = new RoutesTools();
+                    model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, false, model.RoutId);
                     return View(model);
                 }
                 else

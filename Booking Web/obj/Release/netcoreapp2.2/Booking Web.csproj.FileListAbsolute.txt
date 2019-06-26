@@ -124,7 +124,6 @@ E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Rele
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Discount\Index.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\About.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\Blog.g.cshtml.cs
-E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\book.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\ContactUs.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
@@ -167,3 +166,5 @@ E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Rele
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Booking Web.csproj.CopyComplete
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Booking Web.dll
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Booking Web.pdb
+E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\bookForm.g.cshtml.cs
+E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\Home\Prepay.g.cshtml.cs

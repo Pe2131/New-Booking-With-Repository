@@ -89,14 +89,49 @@
             <div class="mb-40"></div>
 
             <h3 class="heading-title"><span>Payment</span></h3>
+            <ul class="confirmation-list">
+                @if (Model.adultcount > 0)
+                {
+                    <li class="clearfix">
+                        <span class="font-weight-bold">Adult:</span>
+                        <span>@Model.adultcount</span>
+                    </li>
+                }
+                @if (Model.childcount > 0)
+                {
+                    <li class="clearfix">
+                        <span class="font-weight-bold">child:</span>
+                        <span>@Model.childcount &nbsp; (100%) </span>
+                    </li>
+                }
+                @if (Model.child2count > 0)
+                {
+                    <li class="clearfix">
+                        <span class="font-weight-bold">child(2-7):</span>
+                        <span>@Model.child2count &nbsp; (50%) </span>
+                    </li>
+                }
+                @if (Model.child7count > 0)
+                {
+                    <li class="clearfix">
+                        <span class="font-weight-bold">child(7-12):</span>
+                        <span>@Model.child7count &nbsp; (30%) </span>
+                    </li>
+                }
+                @if (Model.child7count > 0)
+                {
+                    <li class="clearfix">
+                        <span class="font-weight-bold">Student(7-12):</span>
+                        <span>@Model.student &nbsp; (10%) </span>
+                    </li>
+                }
+                <li class="clearfix">
+                    <span class="font-weight-bold">Total Price:</span>
+                    <span>@Model.sumprice</span>
+                </li>
+            </ul>
 
             <div class="clear"></div>
-
-            <p>Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of.</p>
-
-            <p class="text-uppercase text-secondary font600">Payment is made by credit card via Paypal</p>
-
-            <div class="clear mb-20"></div>
 
             <h3 class="heading-title"><span>Other Information</span></h3>
 
