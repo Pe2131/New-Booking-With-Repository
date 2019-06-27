@@ -129,7 +129,6 @@ namespace Booking_Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
             // this is Multi Language setting
             var supportedCultures = new List<CultureInfo>()
             {
@@ -159,7 +158,7 @@ namespace Booking_Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
+            app.UseCookiePolicy();  //for tempdata works
         }
         /// <summary>
         /// elmah متد مربوط به محدود کردن دسترسی به  

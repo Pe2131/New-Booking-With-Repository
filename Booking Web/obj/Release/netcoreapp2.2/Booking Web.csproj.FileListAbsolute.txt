@@ -167,3 +167,4 @@ E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Rele
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Booking Web.csproj.CopyComplete
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Booking Web.dll
 E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Booking Web.pdb
+E:\c#project\asp\Work\BookingNew\BookingNew With Repository\Booking Web\obj\Release\netcoreapp2.2\Razor\Views\ContactUs\Index.g.cshtml.cs

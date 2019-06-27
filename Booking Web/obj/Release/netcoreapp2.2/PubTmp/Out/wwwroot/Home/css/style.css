@@ -486,7 +486,7 @@ ul.menu-vertical-02 li a:hover, ul.menu-vertical-02 li.active a { background: #F
 }
 .footer-wrapper .footer-title { line-height: 1.1; color: #FFF; text-transform: uppercase; margin-bottom: 25px; }
 .footer-wrapper a { color: #FFF; }
-.footer-wrapper .footer-phone { font-size: 30px; }
+.footer-wrapper .footer-phone { font-size: 23px; }
 .footer-wrapper .footer-phone i { margin-top: -5px; font-size: 26px; }
 .footer-wrapper ul.footer-menu li { display: inline-block; margin-right: 20px; }
 .footer-wrapper ul.footer-menu li a { font-size: 16px; color: rgba(255,255,255,0.7); }

@@ -158,6 +158,8 @@ namespace Booking_Web.Controllers
             try
             {
                 var setting = db.SettingRepository.Get().FirstOrDefault();
+                ViewBag.success = TempData["Success"];
+                ViewBag.message = TempData["Message"];
                 return View(setting);
             }
             catch (Exception e)
