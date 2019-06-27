@@ -38,7 +38,7 @@
 }
 
 #hero-banner {
-    background-image: url('../images/image-bg/mybg.jpg');
+    background-image: url('../images/image-bg/Slider.png');
 }
 
 #bg-image {
@@ -52,10 +52,10 @@
 }
 
 @media(max-width:575px) {
-    #imgdiv {
+    /*#imgdiv {
         height: 295px !important;
         margin-top: -47px;
-    }
+    }*/
     #dropdownMobileSetting{
         display:none !important;
     }
@@ -69,6 +69,9 @@
     #bg-image {
         height:536px !important;
     }
+    .menu-horizontal-wrapper-02 {
+        margin-top: 400px;
+    }
 }
 
 @media(max-width:468px) {
@@ -76,7 +79,10 @@
         line-height: 20px !important;
         margin-top: -26px;
     }
-    #bg-image {
+    /*#bg-image {
         height: 536px !important;
+    }*/
+    .menu-horizontal-wrapper-02{
+        margin-top:400px;
     }
 }

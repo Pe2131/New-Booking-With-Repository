@@ -8,4 +8,2124 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>E:\Work\Booking Publish New Template</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>03/28/2019 11:07:45</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="AutoMapper.dll">
+      <publishTime>11/17/2018 10:14:56</publishTime>
+    </File>
+    <File Include="Booking Web.deps.json">
+      <publishTime>06/26/2019 19:35:10</publishTime>
+    </File>
+    <File Include="Booking Web.dll">
+      <publishTime>06/26/2019 18:40:49</publishTime>
+    </File>
+    <File Include="Booking Web.pdb">
+      <publishTime>06/26/2019 18:40:49</publishTime>
+    </File>
+    <File Include="Booking Web.runtimeconfig.json">
+      <publishTime>06/26/2019 19:35:10</publishTime>
+    </File>
+    <File Include="Booking Web.Views.dll">
+      <publishTime>06/26/2019 19:34:08</publishTime>
+    </File>
+    <File Include="Booking Web.Views.pdb">
+      <publishTime>06/26/2019 19:34:08</publishTime>
+    </File>
+    <File Include="CoreCompat.System.Drawing.dll">
+      <publishTime>06/27/2016 17:30:42</publishTime>
+    </File>
+    <File Include="DAL.dll">
+      <publishTime>06/26/2019 18:33:56</publishTime>
+    </File>
+    <File Include="DAL.pdb">
+      <publishTime>06/26/2019 18:33:56</publishTime>
+    </File>
+    <File Include="dotnet-aspnet-codegenerator-design.dll">
+      <publishTime>03/02/2019 19:52:30</publishTime>
+    </File>
+    <File Include="ElmahCore.dll">
+      <publishTime>03/15/2019 21:30:18</publishTime>
+    </File>
+    <File Include="ElmahCore.Mvc.dll">
+      <publishTime>03/15/2019 21:30:18</publishTime>
+    </File>
+    <File Include="en-US/Booking Web.resources.dll">
+      <publishTime>06/26/2019 18:40:49</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.Workspaces.dll">
+      <publishTime>06/07/2019 20:16:25</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Workspaces.dll">
+      <publishTime>06/07/2019 20:14:21</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>02/16/2019 02:19:30</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Design.dll">
+      <publishTime>02/16/2019 02:20:06</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>02/16/2019 02:19:38</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>02/16/2019 02:19:42</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <publishTime>02/16/2019 02:20:06</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll">
+      <publishTime>03/02/2019 19:51:56</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Core.dll">
+      <publishTime>03/02/2019 19:52:00</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.dll">
+      <publishTime>03/02/2019 19:52:04</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll">
+      <publishTime>03/02/2019 19:52:02</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll">
+      <publishTime>03/02/2019 19:51:58</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll">
+      <publishTime>03/02/2019 19:51:56</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
+      <publishTime>03/02/2019 19:52:04</publishTime>
+    </File>
+    <File Include="NuGet.Frameworks.dll">
+      <publishTime>06/07/2019 20:14:56</publishTime>
+    </File>
+    <File Include="Remotion.Linq.dll">
+      <publishTime>02/06/2018 22:25:00</publishTime>
+    </File>
+    <File Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing.dll">
+      <publishTime>01/04/2019 10:30:18</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libcairo.2.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libfontconfig.1.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libfreetype.6.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libgdiplus-lighthouse.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libgdiplus.dylib">
+      <publishTime>01/04/2019 10:29:46</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libgif.7.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libglib-2.0.0.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libintl.8.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libjpeg.9.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libpcre.1.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libpixman-1.0.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libpng16.16.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libtiff.5.dylib">
+      <publishTime>01/04/2019 10:29:48</publishTime>
+    </File>
+    <File Include="System.Composition.AttributedModel.dll">
+      <publishTime>06/07/2019 20:15:18</publishTime>
+    </File>
+    <File Include="System.Composition.Convention.dll">
+      <publishTime>06/07/2019 20:15:23</publishTime>
+    </File>
+    <File Include="System.Composition.Hosting.dll">
+      <publishTime>06/07/2019 20:15:24</publishTime>
+    </File>
+    <File Include="System.Composition.Runtime.dll">
+      <publishTime>06/07/2019 20:15:24</publishTime>
+    </File>
+    <File Include="System.Composition.TypedParts.dll">
+      <publishTime>06/07/2019 20:15:25</publishTime>
+    </File>
+    <File Include="System.Interactive.Async.dll">
+      <publishTime>07/11/2018 13:48:42</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>06/26/2019 19:35:10</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/app.min.css">
+      <publishTime>11/26/2018 18:05:22</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/form.min.css">
+      <publishTime>11/26/2018 18:05:18</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/owl.video.play.html">
+      <publishTime>03/11/2019 17:27:19</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/pages/extra_pages.css">
+      <publishTime>11/26/2018 18:05:26</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/style.css">
+      <publishTime>04/19/2019 14:01:12</publishTime>
+    </File>
+    <File Include="wwwroot/assets/css/styles/all-themes.css">
+      <publishTime>11/26/2018 18:05:30</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-brands-400.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-brands-400.svg">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-brands-400.ttf">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-brands-400.woff">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-brands-400.woff2">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-brands-400d41d.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-regular-400.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-regular-400.svg">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-regular-400.ttf">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-regular-400.woff">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-regular-400.woff2">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-regular-400d41d.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-solid-900.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-solid-900.svg">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-solid-900.ttf">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-solid-900.woff">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-solid-900.woff2">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/fontawesome/fa-solid-900d41d.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/iconfont/MaterialIcons-Regular.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/iconfont/MaterialIcons-Regular.ttf">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/iconfont/MaterialIcons-Regular.woff">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/iconfont/MaterialIcons-Regular.woff2">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/poppins/poppins-v5-latin-regular.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/poppins/poppins-v5-latin-regular.svg">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/poppins/poppins-v5-latin-regular.ttf">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/poppins/poppins-v5-latin-regular.woff">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/poppins/poppins-v5-latin-regular.woff2">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/poppins/poppins-v5-latin-regulard41d.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Simple-Line-Iconsb26c-2.html">
+      <publishTime>03/11/2019 17:27:16</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Simple-Line-Iconsb26c-3.html">
+      <publishTime>03/11/2019 17:27:17</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Simple-Line-Iconsb26c-4.html">
+      <publishTime>03/11/2019 17:27:17</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Simple-Line-Iconsb26c-5.html">
+      <publishTime>03/11/2019 17:27:18</publishTime>
+    </File>
+    <File Include="wwwroot/assets/fonts/Simple-Line-Iconsb26c.html">
+      <publishTime>03/11/2019 17:27:15</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/animation-bg.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/bg-01.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/details_close.png">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/details_open.png">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/favicon.ico">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/1.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/10.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/11.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/12.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/13.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/14.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/15.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/16.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/17.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/18.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/19.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/2.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/20.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/3.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/4.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/5.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/6.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/7.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/8.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/9.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-1.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-10.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-11.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-12.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-13.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-14.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-15.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-16.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-17.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-18.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-19.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-2.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-20.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-3.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-4.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-5.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-6.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-7.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-8.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/image-gallery/thumb/thumb-9.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/Loading.jpg">
+      <publishTime>06/04/2019 14:13:10</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/loading.png">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/logo.png">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/media.png">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post1.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post11.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post12.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post13.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post2.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post3.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post4.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post5.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post6.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post7.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post8.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/posts/post9.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-13.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-14.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-15.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-16.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-17.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-18.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-19.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p-20.jpg">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p1.jpg">
+      <publishTime>11/22/2018 16:54:00</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p10-1.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p10.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p11-1.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p11.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p12-1.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p12.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p2.jpg">
+      <publishTime>11/22/2018 16:54:00</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p3.jpg">
+      <publishTime>11/22/2018 16:54:00</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p4.jpg">
+      <publishTime>11/22/2018 16:54:00</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p5.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p6.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p7-1.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p7.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p8-1.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p8.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p9-1.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/products/p9.jpg">
+      <publishTime>11/22/2018 16:54:02</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user-img-background.html">
+      <publishTime>03/11/2019 17:28:52</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user1.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user10.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user11.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user2.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user3.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user4.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user5.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user6.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user7.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user8.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/user9.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig1.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig2.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig3.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig4.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig5.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig6.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig7.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig8.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/user/usrbig9.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/images/usrbig.jpg">
+      <publishTime>11/12/2018 19:46:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/admin.js">
+      <publishTime>03/29/2019 12:28:57</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/app.min.js">
+      <publishTime>11/26/2018 18:05:30</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/ckeditor/ckeditor.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/echart/echarts.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/export-tables/buttons.flash.min.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/export-tables/buttons.html5.min.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/export-tables/buttons.print.min.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/export-tables/dataTables.buttons.min.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/export-tables/jszip.min.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/export-tables/pdfmake.min.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/export-tables/vfs_fonts.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/css/lightgallery.css">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/fonts/lgd41d.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/fonts/lgd641.eot">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/fonts/lgd641.ttf">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/fonts/lgd641.woff">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/img/loading.gif">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/img/video-play.png">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/img/vimeo-play.png">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/img/youtube-play.png">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/lightgallery/dist/js/lightgallery-all.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/multiselect/css/multi-select.css">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/multiselect/img/switch.png">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/multiselect/js/jquery.multi-select.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/rangeSlider/css/ion.rangeSlider.css">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/rangeSlider/css/ion.rangeSlider.skinFlat.css">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/rangeSlider/img/sprite-skin-flat.png">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/rangeSlider/js/ion.rangeSlider.js">
+      <publishTime>11/23/2018 03:15:32</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/bundles/tinymce/tinymce.min.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/chart.min.js">
+      <publishTime>11/26/2018 18:05:26</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/form.min.js">
+      <publishTime>11/26/2018 18:05:22</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/map.min.js">
+      <publishTime>11/26/2018 18:05:22</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/apps/calendar.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/apps/chat.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/apps/dragdrop.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/apps/portfolio.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/apps/support.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/apps/task.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/cards/basic.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/charts/chartjs.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/charts/echarts.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/charts/flot.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/charts/jquery-knob.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/charts/morris.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/charts/sparkline.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/dashboard/dashboard2.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/dashboard/dashboard3.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/ecommerce/product-detail.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/examples/login-register.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/examples/pages.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/forms/advanced-form-elements.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/forms/basic-form-elements.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/forms/editors.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/forms/form-validation.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/forms/form-wizard.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/index.js">
+      <publishTime>03/31/2019 12:30:06</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/maps/google.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/maps/jqvmap.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/medias/carousel.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/medias/image-gallery.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/sparkline/sparkline-data.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/tables/editable-table.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/tables/jquery-datatable.js">
+      <publishTime>04/17/2019 10:05:19</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/todo/todo.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/ui/animations.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/ui/collapse.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/ui/dialogs.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/ui/notifications.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/ui/range-sliders.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/ui/sortable-nestable.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/pages/widgets/widget.js">
+      <publishTime>11/23/2018 03:15:34</publishTime>
+    </File>
+    <File Include="wwwroot/assets/js/table.min.js">
+      <publishTime>11/26/2018 18:05:20</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-datepicker.css">
+      <publishTime>05/20/2019 19:26:50</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/css/StyleReservation.css">
+      <publishTime>05/31/2019 10:35:45</publishTime>
+    </File>
+    <File Include="wwwroot/css/StyleUserReservation.css">
+      <publishTime>06/01/2019 16:11:32</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.png">
+      <publishTime>06/04/2019 14:19:27</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/0033db4f7758486eaea79446cbda7d34a1.jpg">
+      <publishTime>06/02/2019 10:29:51</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/29cae9694a5b4c2c96ecf7eaf5829ea1busbookingsystem-logo1.jpg">
+      <publishTime>06/04/2019 14:32:40</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/3248f5f0a3034a049112de5c5964406elogo.png">
+      <publishTime>05/20/2019 14:14:08</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/53585cccaf62455fa38a7932872bd965logo.png">
+      <publishTime>05/21/2019 19:21:09</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/58c2bac7fb03404e894396a9f2c196dcuntitled-1.png">
+      <publishTime>06/26/2019 19:14:37</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/5d78792842da4cefbd7bcc7cde013c34logo.png">
+      <publishTime>11/16/2018 18:41:54</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/9836728e1bf34b22ab8aa5d1b05d2452a2.jpg">
+      <publishTime>06/02/2019 10:29:52</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/bus3.png">
+      <publishTime>06/05/2019 16:05:25</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/19171c905e444234891162f6ddad81e53397-004-4974457b.jpg">
+      <publishTime>06/18/2019 13:00:23</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/21bb2e16053d42a8a6b04f379c55123cspannende-details-warten.jpg">
+      <publishTime>06/18/2019 13:02:48</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/36e53ff9ecaa4d65b157fadece968560july05_markusoff_post.jpeg">
+      <publishTime>06/18/2019 12:43:05</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/3d7cc240208e4351897fa9456efa6ded220px-tehran_pollution.jpg">
+      <publishTime>04/02/2019 15:13:07</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/517cfd17373d446698d9fef96f5ebd3efrance.jpg">
+      <publishTime>06/01/2019 19:41:50</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/55fe19aca40a41789a94c1dca01db053hauptplatz-linzlinztourismus-lukaseckerstorfer.jpg">
+      <publishTime>06/18/2019 12:51:15</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/65077aa4e90e4027920ce41a3a581cd1manchester.jpg">
+      <publishTime>06/01/2019 19:42:52</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/676fed23574a450995871bb95ab3d669würzburg-residence.jpg">
+      <publishTime>06/18/2019 13:02:28</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/6b41fe96929448a6a5b6411dd404301ehauptplatz-linzlinztourismus-lukaseckerstorfer.jpg">
+      <publishTime>06/18/2019 13:00:37</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/72522184061e46a5bd8a450c44bf7e333397-004-4974457b.jpg">
+      <publishTime>06/18/2019 12:51:56</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/809ad462510e40e5a2f68a2158a85b7adeggendorf-town-sqyare.jpg">
+      <publishTime>06/18/2019 12:52:56</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/8fab063f65504b81a6748843722938e5isar.jpg">
+      <publishTime>06/18/2019 13:00:57</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/9742d6baff5a42bcad1d7ecef8141927vienna-st-stephen-s-cathedral-xxl-jpg_header-148543.jpeg">
+      <publishTime>06/18/2019 12:50:24</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/99ff49b7d88c416faed78fa94fd62cfewürzburg-residence.jpg">
+      <publishTime>06/18/2019 12:58:34</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/9f930ee49ba344be8a8f9c2b5be20d22venice.jpg">
+      <publishTime>04/02/2019 14:55:02</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/a8f6e5986c864ee291d765ead69307f3friedensengel-aussicht-hp.jpg">
+      <publishTime>06/18/2019 12:56:18</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/ac5ab812888644a6ac6a689bf09c3cbddefault.jpg">
+      <publishTime>06/18/2019 12:57:53</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/b296b2290e5e4ff58b779943b7abe9acdownload.jpg">
+      <publishTime>06/18/2019 12:42:08</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/c89e41f2c5ad4e0dac4aecbdbc297052germany.jpg">
+      <publishTime>06/01/2019 19:42:28</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/d24c8e01207846a4bcb6f198ead0f232download.jpg">
+      <publishTime>06/18/2019 13:00:02</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/e3727c566d1142a0818350d02a09542fdownload.jpg">
+      <publishTime>06/18/2019 13:02:11</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/e5236ebb653a4d7b852dd1ef4d85e726isar.jpg">
+      <publishTime>06/18/2019 12:54:10</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/e85dbe6862ef4befb3493da0175da64efriedensengel-aussicht-hp.jpg">
+      <publishTime>06/18/2019 13:01:53</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/e8fade77e9d94830a3e20a948f66f0a6spannende-details-warten.jpg">
+      <publishTime>06/18/2019 12:57:15</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/edc2306d3e684f08aef6487c28f4cb36shutterstock-769669537.jpg">
+      <publishTime>06/18/2019 12:45:56</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/f3866e7b61a5495fb255c5dff98305acregensburg_-_thumbnail.jpg">
+      <publishTime>06/18/2019 12:55:29</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Citis/fbbed40884c749ca88d0c6389844c098la-package.jpg">
+      <publishTime>04/03/2019 15:42:39</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/1b2de8a24a0248ab828ccab204797575seasonal-designs-house-flags-rf3n-64_1000.jpg">
+      <publishTime>03/31/2019 15:09:15</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/44d32005c42b43ec8bb4a448583ce1ffdownload.png">
+      <publishTime>03/31/2019 14:56:14</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/53db1442a37f47b3b0d351e3f7cbbe23download %281%29.png">
+      <publishTime>06/01/2019 19:40:25</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/5cbaaafc99884a94b520273d76c19f9ddownload.png">
+      <publishTime>03/31/2019 15:08:55</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/74caf884b52d4ac398a918fe0a992ecd21npsh7te0l._ac_ss350_.jpg">
+      <publishTime>06/01/2019 19:38:54</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/8d0a176f1d6e43f4bf664488f69e4b64_____________________________.png">
+      <publishTime>04/04/2019 16:11:52</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/c90eebd1a2d34f8bab9353f585af5b3fdownload.jpg">
+      <publishTime>04/01/2019 20:13:56</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Countries/d3f7d1d86a9346bfa5df8d439d60ac93download.png">
+      <publishTime>06/01/2019 19:40:45</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/imgbus1.png">
+      <publishTime>06/22/2019 13:37:13</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/ThumbNail/2a57d1a52adb401f96cbf4755c409df5black-s.png">
+      <publishTime>05/27/2019 13:10:02</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/ThumbNail/2c0218075f34476398791398a2450ff7back.jpg">
+      <publishTime>05/31/2019 12:37:29</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/ThumbNail/55215b4ebd4147d78f6b325475144e1aa1.jpg">
+      <publishTime>06/01/2019 11:46:56</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/ThumbNail/7aa8a4b49df74d70bb1705400f5d1848a2.jpg">
+      <publishTime>06/01/2019 11:48:17</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/ThumbNail/86955c8db51949b392ce64f8855cfcfdblog.jpg">
+      <publishTime>06/01/2019 11:41:08</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/ThumbNail/d729099bd4124f8ebb384e928b163615front.jpg">
+      <publishTime>05/31/2019 12:36:24</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Users/030e56cd1f224d33aab4ed12e73033f6a1.jpg">
+      <publishTime>06/03/2019 16:16:49</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Users/0f4c702d77e442f1b5aa5b2efe441bffa1.jpg">
+      <publishTime>06/03/2019 16:13:41</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Users/3d54e0d307144da4bb000daae8ba90a2cc93501b-036a-407c-91de-ee16649be788._sr300,300_.png">
+      <publishTime>05/04/2019 11:28:14</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Users/User.png">
+      <publishTime>04/17/2019 10:12:42</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Weblog/2b4c699bf45546d881262e0c17872d36a2.jpg">
+      <publishTime>06/01/2019 11:48:17</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Weblog/4fb545fcb7934df5b800be623d7f0769back.jpg">
+      <publishTime>05/31/2019 12:37:28</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Weblog/9b6221d2865b4e419df69324da8d4ccea1.jpg">
+      <publishTime>06/01/2019 11:46:56</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Weblog/a85f1dd009b641f287c4480ac65339f9front.jpg">
+      <publishTime>05/31/2019 12:36:24</publishTime>
+    </File>
+    <File Include="wwwroot/Files/Images/Weblog/c37f4196cb904b0cb426682be212555fblog.jpg">
+      <publishTime>06/01/2019 11:41:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/bootstrap/css/bootstrap.min.css">
+      <publishTime>05/25/2019 15:16:31</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/animate.html">
+      <publishTime>06/06/2019 13:48:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/Flaticon.html">
+      <publishTime>06/06/2019 14:06:07</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/font-icons.css">
+      <publishTime>05/25/2019 15:16:33</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/images/slick-ajax-loader.gif">
+      <publishTime>05/25/2019 15:16:34</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/main.css">
+      <publishTime>05/25/2019 15:16:33</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/plugin.css">
+      <publishTime>05/25/2019 15:16:33</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/style.css">
+      <publishTime>06/26/2019 18:45:34</publishTime>
+    </File>
+    <File Include="wwwroot/Home/css/your-style.css">
+      <publishTime>06/26/2019 19:22:15</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/boxicons/fonts/boxicons.eot">
+      <publishTime>05/25/2019 15:16:46</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/boxicons/fonts/boxicons.html">
+      <publishTime>06/06/2019 14:06:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/boxicons/fonts/boxicons.ttf">
+      <publishTime>05/25/2019 15:16:46</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/boxicons/fonts/boxicons.woff">
+      <publishTime>05/25/2019 15:16:46</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/boxicons/fonts/boxiconsd41d.svg">
+      <publishTime>05/25/2019 15:16:46</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/dripicons/fonts/dripicons-v2.eot">
+      <publishTime>05/25/2019 15:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/dripicons/fonts/dripicons-v2.svg">
+      <publishTime>05/25/2019 15:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/dripicons/fonts/dripicons-v2.ttf">
+      <publishTime>05/25/2019 15:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/dripicons/fonts/dripicons-v2.woff">
+      <publishTime>05/25/2019 15:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/dripicons/fonts/dripicons-v2d41d.eot">
+      <publishTime>05/25/2019 15:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/elegant_font/fonts/ElegantIcons.eot">
+      <publishTime>05/25/2019 15:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/elegant_font/fonts/ElegantIcons.svg">
+      <publishTime>05/25/2019 15:16:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/elegant_font/fonts/ElegantIcons.ttf">
+      <publishTime>05/25/2019 15:16:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/elegant_font/fonts/ElegantIcons.woff">
+      <publishTime>05/25/2019 15:16:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/elegant_font/fonts/ElegantIconsd41d.eot">
+      <publishTime>05/25/2019 15:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/flaticon-traveling-494790/font/Flaticon.eot">
+      <publishTime>05/25/2019 15:16:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/flaticon-traveling-494790/font/Flaticon.svg">
+      <publishTime>05/25/2019 15:16:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/flaticon-traveling-494790/font/Flaticon.ttf">
+      <publishTime>05/25/2019 15:16:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/flaticon-traveling-494790/font/Flaticon.woff">
+      <publishTime>05/25/2019 15:16:49</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/flaticon-traveling-494790/font/Flaticond41d.eot">
+      <publishTime>05/25/2019 15:16:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-brands-400.eot">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-brands-400.html">
+      <publishTime>06/06/2019 14:05:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-brands-400.svg">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-brands-400.ttf">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-brands-400.woff">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-brands-400d41d.eot">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-regular-400.eot">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-regular-400.html">
+      <publishTime>06/06/2019 14:06:00</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-regular-400.svg">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-regular-400.ttf">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-regular-400.woff">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-regular-400d41d.eot">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-solid-900.eot">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-solid-900.html">
+      <publishTime>06/06/2019 14:06:00</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-solid-900.svg">
+      <publishTime>05/25/2019 15:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-solid-900.ttf">
+      <publishTime>05/25/2019 15:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-solid-900.woff">
+      <publishTime>05/25/2019 15:16:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/font-awesome/webfonts/fa-solid-900d41d.eot">
+      <publishTime>05/25/2019 15:16:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/img-flaticon-flags-4/png/013-italy.png">
+      <publishTime>05/25/2019 15:16:53</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/img-flaticon-flags-4/png/063-japan.png">
+      <publishTime>05/25/2019 15:16:55</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/img-flaticon-flags-4/png/118-malasya.png">
+      <publishTime>05/25/2019 15:16:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/img-flaticon-flags-4/png/162-germany.png">
+      <publishTime>05/25/2019 15:17:02</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/img-flaticon-flags-4/png/238-thailand.png">
+      <publishTime>05/25/2019 15:17:06</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/img-flaticon-flags-4/png/260-united-kingdom.png">
+      <publishTime>05/25/2019 15:17:07</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/img-flaticon-flags-4/png/bol.jpg">
+      <publishTime>06/22/2019 14:35:38</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/ionicons/fonts/ionicons28b5.eot">
+      <publishTime>05/25/2019 15:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/ionicons/fonts/ionicons28b5.svg">
+      <publishTime>05/25/2019 15:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/ionicons/fonts/ionicons28b5.ttf">
+      <publishTime>05/25/2019 15:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/ionicons/fonts/ionicons28b5.woff">
+      <publishTime>05/25/2019 15:17:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/material-icons/material-icons-outlined.html">
+      <publishTime>06/06/2019 14:06:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/material-icons/material-icons-round.html">
+      <publishTime>06/06/2019 14:06:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/material-icons/material-icons-two-tone.html">
+      <publishTime>06/06/2019 14:06:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/material-icons/material-icons.html">
+      <publishTime>06/06/2019 14:06:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/rivolicons/fonts/Rivolicons-Freed41d.eot">
+      <publishTime>05/25/2019 15:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/rivolicons/fonts/Rivolicons-Freeee60.eot">
+      <publishTime>05/25/2019 15:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/rivolicons/fonts/Rivolicons-Freeee60.svg">
+      <publishTime>05/25/2019 15:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/rivolicons/fonts/Rivolicons-Freeee60.ttf">
+      <publishTime>05/25/2019 15:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/rivolicons/fonts/Rivolicons-Freeee60.woff">
+      <publishTime>05/25/2019 15:17:24</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/themify-icons/fonts/themify9f24.eot">
+      <publishTime>05/25/2019 15:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/themify-icons/fonts/themify9f24.svg">
+      <publishTime>05/25/2019 15:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/themify-icons/fonts/themify9f24.ttf">
+      <publishTime>05/25/2019 15:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/themify-icons/fonts/themify9f24.woff">
+      <publishTime>05/25/2019 15:17:26</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/themify-icons/fonts/themifyd41d.eot">
+      <publishTime>05/25/2019 15:17:25</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/weather-icons/font/weathericons-regular-webfont.eot">
+      <publishTime>05/25/2019 15:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/weather-icons/font/weathericons-regular-webfont.svg">
+      <publishTime>05/25/2019 15:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/weather-icons/font/weathericons-regular-webfont.ttf">
+      <publishTime>05/25/2019 15:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/weather-icons/font/weathericons-regular-webfont.woff">
+      <publishTime>05/25/2019 15:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/font-icons/weather-icons/font/weathericons-regular-webfontd41d.eot">
+      <publishTime>05/25/2019 15:17:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/car/01.jpg">
+      <publishTime>05/25/2019 15:17:31</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/car/02.jpg">
+      <publishTime>05/25/2019 15:17:31</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/car/03.jpg">
+      <publishTime>05/25/2019 15:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/car/04.jpg">
+      <publishTime>05/25/2019 15:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/car/05.jpg">
+      <publishTime>05/25/2019 15:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/car/06.jpg">
+      <publishTime>05/25/2019 15:17:32</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/flag/Malaysia.png">
+      <publishTime>05/25/2019 15:17:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/01.jpg">
+      <publishTime>05/25/2019 15:17:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/02.jpg">
+      <publishTime>05/25/2019 15:17:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/03.jpg">
+      <publishTime>05/25/2019 15:17:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/04.jpg">
+      <publishTime>05/25/2019 15:17:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/05.jpg">
+      <publishTime>05/25/2019 15:17:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/06.jpg">
+      <publishTime>05/25/2019 15:17:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/07.jpg">
+      <publishTime>05/25/2019 15:18:00</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/hotel/08.jpg">
+      <publishTime>05/25/2019 15:18:00</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/ico/apple-touch-icon-114-precomposed.html">
+      <publishTime>06/06/2019 13:44:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/ico/apple-touch-icon-144-precomposed.html">
+      <publishTime>06/06/2019 13:44:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/ico/apple-touch-icon-57-precomposed.html">
+      <publishTime>06/06/2019 13:44:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/ico/apple-touch-icon-72-precomposed.html">
+      <publishTime>06/06/2019 13:44:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/ico/favicon.html">
+      <publishTime>06/06/2019 13:44:03</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg-on-left/01.jpg">
+      <publishTime>05/25/2019 15:18:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg-on-left/11.jpg">
+      <publishTime>06/22/2019 14:31:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg-on-left/Hs-1.jpg">
+      <publishTime>06/22/2019 14:38:27</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/01.jpg">
+      <publishTime>05/25/2019 15:18:21</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/02.jpg">
+      <publishTime>05/25/2019 15:18:21</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/03.jpg">
+      <publishTime>05/25/2019 15:18:21</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/12.jpg">
+      <publishTime>05/25/2019 15:18:22</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/a-01.jpg">
+      <publishTime>05/25/2019 15:18:22</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/a-02.jpg">
+      <publishTime>05/25/2019 15:18:22</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/a-03.jpg">
+      <publishTime>05/25/2019 15:18:22</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/a-04.jpg">
+      <publishTime>05/25/2019 15:18:22</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/d-01.jpg">
+      <publishTime>05/25/2019 15:18:22</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/hotel-01.jpg">
+      <publishTime>05/25/2019 15:18:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/hotel-02.jpg">
+      <publishTime>05/25/2019 15:18:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/hotel-03.jpg">
+      <publishTime>05/25/2019 15:18:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/mybg.jpg">
+      <publishTime>06/22/2019 13:40:25</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/p-01.jpg">
+      <publishTime>05/25/2019 15:18:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/s01.jpg">
+      <publishTime>05/25/2019 15:18:23</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-bg/Slider.png">
+      <publishTime>06/26/2019 19:17:28</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/01-w.jpg">
+      <publishTime>05/25/2019 15:18:26</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/01.jpg">
+      <publishTime>05/25/2019 15:18:27</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/02-w.jpg">
+      <publishTime>05/25/2019 15:18:27</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/02.jpg">
+      <publishTime>05/25/2019 15:18:27</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/03.jpg">
+      <publishTime>05/25/2019 15:18:27</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/04.jpg">
+      <publishTime>05/25/2019 15:18:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/05.jpg">
+      <publishTime>05/25/2019 15:18:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/06.jpg">
+      <publishTime>05/25/2019 15:18:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/07.jpg">
+      <publishTime>05/25/2019 15:18:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-destination/08.jpg">
+      <publishTime>05/25/2019 15:18:29</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/01.jpg">
+      <publishTime>05/25/2019 15:18:30</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/02.jpg">
+      <publishTime>05/25/2019 15:18:31</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/03.jpg">
+      <publishTime>05/25/2019 15:18:31</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/04.jpg">
+      <publishTime>05/25/2019 15:18:32</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/05.jpg">
+      <publishTime>05/25/2019 15:18:32</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/06.jpg">
+      <publishTime>05/25/2019 15:18:32</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/07.jpg">
+      <publishTime>05/25/2019 15:18:33</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/08.jpg">
+      <publishTime>05/25/2019 15:18:34</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/09.jpg">
+      <publishTime>05/25/2019 15:18:34</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/10.jpg">
+      <publishTime>05/25/2019 15:18:36</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/11.jpg">
+      <publishTime>05/25/2019 15:18:37</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/12.jpg">
+      <publishTime>05/25/2019 15:18:39</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/13.jpg">
+      <publishTime>05/25/2019 15:18:40</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/14.jpg">
+      <publishTime>05/25/2019 15:18:40</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/15.jpg">
+      <publishTime>05/25/2019 15:18:41</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/16.jpg">
+      <publishTime>05/25/2019 15:18:41</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/17.jpg">
+      <publishTime>05/25/2019 15:18:43</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/18.jpg">
+      <publishTime>05/25/2019 15:18:43</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/19.jpg">
+      <publishTime>05/25/2019 15:18:43</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/01.jpg">
+      <publishTime>05/25/2019 15:19:07</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/02.jpg">
+      <publishTime>05/25/2019 15:19:07</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/03.jpg">
+      <publishTime>05/25/2019 15:19:07</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/04.jpg">
+      <publishTime>05/25/2019 15:19:07</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/05.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/06.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/07.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/08.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/09.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/10.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/11.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/12.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/13.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/14.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/15.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/16.jpg">
+      <publishTime>05/25/2019 15:19:08</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/17.jpg">
+      <publishTime>05/25/2019 15:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/18.jpg">
+      <publishTime>05/25/2019 15:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-gallery/thumb/19.jpg">
+      <publishTime>05/25/2019 15:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/1.jpg">
+      <publishTime>06/22/2019 14:16:06</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/2.png">
+      <publishTime>06/22/2019 14:17:01</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/20.png">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/21.png">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/22.png">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/23.png">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/25.png">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/3.jpg">
+      <publishTime>06/22/2019 14:15:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/4.png">
+      <publishTime>06/22/2019 14:19:28</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-logo-grid/5.png">
+      <publishTime>06/22/2019 14:16:00</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-man/01.jpg">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-man/02.jpg">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-man/03.jpg">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-man/04.jpg">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-man/05.jpg">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-man/06.jpg">
+      <publishTime>05/25/2019 15:18:44</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-regular/01.jpg">
+      <publishTime>05/25/2019 15:18:45</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-regular/02.jpg">
+      <publishTime>05/25/2019 15:18:45</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-regular/03.jpg">
+      <publishTime>05/25/2019 15:18:45</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-regular/04.jpg">
+      <publishTime>05/25/2019 15:18:45</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-service/01.jpg">
+      <publishTime>05/25/2019 15:18:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-service/02.jpg">
+      <publishTime>05/25/2019 15:18:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-service/03.jpg">
+      <publishTime>05/25/2019 15:18:48</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-service/04.jpg">
+      <publishTime>05/25/2019 15:18:49</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-service/05.jpg">
+      <publishTime>05/25/2019 15:18:49</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-service/06.jpg">
+      <publishTime>05/25/2019 15:18:49</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-square/01.jpg">
+      <publishTime>05/25/2019 15:18:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-square/02.jpg">
+      <publishTime>05/25/2019 15:18:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-square/03.jpg">
+      <publishTime>05/25/2019 15:18:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-square/04.jpg">
+      <publishTime>05/25/2019 15:18:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-square/05.jpg">
+      <publishTime>05/25/2019 15:18:51</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/image-wide/01.jpg">
+      <publishTime>05/25/2019 15:18:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/logo-white.png">
+      <publishTime>05/25/2019 15:17:30</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/logo2.png">
+      <publishTime>06/04/2019 19:39:31</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/man/01.jpg">
+      <publishTime>05/25/2019 15:18:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/man/02.jpg">
+      <publishTime>05/25/2019 15:18:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/man/03.jpg">
+      <publishTime>05/25/2019 15:18:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/man/04.jpg">
+      <publishTime>05/25/2019 15:18:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/man/05.jpg">
+      <publishTime>05/25/2019 15:18:52</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/payment-icons/01.png">
+      <publishTime>05/25/2019 15:18:53</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/payment-icons/02.png">
+      <publishTime>05/25/2019 15:18:53</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/payment-icons/03.png">
+      <publishTime>05/25/2019 15:18:53</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/payment-icons/04.png">
+      <publishTime>05/25/2019 15:18:53</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/room/01.jpg">
+      <publishTime>05/25/2019 15:18:54</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/room/02.jpg">
+      <publishTime>05/25/2019 15:18:54</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/room/03.jpg">
+      <publishTime>05/25/2019 15:18:54</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-attractions/01.jpg">
+      <publishTime>05/25/2019 15:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-attractions/02.jpg">
+      <publishTime>05/25/2019 15:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-attractions/03.jpg">
+      <publishTime>05/25/2019 15:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/01.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/02.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/03.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/04.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/05.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/06.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/07.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/top-destination/08.jpg">
+      <publishTime>05/25/2019 15:18:57</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/tour/01.jpg">
+      <publishTime>05/25/2019 15:18:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/tour/02.jpg">
+      <publishTime>05/25/2019 15:18:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/tour/03.jpg">
+      <publishTime>05/25/2019 15:18:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/tour/04.jpg">
+      <publishTime>05/25/2019 15:18:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/tour/05.jpg">
+      <publishTime>05/25/2019 15:18:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/tour/06.jpg">
+      <publishTime>05/25/2019 15:18:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/train/01.jpg">
+      <publishTime>05/25/2019 15:18:58</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/train/02.jpg">
+      <publishTime>05/25/2019 15:18:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/train/03.jpg">
+      <publishTime>05/25/2019 15:18:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/train/04.jpg">
+      <publishTime>05/25/2019 15:18:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/train/05.jpg">
+      <publishTime>05/25/2019 15:18:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/images/train/06.jpg">
+      <publishTime>05/25/2019 15:18:59</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/custom-autocomplete.js">
+      <publishTime>05/25/2019 15:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/custom-contact-page.js">
+      <publishTime>05/25/2019 15:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/custom-core.js">
+      <publishTime>06/26/2019 18:33:56</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/custom-destination-map.js">
+      <publishTime>05/25/2019 15:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/custom-detail-map.js">
+      <publishTime>05/25/2019 15:19:09</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/custom-multiply-sticky.js">
+      <publishTime>05/25/2019 15:19:10</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/jquery-2.2.4.min.js">
+      <publishTime>05/25/2019 15:19:10</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/Notify.min.js">
+      <publishTime>05/28/2019 13:19:35</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/plugins.js">
+      <publishTime>06/20/2019 10:34:20</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/plugins/affix.js">
+      <publishTime>05/25/2019 15:19:10</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/plugins/infobox.js">
+      <publishTime>05/25/2019 15:19:11</publishTime>
+    </File>
+    <File Include="wwwroot/Home/js/plugins/jquery.typeahead.min.js">
+      <publishTime>05/25/2019 15:19:11</publishTime>
+    </File>
+    <File Include="wwwroot/Images/busbookingsystem-logo1.jpg">
+      <publishTime>06/04/2019 14:13:10</publishTime>
+    </File>
+    <File Include="wwwroot/Images/notimage.png">
+      <publishTime>11/14/2018 15:12:04</publishTime>
+    </File>
+    <File Include="wwwroot/js/angular.min.js">
+      <publishTime>03/12/2019 08:39:42</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap-datepicker.min.js">
+      <publishTime>05/20/2019 19:26:50</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.min.js">
+      <publishTime>11/23/2018 03:15:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/currency.js">
+      <publishTime>04/12/2019 23:31:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/ga.js">
+      <publishTime>11/23/2018 03:15:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.min.js">
+      <publishTime>11/23/2018 03:15:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/owl.carousel.min.js">
+      <publishTime>11/23/2018 03:15:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/script.js">
+      <publishTime>11/23/2018 03:15:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>04/07/2019 13:35:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>03/28/2019 11:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/calendar.html">
+      <publishTime>03/15/2019 08:52:27</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/chat.html">
+      <publishTime>03/15/2019 08:53:05</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/contact_grid.html">
+      <publishTime>03/15/2019 08:53:00</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/contact_list.html">
+      <publishTime>03/15/2019 08:52:53</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/dragdrop.html">
+      <publishTime>03/15/2019 08:53:23</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/portfolio.html">
+      <publishTime>03/15/2019 08:54:00</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/support.html">
+      <publishTime>03/15/2019 08:54:21</publishTime>
+    </File>
+    <File Include="wwwroot/pages/apps/task.html">
+      <publishTime>03/15/2019 08:54:15</publishTime>
+    </File>
+    <File Include="wwwroot/pages/charts/chartjs.html">
+      <publishTime>03/15/2019 08:54:55</publishTime>
+    </File>
+    <File Include="wwwroot/pages/charts/echart.html">
+      <publishTime>03/15/2019 08:55:01</publishTime>
+    </File>
+    <File Include="wwwroot/pages/charts/flot.html">
+      <publishTime>03/15/2019 08:55:07</publishTime>
+    </File>
+    <File Include="wwwroot/pages/charts/jquery-knob.html">
+      <publishTime>03/15/2019 08:55:14</publishTime>
+    </File>
+    <File Include="wwwroot/pages/charts/morris.html">
+      <publishTime>03/15/2019 08:55:20</publishTime>
+    </File>
+    <File Include="wwwroot/pages/charts/sparkline.html">
+      <publishTime>03/15/2019 08:55:26</publishTime>
+    </File>
+    <File Include="wwwroot/pages/dashboard/dashboard2.html">
+      <publishTime>03/15/2019 08:55:51</publishTime>
+    </File>
+    <File Include="wwwroot/pages/dashboard/dashboard3.html">
+      <publishTime>03/15/2019 08:55:44</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ecommerce/cart.html">
+      <publishTime>03/15/2019 08:56:09</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ecommerce/invoice.html">
+      <publishTime>03/15/2019 08:56:16</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ecommerce/product-detail.html">
+      <publishTime>03/15/2019 08:56:22</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ecommerce/product-list.html">
+      <publishTime>03/15/2019 08:56:28</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ecommerce/products.html">
+      <publishTime>03/15/2019 08:56:34</publishTime>
+    </File>
+    <File Include="wwwroot/pages/email/compose.html">
+      <publishTime>03/15/2019 08:58:01</publishTime>
+    </File>
+    <File Include="wwwroot/pages/email/inbox.html">
+      <publishTime>03/15/2019 08:57:54</publishTime>
+    </File>
+    <File Include="wwwroot/pages/email/view-mail.html">
+      <publishTime>03/15/2019 08:57:45</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/404.html">
+      <publishTime>03/15/2019 08:59:24</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/500.html">
+      <publishTime>03/15/2019 09:00:37</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/blank.html">
+      <publishTime>03/15/2019 09:00:32</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/faqs.html">
+      <publishTime>03/15/2019 09:00:25</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/forgot-password.html">
+      <publishTime>03/15/2019 09:00:17</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/locked.html">
+      <publishTime>03/15/2019 09:00:13</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/login-register.html">
+      <publishTime>03/15/2019 09:00:04</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/pricing.html">
+      <publishTime>03/15/2019 08:59:59</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/profile.html">
+      <publishTime>03/15/2019 08:59:53</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/sign-in.html">
+      <publishTime>03/15/2019 08:59:47</publishTime>
+    </File>
+    <File Include="wwwroot/pages/examples/sign-up.html">
+      <publishTime>03/15/2019 08:59:40</publishTime>
+    </File>
+    <File Include="wwwroot/pages/forms/advanced-form-elements.html">
+      <publishTime>03/15/2019 09:01:34</publishTime>
+    </File>
+    <File Include="wwwroot/pages/forms/basic-form-elements.html">
+      <publishTime>03/15/2019 09:01:27</publishTime>
+    </File>
+    <File Include="wwwroot/pages/forms/editors.html">
+      <publishTime>03/15/2019 09:01:21</publishTime>
+    </File>
+    <File Include="wwwroot/pages/forms/form-examples.html">
+      <publishTime>03/15/2019 09:01:14</publishTime>
+    </File>
+    <File Include="wwwroot/pages/forms/form-validation.html">
+      <publishTime>03/15/2019 09:01:09</publishTime>
+    </File>
+    <File Include="wwwroot/pages/forms/form-wizard.html">
+      <publishTime>03/15/2019 09:01:01</publishTime>
+    </File>
+    <File Include="wwwroot/pages/icons/font-awesome.html">
+      <publishTime>03/15/2019 09:02:07</publishTime>
+    </File>
+    <File Include="wwwroot/pages/icons/material-icons.html">
+      <publishTime>03/15/2019 09:02:00</publishTime>
+    </File>
+    <File Include="wwwroot/pages/maps/google.html">
+      <publishTime>03/15/2019 09:03:20</publishTime>
+    </File>
+    <File Include="wwwroot/pages/maps/jqvmap.html">
+      <publishTime>03/15/2019 09:03:10</publishTime>
+    </File>
+    <File Include="wwwroot/pages/medias/carousel.html">
+      <publishTime>03/15/2019 09:03:42</publishTime>
+    </File>
+    <File Include="wwwroot/pages/medias/image-gallery.html">
+      <publishTime>03/15/2019 09:03:37</publishTime>
+    </File>
+    <File Include="wwwroot/pages/tables/advance-tables.html">
+      <publishTime>03/15/2019 09:05:37</publishTime>
+    </File>
+    <File Include="wwwroot/pages/tables/child-row-table.html">
+      <publishTime>03/15/2019 09:05:30</publishTime>
+    </File>
+    <File Include="wwwroot/pages/tables/editable-table.html">
+      <publishTime>03/15/2019 09:05:24</publishTime>
+    </File>
+    <File Include="wwwroot/pages/tables/export-table.html">
+      <publishTime>03/15/2019 09:05:19</publishTime>
+    </File>
+    <File Include="wwwroot/pages/tables/group-table.html">
+      <publishTime>03/15/2019 09:05:13</publishTime>
+    </File>
+    <File Include="wwwroot/pages/tables/normal-tables.html">
+      <publishTime>03/15/2019 09:05:07</publishTime>
+    </File>
+    <File Include="wwwroot/pages/timeline/timeline.html">
+      <publishTime>03/15/2019 09:05:58</publishTime>
+    </File>
+    <File Include="wwwroot/pages/timeline/timeline2.html">
+      <publishTime>03/15/2019 09:05:52</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/alerts.html">
+      <publishTime>03/15/2019 09:09:10</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/animations.html">
+      <publishTime>03/15/2019 09:09:02</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/badges.html">
+      <publishTime>03/15/2019 09:08:54</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/buttons.html">
+      <publishTime>03/15/2019 09:08:46</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/cards.html">
+      <publishTime>03/15/2019 09:08:32</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/collapse.html">
+      <publishTime>03/15/2019 09:08:26</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/dialogs.html">
+      <publishTime>03/15/2019 09:08:17</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/helper-classes.html">
+      <publishTime>03/15/2019 09:08:11</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/labels.html">
+      <publishTime>03/15/2019 09:08:05</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/list-group.html">
+      <publishTime>03/15/2019 09:07:59</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/media-object.html">
+      <publishTime>03/15/2019 09:07:52</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/modal.html">
+      <publishTime>03/15/2019 09:07:46</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/notifications.html">
+      <publishTime>03/15/2019 09:07:41</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/preloaders.html">
+      <publishTime>03/15/2019 09:07:35</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/progressbars.html">
+      <publishTime>03/15/2019 09:07:29</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/range-sliders.html">
+      <publishTime>03/15/2019 09:07:24</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/sortable-nestable.html">
+      <publishTime>03/15/2019 09:07:18</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/tabs.html">
+      <publishTime>03/15/2019 09:07:12</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/typography.html">
+      <publishTime>03/15/2019 09:07:06</publishTime>
+    </File>
+    <File Include="wwwroot/pages/ui/waves.html">
+      <publishTime>03/15/2019 09:07:00</publishTime>
+    </File>
+    <File Include="wwwroot/pages/widgets/widget.html">
+      <publishTime>03/15/2019 09:09:30</publishTime>
+    </File>
+  </ItemGroup>
 </Project>

@@ -18,9 +18,9 @@ namespace DAL.Model.Tables
         [Display(Name = "Subject")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Enter {0}")]
         public string Subject { get; set; }
-        [Display(Name = "Subject")]
+        [Display(Name = "text")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Enter {0}")]
-        [MinLength(10, ErrorMessage = "{0} must more than 10 character")]
+        [MinLength(10, ErrorMessage = "{0} must more than 5 character")]
         public string Text { get; set; }
         [Display(Name = "Phone")]
         public string Phone { get; set; }
