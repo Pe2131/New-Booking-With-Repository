@@ -29,7 +29,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="wwwroot\assets\css\css\bootstrap\" />
     <Folder Include="wwwroot\assets\css\images\portfolio\" />
     <Folder Include="wwwroot\assets\css\images\slides\" />

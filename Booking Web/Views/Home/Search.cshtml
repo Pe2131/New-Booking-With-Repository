@@ -318,7 +318,7 @@
             var disabledDays = [];
             // Make  disabled day by array in below
             var enabldays = days.split(',').map(Number); // map for convert string number to int number
-            // enabldays = enabldays.map(function (val) { return --val; });
+            enabldays.forEach(function (item, i) { if (item == 7) enabldays[i] = 0; }); // beacouse days week start from 0to 6 replace 7 to 0
             console.log(enabldays);
             jQuery.grep(DaysWeek, function (el) {
                 if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
