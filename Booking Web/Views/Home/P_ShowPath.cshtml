@@ -1,0 +1,48 @@
+﻿@model List<ViewModel_PathWay>
+    <link href="~/css/StyleUserReservation.css" rel="stylesheet" />
+<table class="table table-bordered table-striped table-hover js-basic-example dataTable" style="text-align:center;">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>start Time</th>
+            <th>arrive Time</th>
+            <th>Price</th>
+            <th>Capasity</th>
+            <th>Reserv</th>
+        </tr>
+    </thead>
+    @if (Model.Any())
+    {
+        int count = 1;
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr id="@item.id-R">
+                    <th scope="row">@(count++)</th>
+                    <td>@item.GetSourceName</td>
+                    <td>@item.GetDestinationName</td>
+                    <td>@item.StartDate</td>
+                    <td>@item.ArrivalDate</td>
+                    <td>@item.PriceForAdultUro € - @item.PriceForAdultDollar $ </td>
+                    <td>
+                        @item.Capacity
+                    </td>
+                    <td>
+                        <button id="@item.id" class="btn tblActnBtn" data-toggle="modal" data-target="#exampleModalCenter">
+                            <span class="ui-icon ui-icon-check"></span>
+                        </button>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    }
+
+</table>
+<script src="~/assets/js/table.min.js"></script>
+<script src="~/assets/js/pages/tables/jquery-datatable.js"></script>

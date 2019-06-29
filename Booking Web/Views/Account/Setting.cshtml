@@ -1,0 +1,297 @@
+﻿@model Tbl_Setting
+@{
+    ViewData["Title"] = "Setting";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+
+                    </li>
+                    <li class="breadcrumb-item bcrumb-1">
+                        <a href="/Account/">
+                            <i class="fas fa-home"></i> Settings
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-2">
+                        <a href="javascript:void(0);">Manage Forms</a>
+                    </li>
+                    <li class="breadcrumb-item active">Edit Setting</li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card" style="padding:12px;">
+                            @if (TempData["Style"] != null)
+                            {
+                                <div class="@TempData["Style"]">
+                                    @TempData["Message"]
+                                </div>
+                            }
+                            <div class="header">
+                                <h2>
+                                    <strong>General Setting</strong>
+                                </h2>
+                            </div>
+                            <form asp-controller="Account" asp-action="SetSetting" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input asp-for="ID" type="hidden" name="ID" />
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+
+                                                <input asp-for="Title" name="Title" class="form-control" />
+                                                <label class="form-label" asp-for="Title"></label>
+
+                                            </div>
+                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+
+                                                <input asp-for="Slogan" name="Slogan" class="form-control" />
+                                                <label class="form-label" asp-for="Slogan"></label>
+
+                                            </div>
+                                            <span asp-validation-for="Slogan" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+
+                                                <input asp-for="Description" name="Description" class="form-control" />
+                                                <label asp-for="Description" class="form-label">About</label>
+
+                                            </div>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="file-field input-field col-6">
+                                                <div class="btn">
+                                                    <span>About image1</span>
+                                                    <input type="file" asp-for="AboutImag2" name="Image1">
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="file-field input-field col-6">
+                                                <div class="btn">
+                                                    <span>About image2</span>
+                                                    <input type="file" asp-for="AboutImag2" name="Image2">
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="Phone" name="Phone" class="form-control" />
+                                                        <label asp-for="Phone" class="form-label"></label>
+                                                    </div>
+                                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="Address" name="Address" class="form-control" />
+                                                        <label asp-for="Address" class="form-label"></label>
+
+                                                    </div>
+                                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+
+                                                <input asp-for="CopyRight" name="CopyRight" class="form-control" />
+                                                <label asp-for="CopyRight" class="form-label">Copy Right</label>
+
+                                            </div>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-top: 10px;">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="PageNumber" name="PageNumber" class="form-control" />
+                                                        <label asp-for="PageNumber" class="form-label"></label>
+                                                    </div>
+                                                    <span asp-validation-for="PageNumber" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="file-field input-field col-5">
+                                                <div class="btn">
+                                                    <span>Logo</span>
+                                                    <input type="file" asp-for="Logo" name="logo">
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="file-field input-field col-5">
+                                                <div class="btn">
+                                                    <span>Panel Logo</span>
+                                                    <input type="file" asp-for="PanelLogo" name="PanelLogo">
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header">
+                                            <h2>
+                                                <strong>Email And Sms Setting</strong>
+                                            </h2>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="Email" name="Email" class="form-control" />
+                                                        <label asp-for="Email" class="form-label"></label>
+
+                                                    </div>
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+                                                        <input asp-for="EmailPwd" name="EmailPwd" class="form-control" />
+                                                        <label asp-for="EmailPwd" class="form-label"></label>
+                                                    </div>
+                                                    <span asp-validation-for="EmailPwd" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="Smpt" name="Smpt" class="form-control" />
+                                                        <label asp-for="Smpt" class="form-label"></label>
+
+                                                    </div>
+                                                    <span asp-validation-for="Smpt" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="SmsNumber" name="SmsNumber" class="form-control" />
+                                                        <label asp-for="SmsNumber" class="form-label"></label>
+                                                    </div>
+                                                    <span asp-validation-for="SmsNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="SmsApiService" name="SmsApiService" class="form-control" />
+                                                        <label asp-for="SmsApiService" class="form-label"></label>
+                                                    </div>
+                                                    <span asp-validation-for="SmsApiService" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="form-group form-float">
+                                                    <div class="form-line">
+
+                                                        <input asp-for="SmsSecretKey" name="SmsSecretKey" class="form-control" />
+                                                        <label asp-for="SmsSecretKey" class="form-label"></label>
+                                                    </div>
+                                                    <span asp-validation-for="SmsSecretKey" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header">
+                                            <h2>
+                                                <strong>Contact Us Setting</strong>
+                                            </h2>
+                                        </div>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+
+                                                <textarea rows="5" asp-for="ContactUs" name="ContactUs" class="form-control"></textarea>
+                                                <label asp-for="ContactUs" class="form-label"></label>
+                                            </div>
+                                            <span asp-validation-for="ContactUs" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="header">
+                                            <h2>
+                                                <strong>Social Media</strong>
+                                            </h2>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-float col-6">
+                                                <div class="form-line">
+                                                    <input asp-for="instagrm" class="form-control" name="instagrm">
+                                                    <label asp-for="instagrm" class="form-label">Instagram</label>
+                                                </div>
+                                                <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+                                            </div>
+                                            <div class="form-group form-float col-6">
+                                                <div class="form-line">
+                                                    <input asp-for="facebook" class="form-control" name="facebook">
+                                                    <label asp-for="facebook" class="form-label">facebook</label>
+                                                </div>
+                                                <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-float col-6">
+                                                <div class="form-line">
+                                                    <input asp-for="linkedin" class="form-control" name="linkedin">
+                                                    <label asp-for="linkedin" class="form-label">linked in</label>
+                                                </div>
+                                                <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+                                            </div>
+                                            <div class="form-group form-float col-6">
+                                                <div class="form-line">
+                                                    <input asp-for="twitter" class="form-control" name="twitter">
+                                                    <label asp-for="twitter" class="form-label">twitter</label>
+                                                </div>
+                                                <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-success waves-effect">
+                                            <i class="material-icons">save</i>
+                                            <span>Save</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

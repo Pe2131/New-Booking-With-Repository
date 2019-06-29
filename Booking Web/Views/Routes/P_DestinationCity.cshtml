@@ -1,0 +1,9 @@
+﻿@model List<ViewModel_City>
+            <option></option>
+            @if (Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            }

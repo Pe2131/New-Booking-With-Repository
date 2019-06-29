@@ -1,0 +1,43 @@
+﻿@model ViewModel_User
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="font-size:16px;font-weight:bold;">@Model.FullName</div>
+        <div class="col-md-6">
+            @if (Model.image != null)
+            {
+                <img style="width:70px;height:70px; border-radius:50%;margin-left:110px;margin-top:-27px;" src="~/Files/Images/Users/@Model.image" />
+
+            }
+            else
+            {
+                <img style="width:70px;height:70px; border-radius:50%;margin-left:110px;margin-top:-27px;" src="~/Files/Images/Users/User.png" />
+
+            }
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:20px !important;margin-top:20px;">
+        <div class="col-md-6" style="text-align:left;">@Model.Email</div>
+        <div class="col-md-6" style="text-align:right;">@Model.Mobile</div>
+    </div>
+    <div class="row" style="margin-bottom:20px !important;">
+        <div class="col-3" style="text-align:left;font-weight:bold;">
+          Address:
+        </div>
+        <div class="col-9" style="text-align:right;">
+            @Model.Country - @Model.City -@Model.Address
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:10px;">
+        <div class="col-sm-6" style="text-align:left;">
+            <span style="font-weight:bold;">Roles:</span>
+            @foreach (var item in Model.RoleNames)
+            {
+                <span>@item</span>
+            }
+        </div>
+        <div class="col-sm-6" style="text-align:right;">
+            <span style="font-weight:bold;">Sex:</span>
+            @Model.GetSex()
+        </div>
+    </div>
+</div>

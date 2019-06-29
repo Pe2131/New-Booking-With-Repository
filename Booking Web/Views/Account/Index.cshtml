@@ -1,0 +1,259 @@
+﻿@model ViewModel_User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@if (ViewBag.index == 1)
+{
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Profile</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a href="/Account/Index">
+                                <i class="fas fa-home"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Your content goes here  -->
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12" style="margin-left:29%;">
+                <div class="card">
+                    <div class="m-b-20">
+                        <div class="contact-grid">
+                            <div class="profile-header bg-dark">
+                                <div class="user-name">@Model.FullName</div>
+                                <div class="name-center">
+                                    @foreach (var item in Model.RoleNames)
+                                    {
+                                    <span> @item </span>
+                                    }
+                                </div>
+                            </div>
+                            @if (Model.image != null)
+                            {
+                                <img src="~/Files/Images/Users/@Model.image" class="user-img" alt="">
+                            }
+                            else
+                            {
+                                <img src="~/Files/Images/Users/User.png" class="user-img" alt="">
+                            }
+                            <p>
+                                @Model.Address
+                                <br />@Model.City
+                            </p>
+                            <div>
+                                <span class="phone">
+                                    <i class="material-icons">phone</i>@Model.Mobile
+                                </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="Account/UserInfo" class="btn-hover color-7" style="width:180px;padding:10px;color:#fff">Edit your information</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Profile</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a href="../../index.html">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active">Information</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    @if (TempData["Style"] != null)
+                    {
+                        <div class="@TempData["Style"]">
+                            @TempData["Message"]
+                        </div>
+                    }
+                    <div class="alert alert-warning alert-dismissible" role="alert" style="text-align:center;">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        you must complete your information of profile
+                    </div>
+                    <div class="header">
+                        <h2>
+                            <strong> Information Form</strong>
+                        </h2>
+                    </div>
+                    <form asp-controller="Account" asp-action="SubmitInfo" method="post" enctype="multipart/form-data" style="padding:15px;">
+                        <div class="row">
+
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="FullName" asp-for="FullName" class="form-control">
+                                            <label class="form-label" asp-for="FullName">Full Name</label>
+                                        </div>
+                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="Mobile" asp-for="Mobile" id="mobile" onchange="return checkMobile()" class="form-control">
+                                            <label class="form-label" asp-for="Mobile">Mobile</label>
+                                        </div>
+                                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                                        <span class="text-danger" id="mobileexict" hidden>this number is exicted</span>
+                                    </div>
+                                    <div class="preloader pl-size-xs" id="loader" hidden>
+                                        <div class="spinner-layer pl-red-grey">
+                                            <div class="circle-clipper left">
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="circle-clipper right">
+                                                <div class="circle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="form-group form-float col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-line">
+                                                <input type="text" name="Country" asp-for="Country" class="form-control">
+                                                <label class="form-label" asp-for="Country">Country</label>
+                                            </div>
+                                            <span asp-validation-for="Country" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group form-float col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-line">
+                                                <input type="text" name="City" asp-for="City" class="form-control">
+                                                <label class="form-label" asp-for="City">City</label>
+                                            </div>
+                                            <span asp-validation-for="City" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="Address" asp-for="Address" class="form-control">
+                                            <label class="form-label" asp-for="Address">Address</label>
+                                        </div>
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                                <div class="file-field input-field">
+                                    <div class="col-md-8">
+                                        <div class="btn">
+                                            <span>File</span>
+                                            <input type="file" name="Image" onchange="ShowPreview(this)">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <label class="form-label" asp-for="Sex">Sex</label>
+                                        <div class="switch">
+                                            <label>
+                                                Male
+                                                <input type="checkbox" checked="" asp-for="Sex">
+                                                <span class="lever"></span>Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ccol-lg-4 col-md-4 col-sm-4 col-xs-4 pull-right">
+                                <img id="ImgPrev" style="width:323px;height:168px;" src="~/Images/notimage.png" />
+                            </div>
+
+                        </div>
+                        <button type="submit" id="btnsave" class="btn btn-success waves-effect">
+                            <i class="material-icons">save</i>
+                            <span>Save</span>
+                        </button>
+                        <a href="/City/" class="btn btn-info waves-effect">
+                            <i class="material-icons">arrow_back</i>
+                            <span>Back</span>
+                        </a>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        function ShowPreview(input) {
+            if (input.files && input.files[0]) {
+                var ImageDir = new FileReader();
+                ImageDir.onload = function (e) {
+                    $('#ImgPrev').attr('src', e.target.result);
+                }
+                ImageDir.readAsDataURL(input.files[0]);
+            }
+        }
+            //---------Check Mobile -----------------//
+     function checkMobile() {
+         $('#loader').prop("hidden", false);
+        $.post("@Url.Action("CheckMobileExist","Account")",
+            {
+                Mobile: $("#mobile").val()
+
+            },
+            function (data) {
+                if (data == 0) {
+                    $('#Mobile').css("border-color", "Green");
+                    $('#btnsave').prop("disabled", false);
+                    $('#loader').prop("hidden", true);
+                    $('#mobileexict').prop("hidden", true);
+
+                } else {
+                    $('#MobileModal').css("border-color", "red");
+                    $('#btnsave').prop("disabled", true);
+                    $('#loader').prop("hidden", true);
+                    $('#mobileexict').prop("hidden", false);
+                }
+
+            });
+
+    }
+    </script>
+}

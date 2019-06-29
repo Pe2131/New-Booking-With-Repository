@@ -1,0 +1,155 @@
+﻿@model List<Tbl_Weblog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title">Blogs</h4>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-1">
+                        <a href="/Weblog">
+                            <i class="fas fa-home"></i> Blog & News
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-2">
+                        <a href="javascript:void(0);">Weblog</a>
+                    </li>
+                    <li class="breadcrumb-item active">Blogs</li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row clearfix js-sweetalert">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            @if (TempData["Style"] != null)
+                            {
+                                <div class="@TempData["Style"]">
+                                    @TempData["Message"]
+                                </div>
+                            }
+                            <div class="header">
+                                <h2 class="co-md-6 col-lg-6">
+                                    <strong>Blogs List</strong>
+                                </h2>
+                                <a href="/Weblog/Create" class="btn btn-success waves-effect" style="float:right;">
+                                    <i class="material-icons">add</i>
+                                    <span>Add</span>
+                                </a>
+
+                            </div>
+                            <div class="body table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" style="text-align:center;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>title</th>
+                                            <th>Author</th>
+                                            <th>Description</th>
+                                            <th>Is News</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    @if (Model.Any())
+                                    {
+                                        int count = 1;
+
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                            <tr id="@item.id-R">
+                                                <th scope="row">@(count++)</th>
+                                                <td>@item.Title</td>
+                                                <td>@item.Authore</td>
+                                                @if (item.Description.Length > 200)
+                                                {
+                                                    <td>@Html.Raw(item.Description.Substring(0, 199))</td>
+
+                                                }
+                                                else
+                                                {
+                                                    <td>@Html.Raw(item.Description)</td>
+                                                }
+                                            <td>
+                                                @if (item.isnews == true)
+                                                {
+                                                    <label>
+                                                        <input type="checkbox" checked="checked" disabled="disabled">
+                                                        <span></span>
+                                                    </label>
+                                                }
+                                            </td>
+                                                <td><img src="~/Files/Images/Weblog/@item.image" style="width:200px;" alt="@item.Title" /></td>
+                                                <td>
+                                                    <a href="/Weblog/Edit/@item.id" class="btn tblActnBtn">
+                                                        <i class="material-icons">mode_edit</i>
+                                                    </a>
+
+                                                    <a id="@item.id" class="btn tblActnBtn" onclick="showConfirmMessage(this)">
+                                                        <i class="material-icons">delete</i>
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+                                            }
+
+                                        </tbody>
+                                    }
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Your content goes here  -->
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/assets/js/table.min.js"></script>
+    <script src="~/assets/js/pages/tables/jquery-datatable.js"></script>
+    <script>
+        function Delete(id) {
+            var id = id;
+            $.post("@Url.Action("Delete", "Weblog")",
+                {
+                    id: id
+                },
+                function (data) {
+                    if (data == 0) {
+                        swal("Not Deleted!", "this record has not been deleted.", "error");
+                    }
+                    if (data == 1) {
+                        swal("Deleted!", "this record has been deleted.", "success");
+                        $('#' + id +'-R').hide();
+                    }
+
+                });
+
+        }
+
+        function showConfirmMessage(input) {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this record",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                var id = input.getAttribute('id');
+                Delete(id);
+            });
+        }
+    </script>
+}
+
+
