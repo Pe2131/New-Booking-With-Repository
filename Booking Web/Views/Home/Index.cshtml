@@ -52,7 +52,7 @@
                                                                     <option></option>
                                                                     @foreach (var item in Model.cities)
                                                                     {
-                                                                        <option value="@item.Id">@item.Name</option>
+                                                                    <option value="@item.Id">@item.Name</option>
                                                                     }
                                                                 </select>
                                                             </div>
@@ -78,7 +78,7 @@
                                                                         <label>Тръгване</label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-calendar"></i></span>
-                                                                            <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date" autocomplete="off" required>
+                                                                            <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="дд/мм/гггг" name="date" autocomplete="off" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -93,10 +93,28 @@
                                                             <div class="row gap-5">
                                                                 <div class="col-4">
                                                                     <div class="form-group form-spin-group">
-                                                                        <label for="room-amount"> Възрастен <small class="text-muted font10 line-1">(12-75)</small></label>
+                                                                        <label for="room-amount"> Възрастен <small class="text-muted font10 line-1"></small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
                                                                             <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="adult" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group form-spin-group">
+                                                                        <label for="room-amount">Пенсионер <small class="text-muted font10 line-1"></small></label>
+                                                                        <div class="form-icon-left">
+                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="retired" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group form-spin-group">
+                                                                        <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
+                                                                        <div class="form-icon-left">
+                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -127,28 +145,20 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-4">
-                                                                    <div class="form-group form-spin-group">
-                                                                        <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
-                                                                        <div class="form-icon-left">
-                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                @*<div class="col-8" style=" padding-top: 25px;padding-left: 22px;">
-                                                               
-                                                                        <div class="custom-control custom-radio  custom-control-inline">
-                                                                            <input type="radio" id="flightSearchRadio-2" name="flightSearchRadio" class="custom-control-input">
-                                                                            <label class="custom-control-label" for="flightSearchRadio-2">One-way</label>
-                                                                        </div>
 
-                                                                        <div class="custom-control custom-radio  custom-control-inline">
-                                                                            <input type="radio" id="flightSearchRadio-3" name="flightSearchRadio" class="custom-control-input">
-                                                                            <label class="custom-control-label" for="flightSearchRadio-3">Multicities</label>
-                                                                        </div>
-                                                                    
-                                                                </div>*@
+                                                                @*<div class="col-8" style=" padding-top: 25px;padding-left: 22px;">
+
+                                                                            <div class="custom-control custom-radio  custom-control-inline">
+                                                                                <input type="radio" id="flightSearchRadio-2" name="flightSearchRadio" class="custom-control-input">
+                                                                                <label class="custom-control-label" for="flightSearchRadio-2">One-way</label>
+                                                                            </div>
+
+                                                                            <div class="custom-control custom-radio  custom-control-inline">
+                                                                                <input type="radio" id="flightSearchRadio-3" name="flightSearchRadio" class="custom-control-input">
+                                                                                <label class="custom-control-label" for="flightSearchRadio-3">Multicities</label>
+                                                                            </div>
+
+                                                                    </div>*@
                                                             </div>
                                                         </div>
                                                     </div>
@@ -219,32 +229,32 @@
             @foreach (var item in Model.cities.Where(a => a.ShowInSlider == true))
             {
 
-                <div class="col-6 col-lg-3">
+            <div class="col-6 col-lg-3">
 
-                    <figure class="image-caption-01">
+                <figure class="image-caption-01">
 
-                        <a>
+                    <a>
 
-                            <div class="image overlay-relative caption-relative">
-                                <img src="~/Files/Images/Citis/@item.Image" alt="@item.Name" style="width:253px;height:253px;">
-                                <div class="overlay-holder opacity-2"></div>
-                                <figcaption class="caption-holder">
-                                    <div class="caption-inner caption-middle text-center">
-                                        <h5>@item.Name</h5>
+                        <div class="image overlay-relative caption-relative">
+                            <img src="~/Files/Images/Citis/@item.Image" alt="@item.Name" style="width:253px;height:253px;">
+                            <div class="overlay-holder opacity-2"></div>
+                            <figcaption class="caption-holder">
+                                <div class="caption-inner caption-middle text-center">
+                                    <h5>@item.Name</h5>
 
-                                    </div>
-                                </figcaption>
-                            </div>
+                                </div>
+                            </figcaption>
+                        </div>
 
-                        </a>
+                    </a>
 
-                    </figure>
+                </figure>
 
-                </div>
+            </div>
 
             }
         </div>
-        <div class="section-title text-center" style="margin-top: 80px;margin-bottom: 20px;">
+        @*<div class="section-title text-center" style="margin-top: 80px;margin-bottom: 20px;">
 
             <h2>Блог и новини</h2>
 
@@ -266,34 +276,34 @@
                                             @*<span class="item-highlight text-secondary">
                                                     Save up to<span>35%</span>
                                                 </span>*@
+        @*</div>
+                                            @if (item.isnews)
+                                            {
+                                                <div>
+                                                    <span class="item-expire">News</span>
+                                                </div>
+                                            }
+
                                         </div>
-                                        @if (item.isnews)
-                                        {
-                                            <div>
-                                                <span class="item-expire">News</span>
-                                            </div>
-                                        }
 
-                                    </div>
+                                        <p style="font-size:20px;">@item.Title</p>
+                                        <span class="act-as-btn text-secondary">Разгледайте още...<i class="material-icons">arrow_forward</i></span>
+                                    </figcaption>
+                                    <a href="~/Home/Blog/@item.id" class="position-absolute-href"></a>
+                                </figure>
 
-                                    <p style="font-size:20px;">@item.Title</p>
-                                    <span class="act-as-btn text-secondary">Разгледайте още...<i class="material-icons">arrow_forward</i></span>
-                                </figcaption>
-                                <a href="~/Home/Blog/@item.id" class="position-absolute-href"></a>
-                            </figure>
+                            </div>
+                        }
 
-                        </div>
-                    }
+
+                    </div>
+
+                    <div class="mb-80"></div>
+
 
 
                 </div>
-
-                <div class="mb-80"></div>
-
-
-
-            </div>
-        </div>
+            </div>*@
 
     </div>
 
@@ -341,8 +351,10 @@
             var countbaybe2 = parseInt($('#child2').val());
             var countbaybe7 = parseInt($('#child7').val());
             var student = parseInt($('#student').val());
-            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student;
+            var retired = parseInt($('#retired').val());
+            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
             $('#count').val(count);
+            $('#student').val(student + retired);
         }
         function GetDestination() {
             var id = $('#FromCity').val();
