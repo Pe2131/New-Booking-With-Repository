@@ -334,5 +334,19 @@ namespace Booking_Web.Controllers
 
             return Redirect(Request.Headers["Referer"].ToString());
         }
+        public IActionResult Pay(ViewModel_Prepay model)
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception e)
+            {
+                ErrorViewModel error = new ErrorViewModel();
+                error.ErrorTitle = "Error";
+                error.ErrorMassage = e.Message;
+                return View("Error", error);
+            }
+        }
     }
 }

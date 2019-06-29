@@ -3,145 +3,149 @@
     ViewData["Title"] = "Prepay";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="page-wrapper page-payment bg-light">
+    <div class="page-wrapper page-payment bg-light">
 
-    <div class="container">
-        <div class="success-box">
+        <div class="container">
+            <div class="success-box">
 
-            <div class="icon">
+                <div class="icon">
 
-                <span><i class="ri ri-check-square"></i></span>
+                    <span><i class="ri ri-check-square"></i></span>
+
+                </div>
+
+                <div class="content">
+                    <h4>Great choice! You’re just 1 minute away from booking. </h4>
+
+                </div>
 
             </div>
+            <div class="content-wrapper pt-30 pb-30 bg-white-shadow">
 
-            <div class="content">
-                <h4>Great choice! You’re just 1 minute away from booking. </h4>
+                <h3 class="heading-title"><span>Traveller Information</span></h3>
+
+                <ul class="confirmation-list">
+                    <li class="clearfix">
+                        <span class="font-weight-bold">Booking number:</span>
+                        <span>-</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="font-weight-bold">full name:</span>
+                        <span>@Model.Fullname</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="font-weight-bold">Mobile:</span>
+                        <span>@Model.Mobile</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="font-weight-bold">E-mail:</span>
+                        <span>@Model.Email</span>
+                    </li>
+                    @if (ViewBag.AdultName != null)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">Adult Name:</span>
+                            <span>@ViewBag.AdultName</span>
+                        </li>
+                    }
+                    @if (ViewBag.Childname != null)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">Child Name:</span>
+                            <span>@ViewBag.Childname</span>
+                        </li>
+                    }
+                    @if (ViewBag.Child2name != null)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">Child (2-7):</span>
+                            <span>@ViewBag.Child2name</span>
+                        </li>
+                    }
+                    @if (ViewBag.Child7name != null)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">Childe(7-12):</span>
+                            <span>@ViewBag.Child7name</span>
+                        </li>
+                    }
+                    @if (ViewBag.student != null)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">Studetn or retirs:</span>
+                            <span>@ViewBag.student</span>
+                        </li>
+                    }
+                    <li class="clearfix">
+                        <span class="font-weight-bold">passenger count:</span>
+                        <span>@Model.sumcount</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="font-weight-bold">date:</span>
+                        <span>@Model.tripDate</span>
+                    </li>
+                </ul>
+
+                <div class="mb-40"></div>
+
+                <h3 class="heading-title"><span>Payment</span></h3>
+                <ul class="confirmation-list">
+                    @if (Model.adultcount > 0)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">Adult:</span>
+                            <span>@Model.adultcount</span>
+                        </li>
+                    }
+                    @if (Model.childcount > 0)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">child:</span>
+                            <span>@Model.childcount &nbsp; (100%) </span>
+                        </li>
+                    }
+                    @if (Model.child2count > 0)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">child(2-7):</span>
+                            <span>@Model.child2count &nbsp; (50%) </span>
+                        </li>
+                    }
+                    @if (Model.child7count > 0)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">child(7-12):</span>
+                            <span>@Model.child7count &nbsp; (30%) </span>
+                        </li>
+                    }
+                    @if (Model.child7count > 0)
+                    {
+                        <li class="clearfix">
+                            <span class="font-weight-bold">Student(7-12):</span>
+                            <span>@Model.student &nbsp; (10%) </span>
+                        </li>
+                    }
+                    <li class="clearfix">
+                        <span class="font-weight-bold">Total Price:</span>
+                        <span>@Model.sumprice</span>
+                    </li>
+                </ul>
+
+                <div class="clear"></div>
+
+                <h3 class="heading-title"><span>Other Information</span></h3>
+
+                <div class="clear"></div>
+
+                <p>Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of.</p>
+
+                <p class="text-uppercase text-secondary font600">Year kept on over so as this of.</p>
 
             </div>
 
         </div>
-        <div class="content-wrapper pt-30 pb-30 bg-white-shadow">
-
-            <h3 class="heading-title"><span>Traveller Information</span></h3>
-
-            <ul class="confirmation-list">
-                <li class="clearfix">
-                    <span class="font-weight-bold">Booking number:</span>
-                    <span>-</span>
-                </li>
-                <li class="clearfix">
-                    <span class="font-weight-bold">full name:</span>
-                    <span>@Model.Fullname</span>
-                </li>
-                <li class="clearfix">
-                    <span class="font-weight-bold">Mobile:</span>
-                    <span>@Model.Mobile</span>
-                </li>
-                <li class="clearfix">
-                    <span class="font-weight-bold">E-mail:</span>
-                    <span>@Model.Email</span>
-                </li>
-                @if (ViewBag.AdultName != null)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">Adult Name:</span>
-                        <span>@ViewBag.AdultName</span>
-                    </li>
-                }
-                @if (ViewBag.Childname != null)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">Child Name:</span>
-                        <span>@ViewBag.Childname</span>
-                    </li>
-                }
-                @if (ViewBag.Child2name != null)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">Child (2-7):</span>
-                        <span>@ViewBag.Child2name</span>
-                    </li>
-                }
-                @if (ViewBag.Child7name != null)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">Childe(7-12):</span>
-                        <span>@ViewBag.Child7name</span>
-                    </li>
-                }
-                @if (ViewBag.student != null)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">Studetn or retirs:</span>
-                        <span>@ViewBag.student</span>
-                    </li>
-                }
-                <li class="clearfix">
-                    <span class="font-weight-bold">passenger count:</span>
-                    <span>@Model.sumcount</span>
-                </li>
-                <li class="clearfix">
-                    <span class="font-weight-bold">date:</span>
-                    <span>@Model.tripDate</span>
-                </li>
-            </ul>
-
-            <div class="mb-40"></div>
-
-            <h3 class="heading-title"><span>Payment</span></h3>
-            <ul class="confirmation-list">
-                @if (Model.adultcount > 0)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">Adult:</span>
-                        <span>@Model.adultcount</span>
-                    </li>
-                }
-                @if (Model.childcount > 0)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">child:</span>
-                        <span>@Model.childcount &nbsp; (100%) </span>
-                    </li>
-                }
-                @if (Model.child2count > 0)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">child(2-7):</span>
-                        <span>@Model.child2count &nbsp; (50%) </span>
-                    </li>
-                }
-                @if (Model.child7count > 0)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">child(7-12):</span>
-                        <span>@Model.child7count &nbsp; (30%) </span>
-                    </li>
-                }
-                @if (Model.child7count > 0)
-                {
-                    <li class="clearfix">
-                        <span class="font-weight-bold">Student(7-12):</span>
-                        <span>@Model.student &nbsp; (10%) </span>
-                    </li>
-                }
-                <li class="clearfix">
-                    <span class="font-weight-bold">Total Price:</span>
-                    <span>@Model.sumprice</span>
-                </li>
-            </ul>
-
-            <div class="clear"></div>
-
-            <h3 class="heading-title"><span>Other Information</span></h3>
-
-            <div class="clear"></div>
-
-            <p>Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of.</p>
-
-            <p class="text-uppercase text-secondary font600">Year kept on over so as this of.</p>
-
-        </div>
-
+        <form asp-action="Pay" asp-controller="Home" method="post">
+          
+            <button type="submit" class="btn btn-primary mt-20">Confirm<i class="fa fa-long-arrow-right"></i></button>
+        </form>
     </div>
-</div>
