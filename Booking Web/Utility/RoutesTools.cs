@@ -82,13 +82,13 @@ namespace Booking_Web.Utility
                 if (twoWay == false)
                 {
                     decimal totalPrice = count * route.Price;
-                    decimal totalDiscounts = (adult * route.Price) + (child * route.Price * (DiscountSetting.ForChild0 / 100)) + (child2 * route.Price * (DiscountSetting.ForChild2 / 100)) + (child7 * route.Price * (DiscountSetting.ForChild7 / 100)) + (student * route.Price * (DiscountSetting.forStudent / 100));
+                    decimal totalDiscounts = (child * route.Price * (DiscountSetting.ForChild0 / 100)) + (child2 * route.Price * (DiscountSetting.ForChild2 / 100)) + (child7 * route.Price * (DiscountSetting.ForChild7 / 100)) + (student * route.Price * (DiscountSetting.forStudent / 100));
                     return totalPrice - totalDiscounts;
                 }
                 else
                 {
                     decimal totalPrice = count * route.twoWayPrice;
-                    decimal totalDiscounts = (adult * route.twoWayPrice) + (child * route.twoWayPrice * (DiscountSetting.ForChild0 / 100)) + (child2 * route.twoWayPrice * (DiscountSetting.ForChild2 / 100)) + (child7 * route.twoWayPrice * (DiscountSetting.ForChild7 / 100)) + (student * route.twoWayPrice * (DiscountSetting.forStudent / 100));
+                    decimal totalDiscounts = (child * route.twoWayPrice * (DiscountSetting.ForChild0 / 100)) + (child2 * route.twoWayPrice * (DiscountSetting.ForChild2 / 100)) + (child7 * route.twoWayPrice * (DiscountSetting.ForChild7 / 100)) + (student * route.twoWayPrice * (DiscountSetting.forStudent / 100));
                     return totalPrice - totalDiscounts;
                 }
             }
