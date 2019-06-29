@@ -49,10 +49,15 @@
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
                                                                 <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()" required>
-                                                                    <option></option>
-                                                                    @foreach (var item in Model.cities)
+                                                                    @foreach (var item in Model.Countries)
                                                                     {
-                                                                    <option value="@item.Id">@item.Name</option>
+                                                                        <optgroup label="@item.Name">
+                                                                            <option></option>
+                                                                            @foreach (var item2 in Model.cities.Where(a=>a.Country_FG==item.Id))
+                                                                            {
+                                                                                <option value="@item2.Id">@item2.Name</option>
+                                                                            }
+                                                                        </optgroup>
                                                                     }
                                                                 </select>
                                                             </div>
@@ -229,28 +234,28 @@
             @foreach (var item in Model.cities.Where(a => a.ShowInSlider == true))
             {
 
-            <div class="col-6 col-lg-3">
+                <div class="col-6 col-lg-3">
 
-                <figure class="image-caption-01">
+                    <figure class="image-caption-01">
 
-                    <a>
+                        <a>
 
-                        <div class="image overlay-relative caption-relative">
-                            <img src="~/Files/Images/Citis/@item.Image" alt="@item.Name" style="width:253px;height:253px;">
-                            <div class="overlay-holder opacity-2"></div>
-                            <figcaption class="caption-holder">
-                                <div class="caption-inner caption-middle text-center">
-                                    <h5>@item.Name</h5>
+                            <div class="image overlay-relative caption-relative">
+                                <img src="~/Files/Images/Citis/@item.Image" alt="@item.Name" style="width:253px;height:253px;">
+                                <div class="overlay-holder opacity-2"></div>
+                                <figcaption class="caption-holder">
+                                    <div class="caption-inner caption-middle text-center">
+                                        <h5>@item.Name</h5>
 
-                                </div>
-                            </figcaption>
-                        </div>
+                                    </div>
+                                </figcaption>
+                            </div>
 
-                    </a>
+                        </a>
 
-                </figure>
+                    </figure>
 
-            </div>
+                </div>
 
             }
         </div>
@@ -365,6 +370,7 @@
                 type: "Get",
                 cache: false,
                 success: function (data) {
+                    console.log(data);
                     $('#To').append(data);
                     $('#To').trigger("chosen:updated"); // for update select that is credential
                 }
