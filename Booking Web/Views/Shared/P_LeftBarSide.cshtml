@@ -1,0 +1,235 @@
+﻿@{
+    UnitOfWork Db = new UnitOfWork();
+    var user = Db.UserRepository.Get(a => a.Email == User.Identity.Name).SingleOrDefault();
+}
+@if (User.IsInRole("Admin"))
+{
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="sidebar-user-panel active">
+                    <div class="user-panel">
+                        <div class=" image">
+                            <img src="~/Images/busbookingsystem-logo1.jpg" class="img-circle user-img-circle" alt="User Image" />
+                        </div>
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-job " style="font-size:21px;color:#5d5e67;">Manager </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="/Account">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Country/">
+                        <i class="fas fa-flag"></i>
+                        <span>Countries</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/City/">
+                        <i class="fab fa-houzz"></i>
+                        <span>Cities</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Discount/">
+                        <i class="fas fa-money-check-alt"></i>
+                        <span>Discounts & Copouns</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/PathWay/">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Routes</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Account/GetUsers">
+                        <i class="fas fa-user-alt"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Account/GetAgents">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Agents</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="fas fa-user-check"></i>
+                        <span>Reservation</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/Reservation/">
+                                <i class="fas fa-check-double"></i>
+                                <span>New Ticket</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Reservation/ManageReservs">
+                                <i class="fas fa-list-ol"></i>
+                                <span>Sold Tickets</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/Payment">
+                        <i class="fab fa-cc-amazon-pay"></i>
+                        <span>Payment setting</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Report">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Account/GetNewsletterMail">
+                        <i class="fas fa-newspaper"></i>
+                        <span>NewsLetter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/ContactUs">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Weblog">
+                        <i class="fas fa-edit"></i>
+                        <span>Blog & News</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="fas fa-cogs"></i>
+                        <span>Settings</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/Account/Setting">
+                                <i class="fas fa-cogs"></i>
+                                <span>Site setting</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Account/ApiSetting">
+                                <i class="fas fa-cogs"></i>
+                                <span>Api setting</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+    </aside>
+}
+else if (User.IsInRole("Agent"))
+{
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="sidebar-user-panel active">
+                    <div class="user-panel">
+                        <div class=" image">
+                            @if (user.Image != null)
+                            {
+                                <img src="~/Files/Images/Users/@user.Image" class="img-circle user-img-circle" alt="User Image" />
+
+                            }
+                            else
+                            {
+                                <img src="~/Files/Images/Users/User.png" class="img-circle user-img-circle" alt="User Image" />
+                            }
+                        </div>
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="sidebar-userpic-name">@user.FullName</div>
+                        <div class="profile-usertitle-job ">Agent</div>
+                    </div>
+                </li>
+                <li>
+                    <a href="/Reservation/">
+                        <i class="fas fa-check-double"></i>
+                        <span>Sell Ticket</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Reservation/ManageReservs">
+                        <i class="fas fa-list-ol"></i>
+                        <span>Sold Tickets</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Reservation/Accounting">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+    </aside>
+}
+else
+{
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="sidebar-user-panel active">
+                    <div class="user-panel">
+                        <div class=" image">
+                            @if (user.Image != null)
+                            {
+                                <img src="~/Files/Images/Users/@user.Image" class="img-circle user-img-circle" alt="User Image" />
+
+                            }
+                            else
+                            {
+                                <img src="~/Files/Images/Users/User.png" class="img-circle user-img-circle" alt="User Image" />
+                            }
+                        </div>
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="sidebar-userpic-name">@user.FullName</div>
+                        <div class="profile-usertitle-job ">User</div>
+                    </div>
+                </li>
+                @*
+                    <li>
+                        <a href="/Account">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>*@
+                <li>
+                    <a href="/Reservation/">
+                        <i class="fas fa-check-double"></i>
+                        <span>Reserve Path</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Reservation/ManageReservs">
+                        <i class="fas fa-list-ol"></i>
+                        <span>Sold Tickets</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+    </aside>
+}

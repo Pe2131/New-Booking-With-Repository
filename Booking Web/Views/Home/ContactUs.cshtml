@@ -1,0 +1,147 @@
+﻿@model Tbl_Setting
+@{
+    ViewData["Title"] = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-title-02 bg-primary text-center">
+    <div class="container">
+        <h2 style="font-weight:700;">Контакти</h2>
+        <p class="font-lg">Изпратете ни Вашето съобщение</p>
+    </div>
+</div>
+<div class="page-wrapper bg-light pv-80">
+
+    <div class="container">
+        @if (TempData["Success"] != null)
+        {
+            <div class="success-box">
+
+                <div class="icon">
+
+                    <span><i class="ri ri-check-square"></i></span>
+
+                </div>
+
+                <div class="content">
+                    <h4>@TempData["Message"]</h4>
+                </div>
+            </div>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-warning pt-10 pb-10 mb-30" role="alert">
+                <i class="fas fa-info-circle mr-5"></i>
+                @TempData["Message"]
+            </div>
+        }
+        <div class="row gap-40">
+
+            <div class="col-12 col-lg-8">
+
+                <div class="section-title">
+                    <h3>Свържете се с нас</h3>
+                </div>
+
+                <form  asp-controller="Home" asp-action="ContactUs" method="post">
+
+                    <div class="contact-successful-messages"></div>
+
+                    <div class="contact-inner">
+
+                        <div class="row gap-20 gap-lg-30 mb-20">
+                            <div class="col-6">
+                                <div class="form-group mb-0 has-error has-danger">
+                                    <label for="form_name">Вашето име *</label>
+                                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Моля, въведете пълното си име*" required="required" data-error="Name is required.">
+                                    <div class="help-block with-errors text-danger"><ul class="list-unstyled"><li>Име</li></ul></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group mb-0 has-error has-danger">
+                                    <label for="form_email">Вашият имейл *</label>
+                                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Моля, въведете имейла си *" required="required" data-error="Valid email is required.">
+                                    <div class="help-block with-errors text-danger"><ul class="list-unstyled"><li>Имейл адрес</li></ul></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group mb-0">
+                                    <label for="form_phone">Телефон</label>
+                                    <input id="form_phone" type="tel" name="Phone" class="form-control" placeholder=" Моля, въведете телефона си">
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group mb-0 has-error has-danger">
+                                    <label for="form_subject">Тема *</label>
+                                    <input id="form_subject" type="text" name="Subject" class="form-control" placeholder="Изисква се тема *" required="required" data-error="Subject is required.">
+                                    <div class="help-block with-errors text-danger"><ul class="list-unstyled"><li> Изисква се тема</li></ul></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group mb-0">
+                                    <label for="form_message">Съобщение *</label>
+                                    <textarea id="form_message" name="text" class="form-control" placeholder="Твоето съобщение:*" rows="6" required="required" data-error="Please,leave us a message."></textarea>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-send disabled">Изпрати</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="col-12 col-lg-4">
+
+                <div class="section-title">
+                    <h3>Данни за контакт</h3>
+                </div>
+
+                <ul class="contact-list">
+
+                    <li class="clearfix">
+                        <div class="icon-font"><i class="bx bx-map-pin"></i></div>
+                        <div class="content">
+                            <h6>Местоположение:</h6>
+                            <p>@Model.Address</p>
+                        </div>
+                    </li>
+
+                    <li class="clearfix">
+                        <div class="icon-font"><i class="bx bx-phone-call"></i></div>
+                        <div class="content">
+                            <h6>Телефон:</h6>
+                            <p>@Model.Phone</p>
+                        </div>
+                    </li>
+
+
+                    <li class="clearfix">
+                        <div class="icon-font"><i class="bx bx-envelope"></i></div>
+                        <div class="content">
+                            <h6>Вашият имейл:</h6>
+                            <p><a href="#">@Model.Email</a></p>
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/Home/js/custom-core.js"></script>
+    <script type="text/javascript" src="~/Home/js/plugins.js"></script>
+    <script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
+    <script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
+}
