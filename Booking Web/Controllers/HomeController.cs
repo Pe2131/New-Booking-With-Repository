@@ -25,7 +25,7 @@ namespace Booking_Web.Controllers
         {
             ViewModel_Index model = new ViewModel_Index();
             var cities = db.CityRepository.Get().ToList();
-            var countries = db.CountryRepository.Get().ToList();
+            var countries = db.CountryRepository.Get().ToList().OrderByDescending(a=>a.Id);
             model.cities = Mapper.Map<List<ViewModel_City>>(cities);
             model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
             model.setting = db.SettingRepository.Get().FirstOrDefault();
