@@ -24,7 +24,11 @@
     font-size: 16px !important;
     font-weight: 700 !important;
 }
-
+li.group-result {
+    text-align: center;
+    color: #e22222 !important;
+    font-size: 70%;
+}
 #blogs {
     margin-top: 30px;
 }
