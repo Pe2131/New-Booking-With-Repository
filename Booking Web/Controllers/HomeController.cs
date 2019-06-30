@@ -136,8 +136,10 @@ namespace Booking_Web.Controllers
             {
                 ViewModel_Search model = new ViewModel_Search();
                 RoutesTools routesTools = new RoutesTools();
+                var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
+                model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
                 int RoutesCapacity = 
                 ViewBag.count = count;
                 foreach (var item in model.PathWays)
@@ -224,8 +226,10 @@ namespace Booking_Web.Controllers
             {
                 ViewModel_Search model = new ViewModel_Search();
                 var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive", orderby: a => a.OrderBy(b => b.id));
+                var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(Routes);
+                model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
                 ViewBag.phone = db.SettingRepository.Get().FirstOrDefault().Phone;
                 ViewBag.Count = model.PathWays.Count();
                 return View(model);
