@@ -9,26 +9,32 @@
 .header-top {
     height: 100px;
 }
+
 #aboutus {
     line-height: 25px !important;
     margin-top: -26px;
 }
+
 #searchbtn {
     margin-left: 130Px;
 }
+
 #searchheader {
     font-size: 18px !important;
     font-weight: 700 !important;
 }
+
 .main-nav > li > a {
     font-size: 16px !important;
     font-weight: 700 !important;
 }
+
 li.group-result {
     text-align: center;
     color: #e22222 !important;
     font-size: 70%;
 }
+
 #blogs {
     margin-top: 30px;
 }
@@ -66,16 +72,19 @@ li.group-result {
     #searchbtn {
         margin-left: 170px !important;
     }
+
     #aboutus {
         line-height: 23px !important;
         margin-top: -26px;
     }
-    #bg-image {
-        height:536px !important;
-    }
-    .menu-horizontal-wrapper-02 {
+
+    /*#bg-image {
+        height: 536px !important;
+    }*/
+
+    /*.menu-horizontal-02 {
         margin-top: 400px;
-    }
+    }*/
 }
 
 @media(max-width:468px) {
@@ -86,7 +95,7 @@ li.group-result {
     /*#bg-image {
         height: 536px !important;
     }*/
-    .menu-horizontal-wrapper-02{
+    /*.menu-horizontal-wrapper-02{
         margin-top:400px;
-    }
+    }*/
 }
