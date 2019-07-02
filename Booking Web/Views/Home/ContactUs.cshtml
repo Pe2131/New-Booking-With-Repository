@@ -14,25 +14,25 @@
     <div class="container">
         @if (TempData["Success"] != null)
         {
-            <div class="success-box">
+        <div class="success-box">
 
-                <div class="icon">
+            <div class="icon">
 
-                    <span><i class="ri ri-check-square"></i></span>
+                <span><i class="ri ri-check-square"></i></span>
 
-                </div>
-
-                <div class="content">
-                    <h4>@TempData["Message"]</h4>
-                </div>
             </div>
+
+            <div class="content">
+                <h4>@TempData["Message"]</h4>
+            </div>
+        </div>
         }
         @if (TempData["Error"] != null)
         {
-            <div class="alert alert-warning pt-10 pb-10 mb-30" role="alert">
-                <i class="fas fa-info-circle mr-5"></i>
-                @TempData["Message"]
-            </div>
+        <div class="alert alert-warning pt-10 pb-10 mb-30" role="alert">
+            <i class="fas fa-info-circle mr-5"></i>
+            @TempData["Message"]
+        </div>
         }
         <div class="row gap-40">
 
@@ -42,7 +42,7 @@
                     <h3>Свържете се с нас</h3>
                 </div>
 
-                <form  asp-controller="Home" asp-action="ContactUs" method="post">
+                <form asp-controller="Home" asp-action="ContactUs" method="post">
 
                     <div class="contact-successful-messages"></div>
 
@@ -131,6 +131,20 @@
 
                 </ul>
 
+                <h5>Телефони в автобуса:</h5>
+                <span>Неделя: +49 1744806572</span><br />
+                <span>Понеделник: +49 1724912574</span><br />
+                <span>Четвъртък: +49 17666254651</span>
+                <br /><br />
+                <span>Телефоните са активни в деня на пътуването и един ден преди пътуването!!!</span> <br /><br />
+
+                <h5>Банкови сметки:</h5>
+                <span>Фирма: "Георги Иванов - Рино Ройд" ООД</span> <br />
+                <span>Банка: Райфайзен Банк, Хасково / Raiffeisen Bank, Haskovo</span> <br />
+                <span>Сметка в лева: BG45RZBB91551002641896</span><br />
+                <span>Сметка в евро: BG10RZBB91551002641556</span><br />
+                <span>BIC: RZBBBGSF</span>
+
             </div>
 
         </div>
@@ -138,10 +152,3 @@
     </div>
 
 </div>
-
-@section Scripts{
-    <script type="text/javascript" src="~/Home/js/custom-core.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
-    <script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
-}

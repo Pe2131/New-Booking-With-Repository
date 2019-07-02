@@ -215,18 +215,21 @@ namespace Booking_Web.Controllers
             {
                 var routes = Db.RoutRepositori.Get(a => a.Source_FG == id);
                 List<Tbl_City> cities = new List<Tbl_City>();
+                List<Tbl_Country> countries = new List<Tbl_Country>();
                 foreach (var item in routes)
                 {
-                    var city = Db.CityRepository.GetById(item.Destination_FG);
+                    var city = Db.CityRepository.Get(a=>a.Id==item.Destination_FG,null, "Tbl_Country").SingleOrDefault();
                     if (city != null)
                     {
                         cities.Add(city);
+                        countries.Add(city.Tbl_Country);
                     }
                 }
                 if (cities == null)
                 {
                     return PartialView("P_DestinationCity",null);
                 }
+                ViewBag.Countries = Mapper.Map<List<ViewModel_Country>>(countries.Distinct());
                 var model = Mapper.Map<List<ViewModel_City>>(cities);
                 return PartialView("P_DestinationCity", model);
             }

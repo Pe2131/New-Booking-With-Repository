@@ -25,7 +25,9 @@ namespace Booking_Web.Controllers
         {
             ViewModel_Index model = new ViewModel_Index();
             var cities = db.CityRepository.Get().ToList();
+            var countries = db.CountryRepository.Get().ToList().OrderByDescending(a=>a.Id);
             model.cities = Mapper.Map<List<ViewModel_City>>(cities);
+            model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
             model.setting = db.SettingRepository.Get().FirstOrDefault();
             model.Blogs = db.WeblogRepositori.Get(null, a => a.OrderByDescending(b => b.id)).ToList();
             return View(model);
@@ -134,9 +136,11 @@ namespace Booking_Web.Controllers
             {
                 ViewModel_Search model = new ViewModel_Search();
                 RoutesTools routesTools = new RoutesTools();
+                var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
-                int RoutesCapacity =
+                model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
+                int RoutesCapacity = 
                 ViewBag.count = count;
                 ViewBag.adult = adult;
                 ViewBag.Child = child;
@@ -227,9 +231,11 @@ namespace Booking_Web.Controllers
             try
             {
                 ViewModel_Search model = new ViewModel_Search();
-                var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive", orderby: a => a.OrderBy(b => b.id));
+                var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive").ToList().GroupBy(a=>a.Source_FG).OrderByDescending(a=>a.Count()).SelectMany(a=>a).ToList();  //for sort by count of source_Fg
+                var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(Routes);
+                model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
                 ViewBag.phone = db.SettingRepository.Get().FirstOrDefault().Phone;
                 ViewBag.Count = model.PathWays.Count();
                 return View(model);

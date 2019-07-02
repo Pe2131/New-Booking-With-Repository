@@ -10,6 +10,8 @@
         <div class="container hero-middle">
 
             <div class="row gap-60 gap-lg-100 align-items-center">
+                <div class="hero-text">
+                </div>
                 <div class="col-12 col-md-9 col-lg-6 col-xl-5">
 
                     <div class="menu-horizontal-wrapper-02">
@@ -49,10 +51,15 @@
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
                                                                 <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()" required>
-                                                                    <option></option>
-                                                                    @foreach (var item in Model.cities)
+                                                                    @foreach (var item in Model.Countries)
                                                                     {
-                                                                        <option value="@item.Id">@item.Name</option>
+                                                                        <optgroup label="@item.Name">
+                                                                            <option></option>
+                                                                            @foreach (var item2 in Model.cities.Where(a => a.Country_FG == item.Id))
+                                                                            {
+                                                                                <option value="@item2.Id">@item2.Name</option>
+                                                                            }
+                                                                        </optgroup>
                                                                     }
                                                                 </select>
                                                             </div>
@@ -78,7 +85,7 @@
                                                                         <label>Тръгване</label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-calendar"></i></span>
-                                                                            <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date" autocomplete="off" required>
+                                                                            <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="дд/мм/гггг" name="date" autocomplete="off" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -93,7 +100,7 @@
                                                             <div class="row gap-5">
                                                                 <div class="col-4">
                                                                     <div class="form-group form-spin-group">
-                                                                        <label for="room-amount"> Възрастен <small class="text-muted font10 line-1">(12-75)</small></label>
+                                                                        <label for="room-amount"> Възрастен <small class="text-muted font10 line-1"></small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
                                                                             <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="adult" name="adult" />
@@ -102,28 +109,10 @@
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="form-group form-spin-group">
-                                                                        <label for="room-amount">Дете <small class="text-muted font10 line-1">(0-2)</small></label>
+                                                                        <label for="room-amount">Пенсионер <small class="text-muted font10 line-1"></small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child" name="child" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-4">
-                                                                    <div class="form-group form-spin-group">
-                                                                        <label for="room-amount">Дете <small class="text-muted font10 line-1">(2-7)</small></label>
-                                                                        <div class="form-icon-left">
-                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child2" name="child2" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-4">
-                                                                    <div class="form-group form-spin-group">
-                                                                        <label for="room-amount">Дете<small class="text-muted font10 line-1">(7-12)</small></label>
-                                                                        <div class="form-icon-left">
-                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child7" name="child7" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="retired" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -132,10 +121,38 @@
                                                                         <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
                                                                         <div class="form-icon-left">
                                                                             <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" name="student" />
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group form-spin-group">
+                                                                        <label for="room-amount">Дете <small class="text-muted font10 line-1">(0-2)</small></label>
+                                                                        <div class="form-icon-left">
+                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group form-spin-group">
+                                                                        <label for="room-amount">Дете <small class="text-muted font10 line-1">(2-7)</small></label>
+                                                                        <div class="form-icon-left">
+                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child2" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="form-group form-spin-group">
+                                                                        <label for="room-amount">Дете<small class="text-muted font10 line-1">(7-12)</small></label>
+                                                                        <div class="form-icon-left">
+                                                                            <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                            <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="child7" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
                                                                 @*<div class="col-8" style=" padding-top: 25px;padding-left: 22px;">
 
                                                                         <div class="custom-control custom-radio  custom-control-inline">
@@ -186,12 +203,6 @@
                 </div>
 
                 <div class="col-12 col-lg-6 col-xl-7">
-
-                    <div id="imgdiv" style="width: 100%;height: 400px;">
-                        @*<img src="~/Files/Images/imgbus1.png" alt="Bus" />*@
-
-                    </div>
-
                 </div>
 
 
@@ -244,7 +255,7 @@
 
             }
         </div>
-        <div class="section-title text-center" style="margin-top: 80px;margin-bottom: 20px;">
+        @*<div class="section-title text-center" style="margin-top: 80px;margin-bottom: 20px;">
 
             <h2>Блог и новини</h2>
 
@@ -266,34 +277,34 @@
                                             @*<span class="item-highlight text-secondary">
                                                     Save up to<span>35%</span>
                                                 </span>*@
+        @*</div>
+                                            @if (item.isnews)
+                                            {
+                                                <div>
+                                                    <span class="item-expire">News</span>
+                                                </div>
+                                            }
+
                                         </div>
-                                        @if (item.isnews)
-                                        {
-                                            <div>
-                                                <span class="item-expire">News</span>
-                                            </div>
-                                        }
 
-                                    </div>
+                                        <p style="font-size:20px;">@item.Title</p>
+                                        <span class="act-as-btn text-secondary">Разгледайте още...<i class="material-icons">arrow_forward</i></span>
+                                    </figcaption>
+                                    <a href="~/Home/Blog/@item.id" class="position-absolute-href"></a>
+                                </figure>
 
-                                    <p style="font-size:20px;">@item.Title</p>
-                                    <span class="act-as-btn text-secondary">Разгледайте още...<i class="material-icons">arrow_forward</i></span>
-                                </figcaption>
-                                <a href="~/Home/Blog/@item.id" class="position-absolute-href"></a>
-                            </figure>
+                            </div>
+                        }
 
-                        </div>
-                    }
+
+                    </div>
+
+                    <div class="mb-80"></div>
+
 
 
                 </div>
-
-                <div class="mb-80"></div>
-
-
-
-            </div>
-        </div>
+            </div>*@
 
     </div>
 
@@ -330,10 +341,7 @@
     </div>
 </section>
 @section Scripts{
-    <script type="text/javascript" src="~/Home/js/custom-core.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
-    <script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
+
     <script>
         function SumCount() {
             var countadult = parseInt($('#adult').val());
@@ -341,8 +349,10 @@
             var countbaybe2 = parseInt($('#child2').val());
             var countbaybe7 = parseInt($('#child7').val());
             var student = parseInt($('#student').val());
-            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student;
+            var retired = parseInt($('#retired').val());
+            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
             $('#count').val(count);
+            $('#student').val(student + retired);
         }
         function GetDestination() {
             var id = $('#FromCity').val();
@@ -353,6 +363,7 @@
                 type: "Get",
                 cache: false,
                 success: function (data) {
+                    console.log(data);
                     $('#To').append(data);
                     $('#To').trigger("chosen:updated"); // for update select that is credential
                 }

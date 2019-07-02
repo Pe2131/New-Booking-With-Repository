@@ -9,5 +9,6 @@ namespace Booking_Web.ViewModel
     {
         public List<ViewModel_Routes> PathWays { get; set; }
         public List<ViewModel_City> cities { get; set; }
+        public List<ViewModel_Country> Countries { get; set; }
     }
 }

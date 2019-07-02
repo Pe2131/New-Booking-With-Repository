@@ -1,9 +1,16 @@
 ﻿@model List<ViewModel_City>
+@{List<ViewModel_Country> countries = ViewBag.Countries; }
+@if (Model.Any())
+{
+    @foreach (var item in countries)
+    {
+        <optgroup label="@item.Name">
             <option></option>
-            @if (Model.Any())
+            @foreach (var item2 in Model.Where(a=>a.Country_FG==item.Id))
             {
-                @foreach (var item in Model)
-                {
-                    <option value="@item.Id">@item.Name</option>
-                }
+            <option value="@item2.Id">@item2.Name</option>
             }
+        </optgroup>
+    }
+
+}

@@ -98,8 +98,7 @@ jQuery(function($) {
 	/**
 	 * Bootstrap Tooltip
 	 */
-	 
-	$('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
 	
 	
 	

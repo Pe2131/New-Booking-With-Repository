@@ -44,10 +44,15 @@
                                                 <div class="form-icon-left">
                                                     <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
                                                     <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()" required>
-                                                        <option></option>
-                                                        @foreach (var item in Model.cities)
+                                                        @foreach (var item in Model.Countries)
                                                         {
-                                                            <option value="@item.Id">@item.Name</option>
+                                                            <optgroup label="@item.Name">
+                                                                <option></option>
+                                                                @foreach (var item2 in Model.cities.Where(a => a.Country_FG == item.Id))
+                                                                {
+                                                                    <option value="@item2.Id">@item2.Name</option>
+                                                                }
+                                                            </optgroup>
                                                         }
                                                     </select>
                                                 </div>
@@ -69,22 +74,37 @@
                                                 <label>Тръгване</label>
                                                 <div class="form-icon-left">
                                                     <span class="icon-font text-muted"><i class="bx bx-calendar"></i></span>
-                                                    <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date" autocomplete="off" required>
+                                                    <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="дд/мм/гггг" name="date" autocomplete="off" required>
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                         <div class="col-12 col-md-6">
                                             <div class="col-inner">
                                                 <div class="row gap-2 gap-md-10">
-                                                    <div class="col-5">
+                                                    <div class="col-4">
                                                         <div class="form-group form-spin-group">
-                                                            <label for="room-amount">Възрастен <small class="text-muted font10 line-1">(12-75)</small></label>
+                                                            <label for="room-amount">Възрастен <small class="text-muted font10 line-1"></small></label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
                                                                 <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="adult" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group form-spin-group">
+                                                            <label for="room-amount">Пенсионер <small class="text-muted font10 line-1"></small></label>
+                                                            <div class="form-icon-left">
+                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="retired" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group form-spin-group">
+                                                            <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
+                                                            <div class="form-icon-left">
+                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -115,15 +135,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
-                                                        <div class="form-group form-spin-group">
-                                                            <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
-                                                            <div class="form-icon-left">
-                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="student" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                
                                                 </div>
                                             </div>
                                         </div>
@@ -155,52 +167,52 @@
                     <div class="product-long-item-wrapper">
                         @foreach (var item in Model.PathWays)
                         {
-                            <div class="product-long-item">
+                        <div class="product-long-item">
 
-                                <div class="row equal-height shrink-auto-md gap-15">
+                            <div class="row equal-height shrink-auto-md gap-15">
 
-                                    <div class="col-12 col-shrink">
+                                <div class="col-12 col-shrink">
 
-                                        <div class="image height-auto">
-                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images" style="height:230px !important;">
-                                        </div>
-
+                                    <div class="image height-auto">
+                                        <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images" style="height:230px !important;">
                                     </div>
 
-                                    <div class="col-12 col-auto">
+                                </div>
 
-                                        <div class="col-inner d-flex flex-column">
+                                <div class="col-12 col-auto">
 
-                                            <div class="content-top">
+                                    <div class="col-inner d-flex flex-column">
 
-                                                <div class="d-flex">
+                                        <div class="content-top">
 
-                                                    <div>
-                                                        <h5><a href="#">@item.GetSourceName До @item.GetDestinationName</a></h5>
-                                                    </div>
+                                            <div class="d-flex">
 
-                                                    <div class="ml-auto">
-                                                        <div class="price">
-                                                            <div class="float-right">
-                                                                per person
-                                                                <span class="text-secondary">@item.Price.ToString("N0") лв - €@item.Price2.ToString("N0")</span>
+                                                <div>
+                                                    <h5><a href="#">@item.GetSourceName До @item.GetDestinationName</a></h5>
+                                                </div>
+
+                                                <div class="ml-auto">
+                                                    <div class="price">
+                                                        <div class="float-right">
+                                                            per person
+                                                            <span class="text-secondary">@Math.Round(item.Price).ToString("N0") лв - €@Math.Round(item.Price2).ToString("N0")</span>
 
 
-                                                                Двупосочен
-                                                                <span class="text-secondary">@item.twoWayPrice.ToString("N0") лв - €@item.twoWayPrice2.ToString("N0")</span>
-                                                            </div>
-
+                                                            Двупосочен
+                                                            <span class="text-secondary">@Math.Round(item.twoWayPrice).ToString("N0") лв - €@Math.Round(item.twoWayPrice2).ToString("N0")</span>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
                                                 </div>
 
                                             </div>
 
-                                            <div class="content">
-                                                <p>Вие сте @ViewBag.count пътник/а  @*passenger and this route has @(item.Capacity == 0 ? "noset" : item.Capacity.ToString()) seat available*@</p>
-                                            </div>
-                                            @{
+                                        </div>
+
+                                        <div class="content">
+                                            <p>Вие сте @ViewBag.count пътник/а  @*passenger and this route has @(item.Capacity == 0 ? "noset" : item.Capacity.ToString()) seat available*@</p>
+                                        </div>
+                                        @{
                                                 // for get name day of week
                                                 var departurdays = string.Join(",",
                                                 from g in item.DepartureDays.Split(new char[] { ',' })
@@ -228,13 +240,13 @@
                                                 </div>
                                             </div>
 
-                                        </div>
-
                                     </div>
 
                                 </div>
 
                             </div>
+
+                        </div>
                         }
 
 
@@ -253,7 +265,7 @@
                                     }
                                     else
                                     {
-                                        <span>0 results found</span>
+                                    <span>0 results found</span>
                                     }
                                 </div>
 
@@ -274,11 +286,6 @@
 
 </section>
 @section Scripts{
-    <script type="text/javascript" src="~/Home/js/custom-core.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
-    <script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
-
     <script>
         function SumCount() {
             var countadult = parseInt($('#adult').val());
@@ -286,8 +293,10 @@
             var countbaybe2 = parseInt($('#child2').val());
             var countbaybe7 = parseInt($('#child7').val());
             var student = parseInt($('#student').val());
-            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student;
+            var retired = parseInt($('#retired').val());
+            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
             $('#count').val(count);
+            $('#student').val(student + retired);
         }
         function GetDestination() {
             var id = $('#FromCity').val();

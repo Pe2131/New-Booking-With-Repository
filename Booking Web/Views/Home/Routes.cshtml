@@ -45,7 +45,7 @@
                             <p class="text-muted post-heading">@ViewBag.Count Открити маршрута</p>
                         </div>
                         <div class="ml-auto">
-                            <button class="btn btn-secondary btn-wide btn-toggle collapsed btn-sm btn" data-toggle="collapse" data-target="#change-search">Промени търсенето</button>
+                            <button class="btn btn-secondary btn-wide btn-toggle collapsed btn-sm btn" data-toggle="collapse" data-target="#change-search">КУПИ БИЛЕТ ОНЛАЙН</button>
                         </div>
                     </div>
 
@@ -70,10 +70,15 @@
                                                 <div class="form-icon-left">
                                                     <span class="icon-font text-muted"><span class="icon-inner"><i class="bx bx-map"></i></span></span>
                                                     <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()" required>
-                                                        <option></option>
-                                                        @foreach (var item in Model.cities)
+                                                        @foreach (var item in Model.Countries)
                                                         {
-                                                            <option value="@item.Id">@item.Name</option>
+                                                            <optgroup label="@item.Name">
+                                                                <option></option>
+                                                                @foreach (var item2 in Model.cities.Where(a => a.Country_FG == item.Id))
+                                                                {
+                                                                    <option value="@item2.Id">@item2.Name</option>
+                                                                }
+                                                            </optgroup>
                                                         }
                                                     </select>
                                                 </div>
@@ -95,7 +100,7 @@
                                                 <label>Тръгване</label>
                                                 <div class="form-icon-left">
                                                     <span class="icon-font text-muted"><i class="bx bx-calendar"></i></span>
-                                                    <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="dd/mm/yyyy" name="date" autocomplete="off" required>
+                                                    <input type="text" id="dateStart-flight" class="form-control form-readonly-control" placeholder="дд/мм/гггг" name="date" autocomplete="off" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,12 +110,30 @@
                                         <div class="col-12 col-md-6">
                                             <div class="col-inner">
                                                 <div class="row gap-2 gap-md-10">
-                                                    <div class="col-5">
+                                                    <div class="col-4">
                                                         <div class="form-group form-spin-group">
-                                                            <label for="room-amount">Възрастен <small class="text-muted font10 line-1">(12-75)</small></label>
+                                                            <label for="room-amount">Възрастен <small class="text-muted font10 line-1"></small></label>
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
                                                                 <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="adult" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group form-spin-group">
+                                                            <label for="room-amount">Пенсионер <small class="text-muted font10 line-1"></small></label>
+                                                            <div class="form-icon-left">
+                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="retired" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group form-spin-group">
+                                                            <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
+                                                            <div class="form-icon-left">
+                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
+                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" placeholder="0" value="0" readonly id="student" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -138,15 +161,6 @@
                                                             <div class="form-icon-left">
                                                                 <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
                                                                 <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="child7" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-group form-spin-group">
-                                                            <label for="room-amount">Студент <small class="text-muted font10 line-1"></small></label>
-                                                            <div class="form-icon-left">
-                                                                <span class="icon-font text-muted"><i class="bx bx-user"></i></span>
-                                                                <input type="text" class="form-control touch-spin-03 form-readonly-control" value="0" placeholder="0" readonly id="student" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -195,7 +209,7 @@
                                         <div class="content pt-10 clearfix">
 
                                             <div class="short-info mr-0 mb-15">
-                                                <h5 class="mt-5">@item.GetSourceName To  @item.GetDestinationName</h5>
+                                                <h5 class="mt-5">@item.GetSourceName до  @item.GetDestinationName</h5>
 
                                             </div>
                                             @{
@@ -209,9 +223,9 @@
                                             <div class="price">
                                                 <div class="float-right">
                                                     от
-                                                    <span class="text-secondary" style="font-size:20px;">@item.Price.ToString("N0") лв</span>
+                                                    <span class="text-secondary" style="font-size:20px;">@Math.Round(item.Price).ToString("N0") лв</span>
                                                     Двупосочен
-                                                    <span class="text-secondary" style="font-size:20px;">@item.twoWayPrice.ToString("N0") лв @*for show currency format*@</span>
+                                                    <span class="text-secondary" style="font-size:20px;">@Math.Round(item.twoWayPrice).ToString("N0") лв @*for show currency format*@</span>
                                                 </div>
                                             </div>
 
@@ -243,22 +257,20 @@
 </section>
 
 @section Scripts{
-    <script type="text/javascript" src="~/Home/js/custom-core.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins.js"></script>
-    <script type="text/javascript" src="~/Home/js/plugins/jquery.typeahead.min.js"></script>
-    <script type="text/javascript" src="~/Home/js/custom-autocomplete.js"></script>
 
     <script>
-         function SumCount() {
+        function SumCount() {
             var countadult = parseInt($('#adult').val());
             var countbaybe = parseInt($('#child').val());
             var countbaybe2 = parseInt($('#child2').val());
             var countbaybe7 = parseInt($('#child7').val());
             var student = parseInt($('#student').val());
-            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student;
+            var retired = parseInt($('#retired').val());
+            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
             $('#count').val(count);
+            $('#student').val(student + retired);
         }
-         function GetDestination() {
+        function GetDestination() {
             var id = $('#FromCity').val();
             $('#To').empty();
             $.ajax({

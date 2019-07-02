@@ -11,5 +11,6 @@ namespace Booking_Web.ViewModel
         public Tbl_Setting setting { get; set; }
         public List<ViewModel_City> cities { get; set; }
         public List<Tbl_Weblog> Blogs { get; set; }
+        public List<ViewModel_Country> Countries { get; set; }
     }
 }
