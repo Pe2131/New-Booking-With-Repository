@@ -225,7 +225,7 @@ namespace Booking_Web.Controllers
             try
             {
                 ViewModel_Search model = new ViewModel_Search();
-                var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive", orderby: a => a.OrderBy(b => b.id));
+                var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive").ToList().GroupBy(a=>a.Source_FG).OrderByDescending(a=>a.Count()).SelectMany(a=>a).ToList();  //for sort by count of source_Fg
                 var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(Routes);

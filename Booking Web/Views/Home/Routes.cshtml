@@ -196,46 +196,46 @@
                     <div class="row equal-height cols-1 cols-sm-2 cols-lg-2 gap-10 gap-lg-20">
                         @foreach (var item in Model.PathWays)
                         {
-                        <div class="col">
+                            <div class="col">
 
-                            <div class="product-grid-item">
+                                <div class="product-grid-item">
 
-                                @*<a href="~/Home/book/@item.id">*@
-                                <a>
-                                    <div class="image">
-                                        <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images">
-                                    </div>
-
-                                    <div class="content pt-10 clearfix">
-
-                                        <div class="short-info mr-0 mb-15">
-                                            <h5 class="mt-5">@item.GetSourceName до  @item.GetDestinationName</h5>
-
+                                    @*<a href="~/Home/book/@item.id">*@
+                                    <a>
+                                        <div class="image">
+                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images">
                                         </div>
-                                        @{
+
+                                        <div class="content pt-10 clearfix">
+
+                                            <div class="short-info mr-0 mb-15">
+                                                <h5 class="mt-5">@item.GetSourceName до  @item.GetDestinationName</h5>
+
+                                            </div>
+                                            @{
                                                 // for get name day of week
                                                 var days = string.Join(",",
                                                 from g in item.DepartureDays.Split(new char[] { ',' })
                                                 select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
-                                        }
-                                        <p><i class="far fa-clock"></i><strong>@days</strong></p>
-                                        <p class="location">Всяка седмица @item.DepartureTime</p>
-                                        <div class="price">
-                                            <div class="float-right">
-                                                от
-                                                <span class="text-secondary" style="font-size:20px;">@Math.Round(item.Price).ToString("N0") лв</span>
-                                                Двупосочен
-                                                <span class="text-secondary" style="font-size:20px;">@Math.Round(item.twoWayPrice).ToString("N0") лв @*for show currency format*@</span>
+                                            }
+                                            <p><i class="far fa-clock"></i><strong>@days</strong></p>
+                                            <p class="location">Всяка седмица @item.DepartureTime</p>
+                                            <div class="price">
+                                                <div class="float-right">
+                                                    от
+                                                    <span class="text-secondary" style="font-size:20px;">@Math.Round(item.Price).ToString("N0") лв</span>
+                                                    Двупосочен
+                                                    <span class="text-secondary" style="font-size:20px;">@Math.Round(item.twoWayPrice).ToString("N0") лв @*for show currency format*@</span>
+                                                </div>
                                             </div>
+
                                         </div>
 
-                                    </div>
+                                    </a>
 
-                                </a>
+                                </div>
 
                             </div>
-
-                        </div>
                         }
 
                     </div>
@@ -300,7 +300,7 @@
             // Make  disabled day by array in below
             var enabldays = days.split(',').map(Number); // map for convert string number to int number
             // enabldays = enabldays.map(function (val) { return --val; });
-            console.log(enabldays);
+            enabldays.forEach(function (item, i) { if (item == 7) enabldays[i] = 0; }); // beacouse days week start from 0to 6 replace 7 to 0
             jQuery.grep(DaysWeek, function (el) {
                 if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
             });
