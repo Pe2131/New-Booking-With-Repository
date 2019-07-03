@@ -62,10 +62,6 @@ li.group-result {
 }
 
 @media(max-width:575px) {
-    /*#imgdiv {
-        height: 295px !important;
-        margin-top: -47px;
-    }*/
     #dropdownMobileSetting{
         display:none !important;
     }
@@ -77,14 +73,9 @@ li.group-result {
         line-height: 23px !important;
         margin-top: -26px;
     }
-
-    /*#bg-image {
-        height: 536px !important;
-    }*/
-
-    /*.menu-horizontal-02 {
-        margin-top: 400px;
-    }*/
+    .header-logo img {
+        height: 50px !important;
+    }
 }
 
 @media(max-width:468px) {
@@ -92,10 +83,7 @@ li.group-result {
         line-height: 20px !important;
         margin-top: -26px;
     }
-    /*#bg-image {
-        height: 536px !important;
-    }*/
-    /*.menu-horizontal-wrapper-02{
-        margin-top:400px;
-    }*/
+    .header-logo img {
+        height: 50px !important;
+    }
 }

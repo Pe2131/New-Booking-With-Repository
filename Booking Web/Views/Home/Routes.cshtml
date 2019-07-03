@@ -283,15 +283,15 @@
                     $('#To').trigger("chosen:updated"); // for update select that is credential
                 }
             });
-            //$.ajax({
-            //    url: "/Routes/GetDeparture/",
-            //    data: { id: id },
-            //    type: "Get",
-            //    cache: false,
-            //    success: function (data) {
-            //        GetEnableDay(data);
-            //    }
-            //});
+            $.ajax({
+                url: "/Routes/GetDeparture/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    GetEnableDay(data);
+                }
+            });
         }
 
         function GetEnableDay(days) {
@@ -299,7 +299,6 @@
             var disabledDays = [];
             // Make  disabled day by array in below
             var enabldays = days.split(',').map(Number); // map for convert string number to int number
-            // enabldays = enabldays.map(function (val) { return --val; });
             enabldays.forEach(function (item, i) { if (item == 7) enabldays[i] = 0; }); // beacouse days week start from 0to 6 replace 7 to 0
             jQuery.grep(DaysWeek, function (el) {
                 if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
