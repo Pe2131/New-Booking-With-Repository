@@ -12,6 +12,18 @@
             <div class="col-12 col-lg-4">
 
                 <aside class="sidebar-wrapper filter-wrapper mb-10 mb-md-0">
+                    <div>
+                        <h6 style="color:#e22222;">От България за Австрия и Германия</h6>
+                        <span style="font-weight:bolder;">вторник, петък и събота</span><br />
+                        <h6 style="color:#e22222;">От Германия и Австрия за България</h6>
+                        <span style="font-weight:bolder;">понеделник, четвъртък и неделя</span><br />
+                        <h6 style="color:#e22222;">Телефони в автобуса:</h6>
+                        <span style="font-weight:bolder;">Неделя: +49 1744806572</span><br />
+                        <span style="font-weight:bolder;">Понеделник: +49 1724912574</span><br />
+                        <span style="font-weight:bolder;">Четвъртък: +49 17666254651</span>
+                        <br /><br />
+                        <h6>Телефоните са активни в деня на пътуването и един ден преди пътуването!!!</h6> <br /><br />
+                    </div>
                     <div class="featured-contact-01 mt-40 mb-30 d-none d-md-block">
                         <h6>Нуждаете от помощ? Позвънете ни</h6>
                         <span class="phone-number"><i class="material-icons">phone</i>@ViewBag.phone</span>
@@ -200,7 +212,8 @@
 
                                 <div class="product-grid-item">
 
-                                    @*<a href="~/Home/book/@item.id">*@
+                                    @*<a href="~/Home/book/@item.id">
+                                    *@
                                     <a>
                                         <div class="image">
                                             <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images">
