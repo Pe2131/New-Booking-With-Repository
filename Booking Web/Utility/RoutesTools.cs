@@ -18,7 +18,7 @@ namespace Booking_Web.Utility
                 var Routes = Db.RoutRepositori.Get(a => a.Status != "Deactive" & a.Source_FG == source & a.Destination_FG == dest, orderby: a => a.OrderByDescending(b => b.id));
                 if (date != null)
                 {
-                    DateTime mydate = utility.ConvertStaringToDate(date, "MM/dd/yyyy");
+                    DateTime mydate = utility.ConvertStaringToDate(date, "dd/MM/yyyy");
                     int daynumber = (int)mydate.DayOfWeek;
                     string dayofweek = daynumber.ToString();
                     List<Tbl_Routes> routes = new List<Tbl_Routes>();
