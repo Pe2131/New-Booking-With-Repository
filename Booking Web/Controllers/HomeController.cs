@@ -279,6 +279,10 @@ namespace Booking_Web.Controllers
                 return View("Error", error);
             }
         }
+        public IActionResult Terms()
+        {
+            return View();
+        }
         public IActionResult ChangeLanguage(string culture)
         {
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,

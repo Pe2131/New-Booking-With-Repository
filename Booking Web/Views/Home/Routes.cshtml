@@ -64,7 +64,7 @@
                     <div id="change-search" class="collapse">
                         <div class="change-search-wrapper">
 
-                            <form asp-controller="Home" asp-action="Search" method="post" onsubmit="SumCount()">
+                            <form asp-controller="Home" asp-action="Search" method="post" onsubmit="return SumCount()">
 
                                 <div class="form-inner">
 
@@ -84,13 +84,13 @@
                                                     <select data-placeholder="Моля изберете" class="chosen-no-search form-control" tabindex="2" name="source" id="FromCity" onchange="GetDestination()" required>
                                                         @foreach (var item in Model.Countries)
                                                         {
-                                                            <optgroup label="@item.Name">
-                                                                <option></option>
-                                                                @foreach (var item2 in Model.cities.Where(a => a.Country_FG == item.Id))
-                                                                {
-                                                                    <option value="@item2.Id">@item2.Name</option>
-                                                                }
-                                                            </optgroup>
+                                                        <optgroup label="@item.Name">
+                                                            <option></option>
+                                                            @foreach (var item2 in Model.cities.Where(a => a.Country_FG == item.Id))
+                                                            {
+                                                            <option value="@item2.Id">@item2.Name</option>
+                                                            }
+                                                        </optgroup>
                                                         }
                                                     </select>
                                                 </div>
@@ -208,15 +208,15 @@
                     <div class="row equal-height cols-1 cols-sm-2 cols-lg-2 gap-10 gap-lg-20">
                         @foreach (var item in Model.PathWays)
                         {
-                            <div class="col">
+                        <div class="col">
 
-                                <div class="product-grid-item">
+                            <div class="product-grid-item">
 
-                                    @*<a href="~/Home/book/@item.id">
+                                @*<a href="~/Home/book/@item.id">
                                     *@
                                     <a>
                                         <div class="image">
-                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images">
+                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a => a.Id == item.Destination_FG).SingleOrDefault().Image" alt="images">
                                         </div>
 
                                         <div class="content pt-10 clearfix">
@@ -226,12 +226,17 @@
 
                                             </div>
                                             @{
-                                                // for get name day of week
-                                                var days = string.Join(",",
-                                                from g in item.DepartureDays.Split(new char[] { ',' })
-                                                select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
+                                            // for get name day of week
+                                            string days = item.DepartureDays;
+                                            if (item.DepartureDays.Contains(",7"))
+                                            {
+                                            days = item.DepartureDays.Replace(",7", ",0"); // for get sunday if day contatin 7
                                             }
-                                            <p><i class="far fa-clock"></i><strong>@days</strong></p>
+                                            var departurdays = string.Join(",",
+                                            from g in days.Split(new char[] { ',' })
+                                            select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
+                                            }
+                                            <p><i class="far fa-clock"></i><strong>@departurdays</strong></p>
                                             <p class="location">Всяка седмица @item.DepartureTime</p>
                                             <div class="price">
                                                 <div class="float-right">
@@ -246,9 +251,9 @@
 
                                     </a>
 
-                                </div>
-
                             </div>
+
+                        </div>
                         }
 
                     </div>
@@ -271,63 +276,69 @@
 
 @section Scripts{
 
-    <script>
-        function SumCount() {
-            var countadult = parseInt($('#adult').val());
-            var countbaybe = parseInt($('#child').val());
-            var countbaybe2 = parseInt($('#child2').val());
-            var countbaybe7 = parseInt($('#child7').val());
-            var student = parseInt($('#student').val());
-            var retired = parseInt($('#retired').val());
-            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
-            $('#count').val(count);
-            $('#student').val(student + retired);
+<script>
+    function SumCount() {
+        var countadult = parseInt($('#adult').val());
+        var countbaybe = parseInt($('#child').val());
+        var countbaybe2 = parseInt($('#child2').val());
+        var countbaybe7 = parseInt($('#child7').val());
+        var student = parseInt($('#student').val());
+        var retired = parseInt($('#retired').val());
+        var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
+        $('#count').val(count);
+        $('#student').val(student + retired);
+        if (count == 0) {
+            return false;
         }
-        function GetDestination() {
-            var id = $('#FromCity').val();
-            $('#To').empty();
-            $.ajax({
-                url: "/Routes/GetDestination/",
-                data: { id: id },
-                type: "Get",
-                cache: false,
-                success: function (data) {
-                    $('#To').append(data);
-                    $('#To').trigger("chosen:updated"); // for update select that is credential
-                }
-            });
-            $.ajax({
-                url: "/Routes/GetDeparture/",
-                data: { id: id },
-                type: "Get",
-                cache: false,
-                success: function (data) {
-                    GetEnableDay(data);
-                }
-            });
+        else {
+            return true;
         }
+    }
+    function GetDestination() {
+        var id = $('#FromCity').val();
+        $('#To').empty();
+        $.ajax({
+            url: "/Routes/GetDestination/",
+            data: { id: id },
+            type: "Get",
+            cache: false,
+            success: function (data) {
+                $('#To').append(data);
+                $('#To').trigger("chosen:updated"); // for update select that is credential
+            }
+        });
+        $.ajax({
+            url: "/Routes/GetDeparture/",
+            data: { id: id },
+            type: "Get",
+            cache: false,
+            success: function (data) {
+                GetEnableDay(data);
+            }
+        });
+    }
 
-        function GetEnableDay(days) {
-            var DaysWeek = [0, 1, 2, 3, 4, 5, 6]
-            var disabledDays = [];
-            // Make  disabled day by array in below
-            var enabldays = days.split(',').map(Number); // map for convert string number to int number
-            enabldays.forEach(function (item, i) { if (item == 7) enabldays[i] = 0; }); // beacouse days week start from 0to 6 replace 7 to 0
-            jQuery.grep(DaysWeek, function (el) {
-                if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
-            });
-            $('#dateStart-flight').datepicker({
-                language: 'en',
-                onRenderCell: function (date, cellType) {
-                    if (cellType == 'day') {
-                        var day = date.getDay(),
-                            isDisabled = disabledDays.indexOf(day) != -1;
-                        return {
-                            disabled: isDisabled
-                        }
+    function GetEnableDay(days) {
+        var DaysWeek = [0, 1, 2, 3, 4, 5, 6]
+        var disabledDays = [];
+        // Make  disabled day by array in below
+        var enabldays = days.split(',').map(Number); // map for convert string number to int number
+        enabldays.forEach(function (item, i) { if (item == 7) enabldays[i] = 0; }); // beacouse days week start from 0to 6 replace 7 to 0
+        jQuery.grep(DaysWeek, function (el) {
+            if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
+        });
+        $('#dateStart-flight').datepicker({
+            language: 'en',
+            onRenderCell: function (date, cellType) {
+                if (cellType == 'day') {
+                    var day = date.getDay(),
+                        isDisabled = disabledDays.indexOf(day) != -1;
+                    return {
+                        disabled: isDisabled
                     }
                 }
-            });
-        }
-    </script>
+            }
+        });
+    }
+</script>
 }

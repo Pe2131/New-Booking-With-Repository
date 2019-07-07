@@ -26,7 +26,7 @@
                     <div id="change-search" class="collapse">
                         <div class="change-search-wrapper">
 
-                            <form asp-controller="Home" asp-action="Search" method="post" onsubmit="SumCount()">
+                            <form asp-controller="Home" asp-action="Search" method="post" onsubmit="return SumCount()">
 
                                 <div class="form-inner">
 
@@ -135,7 +135,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
+
                                                 </div>
                                             </div>
                                         </div>
@@ -167,67 +167,74 @@
                     <div class="product-long-item-wrapper">
                         @foreach (var item in Model.PathWays)
                         {
-                        <div class="product-long-item">
+                            <div class="product-long-item">
 
-                            <div class="row equal-height shrink-auto-md gap-15">
+                                <div class="row equal-height shrink-auto-md gap-15">
 
-                                <div class="col-12 col-shrink">
+                                    <div class="col-12 col-shrink">
 
-                                    <div class="image height-auto">
-                                        <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images" style="height:230px !important;">
+                                        <div class="image height-auto">
+                                            <img src="~/Files/Images/Citis/@Model.cities.Where(a=>a.Id==item.Destination_FG).SingleOrDefault().Image" alt="images" style="height:230px !important;">
+                                        </div>
+
                                     </div>
 
-                                </div>
+                                    <div class="col-12 col-auto">
 
-                                <div class="col-12 col-auto">
+                                        <div class="col-inner d-flex flex-column">
 
-                                    <div class="col-inner d-flex flex-column">
+                                            <div class="content-top">
 
-                                        <div class="content-top">
+                                                <div class="d-flex">
 
-                                            <div class="d-flex">
-
-                                                <div>
-                                                    <h5><a href="#">@item.GetSourceName До @item.GetDestinationName</a></h5>
-                                                </div>
-
-                                                <div class="ml-auto">
-                                                    <div class="price">
-                                                        <div class="float-right">
-                                                            per person
-                                                            <span class="text-secondary">@Math.Round(item.Price).ToString("N0") лв - €@Math.Round(item.Price2).ToString("N0")</span>
-
-
-                                                            Двупосочен
-                                                            <span class="text-secondary">@Math.Round(item.twoWayPrice).ToString("N0") лв - €@Math.Round(item.twoWayPrice2).ToString("N0")</span>
-                                                        </div>
-
+                                                    <div>
+                                                        <h5><a href="#">@item.GetSourceName До @item.GetDestinationName</a></h5>
                                                     </div>
+
+                                                    <div class="ml-auto">
+                                                        <div class="price">
+                                                            <div class="float-right">
+                                                                от
+                                                                <span class="text-secondary">@Math.Round(item.Price).ToString("N0") лв - €@Math.Round(item.Price2).ToString("N0")</span>
+
+
+                                                                Двупосочен
+                                                                <span class="text-secondary">@Math.Round(item.twoWayPrice).ToString("N0") лв - €@Math.Round(item.twoWayPrice2).ToString("N0")</span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
                                                 </div>
 
                                             </div>
 
-                                        </div>
-
-                                        <div class="content">
-                                            <p>Вие сте @ViewBag.count пътник/а  @*passenger and this route has @(item.Capacity == 0 ? "noset" : item.Capacity.ToString()) seat available*@</p>
-                                        </div>
-                                        @{
+                                            <div class="content">
+                                                <p>Вие сте @ViewBag.count пътник/а  @*passenger and this route has @(item.Capacity == 0 ? "noset" : item.Capacity.ToString()) seat available*@</p>
+                                            </div>
+                                            @{
                                                 // for get name day of week
+                                                string days = item.DepartureDays;
+                                                if (item.DepartureDays.Contains(",7"))
+                                                {
+                                                    days = item.DepartureDays.Replace(",7", ",0"); // for get sunday if day contatin 7
+                                                }
                                                 var departurdays = string.Join(",",
-                                                from g in item.DepartureDays.Split(new char[] { ',' })
+                                                from g in days.Split(new char[] { ',' })
                                                 select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
 
-                                        }
-                                        <div class="content-bottom mt-auto">
-                                            <div class="d-flex align-items-center">
-                                                <div>
-                                                    <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;<strong>Всяка седмица</strong></p>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <a href="~/Home/Book/@item.id" class="btn btn-primary btn-sm btn-wide">Купи</a>
+                                            }
+                                            <div class="content-bottom mt-auto">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;<strong>Всяка седмица</strong></p>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <a href="~/Home/Book/@item.id" class="btn btn-primary btn-sm btn-wide">Купи</a>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
 
                                     </div>
@@ -235,8 +242,6 @@
                                 </div>
 
                             </div>
-
-                        </div>
                         }
 
 
@@ -251,11 +256,11 @@
                                 <div class="col-12 col-md-5">
                                     @if (Model.PathWays.Any())
                                     {
-                                    <span>@Model.PathWays.Count() Открити маршрута</span>
+                                        <span>@Model.PathWays.Count() Открити маршрута</span>
                                     }
                                     else
                                     {
-                                    <span>0 results found</span>
+                                        <span>0 results found</span>
                                     }
                                 </div>
 
@@ -287,6 +292,12 @@
             var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
             $('#count').val(count);
             $('#student').val(student + retired);
+            if (count == 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
         }
         function GetDestination() {
             var id = $('#FromCity').val();

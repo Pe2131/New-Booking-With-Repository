@@ -33,7 +33,7 @@
 
                                     <div class="form-search-main-01">
 
-                                        <form asp-controller="Home" asp-action="Search" method="post" onsubmit="SumCount()">
+                                        <form asp-controller="Home" asp-action="Search" method="post" onsubmit="return SumCount()">
 
                                             <div class="form-inner">
 
@@ -353,6 +353,12 @@
             var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
             $('#count').val(count);
             $('#student').val(student + retired);
+            if (count == 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
         }
         function GetDestination() {
             var id = $('#FromCity').val();
