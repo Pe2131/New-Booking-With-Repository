@@ -359,11 +359,11 @@ namespace Booking_Web
             }
             return result;
         }
-        /*-------------------------------------------------------------------------------------*/
+        /*--------------------------------my utiliti method for this project-----------------------------------------------------*/
         public static bool ConfirmDate(this DateTime Start, DateTime End)
         {
             NormalUtility utility = new NormalUtility();
-            if(utility.CompareDate(Start,End)==0 || utility.CompareDate(Start,End)==1 || utility.CompareDate(DateTime.Now,Start)==1 || utility.CompareDate(DateTime.Now, End) == 1)
+            if (utility.CompareDate(Start, End) == 0 || utility.CompareDate(Start, End) == 1 || utility.CompareDate(DateTime.Now, Start) == 1 || utility.CompareDate(DateTime.Now, End) == 1)
             {
                 return false;
             }
@@ -381,7 +381,7 @@ namespace Booking_Web
                 }
                 if (StringArray.Any())
                 {
-                    ListString=StringArray.ToList();
+                    ListString = StringArray.ToList();
                 }
                 return ListString;
             }
@@ -390,6 +390,39 @@ namespace Booking_Web
 
                 throw e.InnerException;
             }
+        }
+        public static string ChangeDayNameToBulgarian(this string input)
+        {
+            string bulgarianDays = "";
+            if (input.Contains("Sunday"))
+            {
+                bulgarianDays +=  "Неделя ,";
+            }
+            if (input.Contains("Monday"))
+            {
+                bulgarianDays += "Понеделник ,";
+            }
+            if (input.Contains("Tuesday"))
+            {
+                bulgarianDays += "Вторник ,";
+            }
+            if (input.Contains("Wednesday"))
+            {
+                bulgarianDays += "Сряда ,";
+            }
+            if (input.Contains("Thursday"))
+            {
+                bulgarianDays += "Четвъртък ,";
+            }
+            if (input.Contains("Friday"))
+            {
+                bulgarianDays += "Петък ,";
+            }
+            if (input.Contains("Saturday"))
+            {
+                bulgarianDays += "Събота ,";
+            }
+            return bulgarianDays.TrimEnd(',');
         }
     }
 }
