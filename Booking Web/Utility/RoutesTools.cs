@@ -47,7 +47,7 @@ namespace Booking_Web.Utility
             {
                 if (date != null)
                 {
-                    DateTime mydate = utility.ConvertStaringToDate(date, "MM/dd/yyyy");
+                    DateTime mydate = utility.ConvertStaringToDate(date, "dd/MM/yyyy");
                     int daynumber = (int)mydate.DayOfWeek;
                     string dayofweek = daynumber.ToString();
                     List<Tbl_Routes> routes = new List<Tbl_Routes>();
