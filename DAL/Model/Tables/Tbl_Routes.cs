@@ -34,15 +34,19 @@ namespace DAL.Model.Tables
         [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
         public string DestStation { get; set; }
         [Display(Name = "Price")]
+        [DataType(DataType.Currency)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
         public decimal Price { get; set; }
         [Display(Name = "two way price")]
+        [DataType(DataType.Currency)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
         public decimal twoWayPrice { get; set; }
-        [Display(Name = "Price")]
+        [Display(Name = "Price2")]
+        [DataType(DataType.Currency)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
         public decimal Price2 { get; set; }
-        [Display(Name = "two way price")]
+        [Display(Name = "two way price2")]
+        [DataType(DataType.Currency)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "please enter {0}")]
         public decimal twoWayPrice2 { get; set; }
         [Display(Name = "Status")]

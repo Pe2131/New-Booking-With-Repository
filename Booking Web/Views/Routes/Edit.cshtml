@@ -1,4 +1,4 @@
-﻿@model Tbl_PathWay
+﻿@model Tbl_Routes
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -44,135 +44,162 @@
                                     <strong> Pathway Form</strong>
                                 </h2>
                             </div>
-                            <form asp-controller="Pathway" asp-action="Edit" method="post" onsubmit="ConfirmPathWay()">
+                            <form asp-controller="Routes" asp-action="Edit" method="post" onsubmit="ConfirmPathWay()">
                                 <input type="hidden" name="id" value="@Model.id" />
                                 <div class="demo-masked-input">
                                     <div class="row clearfix">
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                            <div class="class=form-group form-float">
-                                                <div class="col-md-6">
-                                                    <p>
-                                                        <b>Source</b>
-                                                    </p>
-                                                    <div class="btn-group bootstrap-select form-group col-10">
-                                                        <div class="select-wrapper">
-                                                            <select asp-for="Source_FG" name="Source_FG" class="form-group col-12" id="Source_FG" tabindex="-1">
-                                                                @foreach (var item in cities)
-                                                                {
-                                                                    <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
-                                                                }
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row" style="padding:30px;">
+                                                <div class="class=form-group form-float col-6">
+                                                    <div class="col-md-12">
+                                                        <p>
+                                                            <b>Source</b>
+                                                        </p>
+                                                        <div class="btn-group bootstrap-select form-group col-10">
+                                                            <div class="select-wrapper">
+                                                                <select asp-for="Source_FG" name="Source_FG" class="form-group col-12" id="Source_FG" tabindex="-1">
+                                                                    @foreach (var item in cities)
+                                                                    {
+                                                                        <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
+                                                                    }
 
-                                                            </select>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <span asp-validation-for="Source_FG" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group form-float col-6">
+                                                    <div class="col-md-12">
+                                                        <p>
+                                                            <b>Destination</b>
+                                                        </p>
+                                                        <div class="btn-group bootstrap-select form-group col-10">
+                                                            <div class="select-wrapper">
+                                                                <select asp-for="Destination_FG" name="Destination_FG" class="form-group col-12" id="Destination_FG" tabindex="-1">
+                                                                    @foreach (var item in cities)
+                                                                    {
+                                                                        <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <span asp-validation-for="Destination_FG" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group form-float col-6" style="margin-left:25%;">
+                                                    <b>Statuse</b>
+                                                    <select class="col-12" asp-for="Status" name="Status">
+                                                        <option value="Active">Active</option>
+                                                        <option value="DeActive">Deactive</option>
+                                                        <option value="Delay">Delay</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding:30px;border:1px solid #ddd;width:90%;margin-left:40px;">
+                                                <h3 class="col-12" style="text-align:center;margin-bottom:5px;">departure day and time</h3>
+                                                <div class="form-group demo-tagsinput-area col-6">
+                                                    <div class="form-line focused">
+                                                        <div class="bootstrap-tagsinput" style="display:grid !important;padding:0px;">
+                                                            <input type="text" class="form-control col-12" data-role="tagsinput" value="@Model.DepartureDays" style="display: none;" asp-for="DepartureDays" name="DepartureDays" placeholder="please Enter Departure days">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span asp-validation-for="Source_FG" class="text-danger"></span>
-                                            </div>
-                                            <div class="class=form-group form-float">
-                                                <div class="col-md-6">
-                                                    <p>
-                                                        <b>Destination</b>
-                                                    </p>
-                                                    <div class="btn-group bootstrap-select form-group col-10">
-                                                        <div class="select-wrapper">
-                                                            <select asp-for="Destination_FG" name="Destination_FG" class="form-group col-12" id="Destination_FG" tabindex="-1">
-                                                                @foreach (var item in cities)
-                                                                {
-                                                                    <option value="@item.Id" data-icon="../../Files/Images/Citis/@item.Image">@item.name</option>
-                                                                }
+                                                <div class="form-group form-float col-6">
+                                                    <div class="form-group" style="margin-top: 3px !important;">
+                                                        <div class="form-line">
+                                                            <input type="text" asp-for="DepartureTime" name="DepartureTime" id="Start" class="timepicker form-control" placeholder="Please choose Departure Time..." data-dtp="dtp_YWx5z" style="font-size:17px;">
+                                                        </div>
 
-                                                            </select>
+                                                    </div>
+                                                    <span id="startDanger" class="text-danger" style="display:none"> please enter this</span>
+                                                </div>
+                                                <h3 class="col-12" style="text-align:center;margin-bottom:5px;">Arrive day and time</h3>
+                                                <div class="form-group demo-tagsinput-area col-sm-6">
+                                                    <div class="form-line focused">
+                                                        <div class="bootstrap-tagsinput" style="display:grid !important;padding:0px;">
+                                                            <input type="text" class="form-control" data-role="tagsinput" value="@Model.ArriveDays" style="display: none;width:300px !important;" asp-for="ArriveDays" name="ArriveDays" placeholder="please Enter Arrive Time">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span asp-validation-for="Destination_FG" class="text-danger"></span>
+                                                <div class="form-group form-float col-sm-6">
+                                                    <div class="form-group" style="margin-top: 3px !important;">
+                                                        <div class="form-line">
+                                                            <input type="text" asp-for="ArriveTime" name="ArriveTime" id="Start" class="timepicker form-control" placeholder="Please choose Arrive Time..." data-dtp="dtp_YWx5z" style="font-size:17px;">
+                                                        </div>
+                                                    </div>
+                                                    <span id="startDanger" class="text-danger" style="display:none"> please enter this</span>
+                                                </div>
                                             </div>
-                                            <div class="form-group form-float col-sm-6">
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                        <input type="text" name="Start" id="Start" value="@ViewBag.Start" class="datetimepicker form-control" placeholder="Please choose Start date &amp; time..." data-dtp="dtp_YWx5z">
+                                            <div class="row" style="padding:30px;border:1px solid #ddd;width:90%;margin-left:40px;">
+                                                <h3 class="col-12" style="text-align:center;margin-bottom:5px;">Stations Info</h3>
+
+                                                <div class="form-group demo-tagsinput-area col-sm-6">
+                                                    <div class="form-line focused">
+                                                        <div class="bootstrap-tagsinput" style="display:grid !important;padding:0px;">
+                                                            <input type="text" class="form-control" data-role="tagsinput" value="@Model.SourceStation" style="display: none;width:300px !important;" asp-for="SourceStation" name="SourceStation" placeholder="please Enter  Source Stations">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group demo-tagsinput-area col-sm-6" style="display:grid !important;padding:0px;">
+                                                    <div class="form-line focused">
+                                                        <div class="bootstrap-tagsinput" style="display:grid !important;padding:0px;">
+                                                            <input type="text" class="form-control" data-role="tagsinput" value="@Model.DestStation" style="display: none;width:300px !important;" asp-for="DestStation" name="DestStation" placeholder="please Enter Destination Stations ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding:30px;border:1px solid #ddd;width:90%;margin-left:40px;">
+                                                <h3 class="col-12" style="text-align:center;margin-bottom:5px;">Price</h3>
+                                                <div class="form-group form-float col-md-6" id="price">
+                                                    <b>Price</b>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">attach_money</i>
+                                                        </span>
+                                                        <div class="form-line">
+                                                            <input name="price11" type="text" class="form-control" placeholder="Ex: 99,99 $" onchange="setTwoNumberDecimal(this)" required>
+                                                        </div>
                                                     </div>
 
                                                 </div>
-                                                <span id="startDanger" class="text-danger" style="display:none"> please enter this</span>
-                                            </div>
-                                            <div class="form-group form-float col-sm-6">
-                                                <div class="form-group">
-                                                    <div class="form-line">
-                                                        <input type="text" name="End" id="End" value="@ViewBag.End" class="datetimepicker form-control" placeholder="Please choose End date &amp; time..." data-dtp="dtp_YWx5z">
+                                                <div class="form-group form-float col-md-6" id="price">
+                                                    <b>twoWayPrice</b>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">attach_money</i>
+                                                        </span>
+                                                        <div class="form-line">
+                                                            <input name="price22" type="text" step="any" class="form-control" placeholder="Ex: 99,99 $" onchange="setTwoNumberDecimal(this)" required>
+                                                        </div>
                                                     </div>
 
                                                 </div>
-                                                <span id="endDanger" class="text-danger" style="display:none"> please enter this</span>
-                                            </div>
-                                            <div class="form-group form-float col-md-6">
-                                                <div class="form-line">
-                                                    <input type="number" class="form-control" asp-for="Capacity" name="Capacity" min="0" max="1000">
-                                                    <label class="form-label" asp-for="Capacity">Capacity</label>
+                                                <div class="form-group form-float col-md-6" id="price">
+                                                    <b>Price in uro</b>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">attach_money</i>
+                                                        </span>
+                                                        <div class="form-line">
+                                                            <input name="price33" type="text" step="any" class="form-control" placeholder="Ex: 99,99 $" onchange="setTwoNumberDecimal(this)" required>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                                <div class="help-info">Min. Value: 10, Max. Value: 1000</div>
-                                                <span asp-validation-for="Capacity" class="text-danger"></span>
-                                            </div>
-                                            <div class="form-group form-float col-md-6" id="price">
-                                                <b>Price For Adult (Euro)</b>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="material-icons">euro_symbol</i>
-                                                    </span>
-                                                    <div class="form-line">
-                                                        <input asp-for="PriceForAdultUro" name="PriceForAdultUro" type="number" class="form-control" placeholder="Ex: 99,99 €">
+                                                <div class="form-group form-float col-md-6" id="price">
+                                                    <b>Price uro</b>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">attach_money</i>
+                                                        </span>
+                                                        <div class="form-line">
+                                                            <input name="price44" type="text" step="any" class="form-control" placeholder="Ex: 99,99 $" onchange="setTwoNumberDecimal(this)" required>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <span asp-validation-for="PriceForAdultUro" class="text-danger"></span>
+                                            </div>
 
-                                            </div>
-                                            <div class="form-group form-float col-md-6" id="price">
-                                                <b>Price For Adult (Dollar)</b>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="material-icons">attach_money</i>
-                                                    </span>
-                                                    <div class="form-line">
-                                                        <input asp-for="PriceForAdultDollar" name="PriceForAdultDollar" type="number" class="form-control" placeholder="Ex: 99,99 $">
-                                                    </div>
-                                                </div>
-                                                <span asp-validation-for="PriceForAdultDollar" class="text-danger"></span>
-
-                                            </div>
-                                            <div class="form-group form-float col-md-6" id="price">
-                                                <b>Price For Baybe (Euro)</b>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="material-icons">euro_symbol</i>
-                                                    </span>
-                                                    <div class="form-line">
-                                                        <input asp-for="PriceForBabyUro" name="PriceForBabyUro" type="number" class="form-control" placeholder="Ex: 99,99 €">
-                                                    </div>
-                                                </div>
-                                                <span asp-validation-for="PriceForBabyUro" class="text-danger"></span>
-
-                                            </div>
-                                            <div class="form-group form-float col-md-6" id="price">
-                                                <b>Price For Baybe (Dollar)</b>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="material-icons">attach_money</i>
-                                                    </span>
-                                                    <div class="form-line">
-                                                        <input asp-for="PriceForBabyDollar" name="PriceForBabyDollar" type="number" class="form-control" placeholder="Ex: 99,99 $">
-                                                    </div>
-                                                </div>
-                                                <span asp-validation-for="PriceForBabyDollar" class="text-danger"></span>
-                                            </div>
-                                            <div class="form-group form-float col-md-6">
-                                                <b>Statuse</b>
-                                                <select class="col-12" asp-for="Status" name="Status">
-                                                    <option value="Active">Active</option>
-                                                    <option value="DeActive">Deactive</option>
-                                                    <option value="Delay">Delay</option>
-
-                                                </select>
-                                            </div>
                                         </div>
 
                                     </div>
@@ -181,7 +208,7 @@
                                     <i class="material-icons">save</i>
                                     <span>Save</span>
                                 </button>
-                                <a href="/PathWay/" class="btn btn-info waves-effect">
+                                <a href="/Routes/" class="btn btn-info waves-effect">
                                     <i class="material-icons">arrow_back</i>
                                     <span>Back</span>
                                 </a>
@@ -226,6 +253,9 @@
             return result;
 
         }
+        function setTwoNumberDecimal(el) {
+            el.value = parseFloat(el.value).toFixed(2);
+        };
 
     </script>
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -21,8 +22,8 @@ namespace Booking_Web.Controllers
             try
 
             {
-                var pathway = Db.RoutRepositori.Get(a => a.Status != "Deactive", orderby: a => a.OrderByDescending(b => b.id));
-                var Model = Mapper.Map<List<ViewModel_Routes>>(pathway);
+                var Route = Db.RoutRepositori.Get(a => a.Status != "Deactive", orderby: a => a.OrderByDescending(b => b.id));
+                var Model = Mapper.Map<List<ViewModel_Routes>>(Route);
                 return View(Model);
             }
             catch (Exception e)
@@ -50,11 +51,15 @@ namespace Booking_Web.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Tbl_Routes Model)
+        public async Task<IActionResult> Create(Tbl_Routes Model, ViewModel_Price price)
         {
             try
             {
                 ViewBag.cities = Db.CityRepository.Get(orderby: a => a.OrderByDescending(b => b.Id));
+                Model.Price = Convert.ToDecimal(price.price11, CultureInfo.InvariantCulture);
+                Model.twoWayPrice = Convert.ToDecimal(price.price22, CultureInfo.InvariantCulture);
+                Model.Price2 = Convert.ToDecimal(price.price33, CultureInfo.InvariantCulture);
+                Model.twoWayPrice2 = Convert.ToDecimal(price.price44, CultureInfo.InvariantCulture);
                 if (Model.Source_FG == Model.Destination_FG)
                 {
                     TempData["Style"] = "alert alert-warning text-center";
@@ -102,12 +107,16 @@ namespace Booking_Web.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(Tbl_Routes Model)
+        public async Task<IActionResult> Edit(Tbl_Routes Model, ViewModel_Price price)
         {
             try
             {
                 ViewBag.cities = Db.CityRepository.Get(orderby: a => a.OrderByDescending(b => b.Id));
-                var pathWay = Db.RoutRepositori.GetById(Model.id);
+                Model.Price = Convert.ToDecimal(price.price11, CultureInfo.InvariantCulture);
+                Model.twoWayPrice = Convert.ToDecimal(price.price22, CultureInfo.InvariantCulture);
+                Model.Price2 = Convert.ToDecimal(price.price33, CultureInfo.InvariantCulture);
+                Model.twoWayPrice2 = Convert.ToDecimal(price.price44, CultureInfo.InvariantCulture);
+                var Route = Db.RoutRepositori.GetById(Model.id);
                 if (Model.Source_FG == Model.Destination_FG)
                 {
                     TempData["Style"] = "alert alert-warning text-center";
@@ -116,17 +125,20 @@ namespace Booking_Web.Controllers
                 }
                 if (ModelState.IsValid)
                 {
-                    pathWay.Source_FG = Model.Source_FG;
-                    pathWay.Destination_FG = Model.Destination_FG;
-                    pathWay.DepartureDays = Model.DepartureDays;
-                    pathWay.DepartureTime = Model.DepartureTime;
-                    pathWay.Price = Model.Price;
-                    pathWay.ArriveDays = Model.ArriveDays;
-                    pathWay.ArriveTime = Model.ArriveTime;
-                    pathWay.DestStation = Model.DestStation;
-                    pathWay.SourceStation = Model.SourceStation;
-                    pathWay.Status = Model.Status;
-                    Db.RoutRepositori.Update(pathWay);
+                    Route.Source_FG = Model.Source_FG;
+                    Route.Destination_FG = Model.Destination_FG;
+                    Route.DepartureDays = Model.DepartureDays;
+                    Route.DepartureTime = Model.DepartureTime;
+                    Route.Price = Model.Price;
+                    Route.twoWayPrice = Model.twoWayPrice;
+                    Route.Price2 = Model.Price2;
+                    Route.twoWayPrice2 = Model.twoWayPrice2;
+                    Route.ArriveDays = Model.ArriveDays;
+                    Route.ArriveTime = Model.ArriveTime;
+                    Route.DestStation = Model.DestStation;
+                    Route.SourceStation = Model.SourceStation;
+                    Route.Status = Model.Status;
+                    Db.RoutRepositori.Update(Route);
                     await Db.RoutRepositori.Save();
                     TempData["Style"] = "alert alert-success text-center";
                     TempData["Message"] = "Saved";
@@ -196,19 +208,6 @@ namespace Booking_Web.Controllers
                 return Json(0);
             }
         }
-        public List<ViewModel_PathWay> SearchPathForReserv(int source, int dest, string date, int count)
-        {
-            try
-            {
-                var pathways = Db.RoutRepositori.Get(a => a.Status != "Deactive" & a.Source_FG == source & a.Destination_FG == dest, orderby: a => a.OrderByDescending(b => b.id));
-                var Model = Mapper.Map<List<ViewModel_PathWay>>(pathways);
-                return Model.ToList();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
         public PartialViewResult GetDestination(int id)
         {
             try
@@ -218,7 +217,7 @@ namespace Booking_Web.Controllers
                 List<Tbl_Country> countries = new List<Tbl_Country>();
                 foreach (var item in routes)
                 {
-                    var city = Db.CityRepository.Get(a=>a.Id==item.Destination_FG,null, "Tbl_Country").SingleOrDefault();
+                    var city = Db.CityRepository.Get(a => a.Id == item.Destination_FG, null, "Tbl_Country").SingleOrDefault();
                     if (city != null)
                     {
                         cities.Add(city);
@@ -227,7 +226,7 @@ namespace Booking_Web.Controllers
                 }
                 if (cities == null)
                 {
-                    return PartialView("P_DestinationCity",null);
+                    return PartialView("P_DestinationCity", null);
                 }
                 ViewBag.Countries = Mapper.Map<List<ViewModel_Country>>(countries.Distinct());
                 var model = Mapper.Map<List<ViewModel_City>>(cities);
