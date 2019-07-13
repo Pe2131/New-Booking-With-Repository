@@ -43,6 +43,11 @@ namespace Booking_Web.Controllers
         {
             return View(new ErrorViewModel { ErrorMassage = e.InnerException.ToString(), ErrorTitle = "Error", RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        /// <summary>
+        /// for news letter
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <returns></returns>
         public async Task<JsonResult> insertEmail(string Email)
         {
             try
@@ -331,6 +336,14 @@ namespace Booking_Web.Controllers
                 error.ErrorMassage = e.Message;
                 return View("Error", error);
             }
+        }
+        public IActionResult Terms()
+        {
+            return View();
+        }
+        public IActionResult PersonalData()
+        {
+            return View();
         }
         public IActionResult ChangeLanguage(string culture)
         {
