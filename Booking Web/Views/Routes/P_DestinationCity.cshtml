@@ -5,7 +5,6 @@
     @foreach (var item in countries)
     {
         <optgroup label="@item.Name">
-            <option></option>
             @foreach (var item2 in Model.Where(a=>a.Country_FG==item.Id))
             {
             <option value="@item2.Id">@item2.Name</option>

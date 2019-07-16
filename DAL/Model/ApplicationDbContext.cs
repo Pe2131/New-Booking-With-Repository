@@ -26,7 +26,6 @@ namespace DAL.Model
         public DbSet<Tbl_Country> tbl_Countries { get; set; }
         public DbSet<Tbl_City> tbl_Cities { get; set; }
         public DbSet<Tbl_Discount> tbl_Discounts { get; set; }
-        public DbSet<Tbl_Reserve> Tbl_Reserve { get; set; }
         public DbSet<Tbl_Weblog> tbl_Weblogs { get; set; }
         public DbSet<Tbl_NewsLetter> tbl_NewsLetters { get; set; }
         public DbSet<Tbl_Contact> tbl_Contacts { get; set; }

@@ -73,6 +73,34 @@ namespace Booking_Web.Utility
                 throw e;
             }
         }
+        public int CheckReservCount(string date,int routesId)
+        {
+            try
+            {
+                if (date != null)
+                {
+                    DateTime mydate = utility.ConvertStaringToDate(date, "dd/MM/yyyy");
+                    var ReservedCount = Db.ReservCountRepositori.Get(a => a.ReservDate == mydate & a.RoutId_FG == routesId).SingleOrDefault();
+                    if (ReservedCount != null)
+                    {
+                        return ReservedCount.Id;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
         public decimal calculatPrice(int count, int adult, int child, int child2, int child7, int student, bool twoWay, int routId)
         {
             try
@@ -82,15 +110,47 @@ namespace Booking_Web.Utility
                 if (twoWay == false)
                 {
                     decimal totalPrice = count * route.Price;
-                    decimal totalDiscounts = (child * route.Price * (DiscountSetting.ForChild0 / 100)) + (child2 * route.Price * (DiscountSetting.ForChild2 / 100)) + (child7 * route.Price * (DiscountSetting.ForChild7 / 100)) + (student * route.Price * (DiscountSetting.forStudent / 100));
+                    //decimal totalDiscounts = (child * route.Price * ((decimal)(DiscountSetting.ForChild0 / 100))) + (child2 * route.Price * ((decimal)(DiscountSetting.ForChild2 / 100))) + (child7 * route.Price * ((decimal)(DiscountSetting.ForChild7 / 100))) + (student * route.Price * ((decimal)(DiscountSetting.forStudent / 100)));
+                    decimal totalDiscounts = (child * route.Price * decimal.Divide((decimal)DiscountSetting.ForChild0 , 100m)) + (child2 * route.Price * decimal.Divide((decimal)DiscountSetting.ForChild2, 100m)) + (child7 * route.Price * decimal.Divide((decimal)DiscountSetting.ForChild7, 100m)) + (student * route.Price * decimal.Divide((decimal)DiscountSetting.forStudent, 100m));
                     return totalPrice - totalDiscounts;
                 }
                 else
                 {
                     decimal totalPrice = count * route.twoWayPrice;
-                    decimal totalDiscounts = (child * route.twoWayPrice * (DiscountSetting.ForChild0 / 100)) + (child2 * route.twoWayPrice * (DiscountSetting.ForChild2 / 100)) + (child7 * route.twoWayPrice * (DiscountSetting.ForChild7 / 100)) + (student * route.twoWayPrice * (DiscountSetting.forStudent / 100));
+                    decimal totalDiscounts = (child * route.twoWayPrice * decimal.Divide((decimal)DiscountSetting.ForChild0, 100m)) + (child2 * route.twoWayPrice * decimal.Divide((decimal)DiscountSetting.ForChild2, 100m)) + (child7 * route.twoWayPrice * decimal.Divide((decimal)DiscountSetting.ForChild7, 100m)) + (student * route.twoWayPrice * decimal.Divide((decimal)DiscountSetting.forStudent, 100m));
                     return totalPrice - totalDiscounts;
                 }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+        public bool CnfirmReservDatTime(int routId,string reservDate)
+        {
+            try
+            {
+                var route = Db.RoutRepositori.GetById(routId);
+                DateTime resrvdate = utility.ConvertStaringToDate(reservDate, "dd/MM/yyyy");
+                DateTime routeTime = utility.ConvertStaringToTime(route.DepartureTime, "HH:mm");
+                string thisTime = DateTime.Now.ToString("HH:mm");
+                DateTime nowTime = utility.ConvertStaringToTime(thisTime, "HH:mm");
+                string reservDateWithTime = reservDate + " " + thisTime;
+                DateTime ReserveWithTime= utility.ConvertStaringToDate(reservDateWithTime, "dd/MM/yyyy HH:mm");
+                if (utility.CompareDate(resrvdate, DateTime.Now.Date) == 2)
+                {
+                    return false;
+                }
+                if (utility.CompareDate(ReserveWithTime, DateTime.Now.Date) == 0)
+                {
+                    if (utility.CompareDate(routeTime, nowTime) == 2)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                return true;
             }
             catch (Exception e)
             {

@@ -28,7 +28,7 @@ namespace DAL.Model.Tables
         [Required(AllowEmptyStrings = false, ErrorMessage = "please Enter {0}")]
         public int Adult { get; set; }
         [Display(Name = "Adult name")]
-        public int AdultName { get; set; }
+        public String AdultName { get; set; }
         [Display(Name = "Child Up to 2 yers")]
         public int ChildupTo2 { get; set; }
         [Display(Name = "Child Up to 2 yers names")]

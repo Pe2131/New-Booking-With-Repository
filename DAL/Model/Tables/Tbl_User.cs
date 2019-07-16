@@ -22,7 +22,7 @@ namespace DAL.Model.Tables
         public string Image { get; set; }
         #region Relations
         public ICollection<Tbl_Factore> Tbl_Factores { get; set; }
-        public ICollection<Tbl_Reserve> tbl_Reserves { get; set; }
+        public ICollection<Tbl_NewReseve> tbl_Reserves { get; set; }
         #endregion
     }
 }

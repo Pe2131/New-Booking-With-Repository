@@ -1,4 +1,4 @@
-﻿@model List<ViewModel_Reserve>
+﻿
 @{
     ViewData["Title"] = "ManageReservs";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -47,44 +47,6 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @if (Model.Any())
-                                    {
-                                        int count = 1;
-
-                                        <tbody>
-                                            @foreach (var item in Model)
-                                            {
-
-                                            <tr id="@item.Id-R">
-                                                @if (item.Status == "Deleted")
-                                                {
-                                                    <th scope="row" style="background-color:#f99494;">@(count++)</th>
-                                                }
-                                                else
-                                                {
-                                                    <th scope="row">@(count++)</th>
-                                                }
-                                                <td>@item.SourceName - @item.DestName</td>
-                                                <td>@item.Tbl_Users.Email</td>
-                                                <td>@item.ReservedDate</td>
-                                                <td>@item.Fullname</td>
-                                                <td>@item.SumCount</td>
-                                                <td>@item.SumPrice</td>
-                                                <td>
-                                                    <button class="btn tblActnBtn" onclick="openReservForm(@item.Id)">
-                                                        <i class="material-icons">mode_edit</i>
-                                                    </button>
-
-                                                    <a id="@item.Id" class="btn tblActnBtn" onclick="showConfirmMessage(this)">
-                                                        <i class="material-icons">delete</i>
-                                                    </a>
-                                                </td>
-
-                                            </tr>
-                                            }
-
-                                        </tbody>
-                                    }
 
                                 </table>
                             </div>

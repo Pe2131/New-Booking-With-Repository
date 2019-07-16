@@ -1,4 +1,4 @@
-﻿@model List<ViewModel_PathWay>
+﻿@model ViewModel_Search
 @{
     ViewData["Title"] = "Pathway Reserv";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -10,6 +10,7 @@
     <link href="~/assets/js/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css" rel="stylesheet" />
     <!-- Multi Select Css -->
     <link href="~/assets/js/bundles/multiselect/css/multi-select.css" rel="stylesheet">
+    <link href="~/css/datepicker.min.css" rel="stylesheet" />
 }
 <div class="container-fluid">
     <div class="block-header">
@@ -32,7 +33,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row clearfix js-sweetalert">
-                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style=" padding-left:0px;">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style=" padding-left:0px;">
                         <div class="card">
                             <div class="boxs mail_listing">
                                 <div class="inbox-center table-responsive">
@@ -50,38 +51,60 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form class="composeForm">
-
-                                            <select id="city1" class="form-group col-12" placeholder="Subject">
-                                                @foreach (var item in ViewBag.cities)
+                                        <form class="composeForm" asp-action="SearchRoutes" asp-controller="Reservation" onsubmit="return SumCount()">
+                                            <input type="hidden" id="count" name="count" />
+                                            <select id="FromCity" name="source" class="form-group col-12" placeholder="Subject" onchange="GetDestination()" required>
+                                                @foreach (var item in Model.Countries)
                                                 {
-                                                    <option value="@item.Id">@item.name</option>
+                                                    <optgroup label="@item.Name">
+                                                        @foreach (var item2 in Model.cities.Where(a => a.Country_FG == item.Id))
+                                                        {
+                                                            <option value="@item2.Id">@item2.Name</option>
+                                                        }
+                                                    </optgroup>
                                                 }
                                             </select>
-
-                                            <select id="city2" class="form-group col-12" placeholder="Subject">
-                                                @foreach (var item in ViewBag.cities)
-                                                {
-                                                    <option value="@item.Id">@item.name</option>
-                                                }
+                                            <select id="ToCity" name="dest" class="form-group col-12" placeholder="Subject" required>
                                             </select>
-
-                                            <input type="text" class="datepicker form-control" id="date" placeholder="Please choose a date..." data-dtp="dtp_fyrYG">
-                                            <input type="number" name="Adult" id="count" class="form-control" min="0"
-                                                   placeholder="Enter Count">
+                                            <input type="text" id="dateStart-flight" name="date" class="datepicker-here" data-position="right top" data-language='en' placeholder="dd/mm/yy" required>
+                                            <div class=" row">
+                                                <span class="col-7" style="padding-top:20px;">adult:</span>
+                                                <input type="number" name="adult" id="adult" class="form-control col-4" style="text-align:center;" min="0" value="0" placeholder="Enter adult Count">
+                                            </div>
+                                            <div class=" row">
+                                                <span class="col-7" style="padding-top:20px;">retired:</span>
+                                                <input type="number" name="retired" id="retired" class="form-control col-4" style="text-align:center;" min="0" value="0" placeholder="Enter adult Count">
+                                            </div>
+                                            <div class=" row">
+                                                <span class="col-7" style="padding-top:20px;">student:</span>
+                                                <input type="number" name="student" id="student" class="form-control col-4" style="text-align:center;" min="0" value="0" placeholder="Enter adult Count">
+                                            </div>
+                                            <div class=" row">
+                                                <span class="col-7" style="padding-top:20px;">child:</span>
+                                                <input type="number" name="child" id="child" class="form-control col-4" style="text-align:center;" min="0" value="0" placeholder="Enter adult Count">
+                                            </div>
+                                            <div class=" row">
+                                                <span class="col-7" style="padding-top:20px;">child(2-7):</span>
+                                                <input type="number" name="child2" id="child2" class="form-control col-4" style="text-align:center;" min="0" value="0" placeholder="Enter adult Count">
+                                            </div>
+                                            <div class=" row">
+                                                <span class="col-7" style="padding-top:20px;">child(7-12):</span>
+                                                <input type="number" name="child7" id="child7" class="form-control col-4" style="text-align:center;" min="0" value="0" placeholder="Enter adult Count">
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="m-l-25 m-b-20">
+                                                    <button type="submit" class="btn btn-info btn-border-radius waves-effect">Search</button>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <div class="m-l-25 m-b-20">
-                                            <button type="button" class="btn btn-info btn-border-radius waves-effect" onclick="Search()">Search</button>
-                                        </div>
-                                    </div>
+                                 
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" style=" padding-left:0px;">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style=" padding-left:0px;">
                         <div class="card">
                             @if (TempData["Style"] != null)
                             {
@@ -100,45 +123,28 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Source</th>
-                                            <th>Destination</th>
-                                            <th>start Time</th>
-                                            <th>arrive Time</th>
-                                            <th>Price For Adult</th>
-                                            <th>Price For Baby</th>
-                                            <th>status</th>
-                                            <th>Capasity</th>
-                                            <th>Action</th>
+                                            <th>Route</th>
+                                            <th>Departure</th>
+                                            <th>arrive</th>
+                                            <th>Price one way</th>
+                                            <th>Price two way</th>
                                         </tr>
                                     </thead>
-                                    @if (Model.Any())
+                                    @if (Model.PathWays.Any())
                                     {
                                         int count = 1;
 
                                         <tbody>
-                                            @foreach (var item in Model)
+                                            @foreach (var item in Model.PathWays)
                                             {
 
                                                 <tr id="@item.id-R">
                                                     <th scope="row">@(count++)</th>
-                                                    <td>@item.GetSourceName</td>
-                                                    <td>@item.GetDestinationName</td>
-                                                    <td>@item.StartDate</td>
-                                                    <td>@item.ArrivalDate</td>
-                                                    <td>@item.PriceForAdultUro € - @item.PriceForAdultDollar $ </td>
-                                                    <td>@item.PriceForBabyUro € - @item.PriceForBabyDollar $</td>
-                                                    <td>
-                                                        @item.Status
-                                                    </td>
-                                                    <td>
-                                                        @item.Capacity
-                                                    </td>
-                                                    <td>
-                                                        <button id="@item.id" class="btn tblActnBtn" onclick="openReservForm(@item.id)">
-                                                            <i class="material-icons">playlist_add_check</i>
-                                                        </button>
-                                                    </td>
-
+                                                    <td>@item.GetSourceName-@item.GetDestinationName</td>
+                                                    <td>@item.DepartureDays-@item.DepartureTime</td>
+                                                    <td>@item.ArriveDays-@item.ArriveTime</td>
+                                                    <td>@item.Price $ - @item.Price2 € </td>
+                                                    <td>@item.twoWayPrice $ - @item.twoWayPrice2 €</td>
                                                 </tr>
                                             }
 
@@ -192,8 +198,27 @@
     <script src="~/assets/js/bundles/multiselect/js/jquery.multi-select.js"></script>
     <script src="~/assets/js/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
     <script src="~/assets/js/pages/forms/advanced-form-elements.js"></script>
+    <script src="~/js/datepicker.min.js"></script>
+    <script src="~/js/datepicker.en.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
+        function SumCount() {
+            var countadult = parseInt($('#adult').val());
+            var countbaybe = parseInt($('#child').val());
+            var countbaybe2 = parseInt($('#child2').val());
+            var countbaybe7 = parseInt($('#child7').val());
+            var student = parseInt($('#student').val());
+            var retired = parseInt($('#retired').val());
+            var count = countadult + countbaybe + countbaybe2 + countbaybe7 + student + retired;
+            $('#count').val(count);
+            $('#student').val(student + retired);
+            if (count == 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
         function openReservForm(id) {
             $.ajax({
                 url: "/Reservation/ReservForm/" + id,
@@ -208,23 +233,54 @@
             });
 
         }
-        function Search() {
-            $("#tableContainer").empty();
-            $("#preloader").show();
-            var city1 = $('#city1').val();
-            var city2 = $('#city2').val();
-            var date = $('#date').val();
-            var count = $('#count').val();
+        function GetDestination() {
+            var id = $('#FromCity').val();
+            $('#ToCity').empty();
             $.ajax({
-                url: "/PathWay/SearchPath/",
-                type: "POST",
-                data: { source: city1, dest: city2, date: date, count: count },
-                AllowCache: false
-            }).done(function (res) {
-                $("#preloader").hide();
-                $("#tableContainer").append(res);
+                url: "/Routes/GetDestination/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    $('#ToCity').append(data);
+                    $('#ToCity').formSelect(); //this css fram work is material select and i must this code for append options to this
+                }
             });
-
+            $.ajax({
+                url: "/Routes/GetDeparture/",
+                data: { id: id },
+                type: "Get",
+                cache: false,
+                success: function (data) {
+                    GetEnableDay(data);
+                }
+            });
+        }
+        function GetEnableDay(days) {
+            var DaysWeek = [0, 1, 2, 3, 4, 5, 6]
+            var disabledDays = [];
+            // Make  disabled day by array in below
+            var enabldays = days.split(',').map(Number); // map for convert string number to int number
+            // enabldays = enabldays.map(function (val) { return --val; });
+            enabldays.forEach(function (item, i) { if (item == 7) enabldays[i] = 0; }); // beacouse days week start from 0to 6 replace 7 to 0
+            console.log(enabldays);
+            jQuery.grep(DaysWeek, function (el) {
+                if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
+            });
+            $('#dateStart-flight').datepicker({
+                autoClose: true,
+                 minDate: new Date(),
+                onRenderCell: function (date, cellType) {
+                    if (cellType == 'day') {
+                        var day = date.getDay(),
+                            isDisabled = disabledDays.indexOf(day) != -1;
+                        return {
+                            disabled: isDisabled
+                        }
+                    }
+                }
+            });
         }
     </script>
 }

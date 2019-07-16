@@ -106,19 +106,6 @@ namespace DAL.Model
                 return _FactoreRepository ;
             }
         }
-        private GenericRepositori<Tbl_Reserve> _ReservRepositori;
-        public GenericRepositori<Tbl_Reserve> ReservRepositori
-        {
-            get
-            {
-                if (_ReservRepositori == null)
-                {
-                    _ReservRepositori = new GenericRepositori<Tbl_Reserve>(db);
-                }
-
-                return _ReservRepositori;
-            }
-        }
         private GenericRepositori<Tbl_Weblog> _WeblogRepositori;
         public GenericRepositori<Tbl_Weblog> WeblogRepositori
         {

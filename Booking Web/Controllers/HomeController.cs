@@ -317,7 +317,7 @@ namespace Booking_Web.Controllers
                     }
                     if (model.student != null)
                     {
-                        ViewBag.student= utility.StringArrayToString(model.Child2);
+                        ViewBag.student= utility.StringArrayToString(model.student);
                     }
                     RoutesTools routesTools = new RoutesTools();
                     model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, false, model.RoutId);
@@ -353,6 +353,7 @@ namespace Booking_Web.Controllers
 
             return Redirect(Request.Headers["Referer"].ToString());
         }
+        [HttpPost]
         public IActionResult Pay(ViewModel_Prepay model)
         {
             try

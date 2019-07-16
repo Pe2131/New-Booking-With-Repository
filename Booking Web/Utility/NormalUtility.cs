@@ -139,5 +139,10 @@ namespace Booking_Web.Utility
             DateTime dt = DateTime.ParseExact(date, format,CultureInfo.InvariantCulture);
             return dt;
         }
+        public DateTime ConvertStaringToTime(string date, string format)
+        {
+            DateTime dt = DateTime.ParseExact(date, format, CultureInfo.InvariantCulture);
+            return dt;
+        }
     }
 }

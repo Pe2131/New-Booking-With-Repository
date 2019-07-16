@@ -1,0 +1,128 @@
+﻿@model List<ViewModel_Routes>
+@{
+    ViewData["Title"] = "SearchRoutes";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title">Reservation</h4>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-1">
+                        <a href="/Reservation/">
+                            <i class="fas fa-home"></i> Reservation
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item bcrumb-2">
+                        <a href="javascript:void(0);">Available Routes</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card" style="padding:20px;">
+                            @if (TempData["Style"] != null)
+                            {
+                                <div class="@TempData["Style"]">
+                                    @TempData["Message"]
+                                </div>
+                            }
+                            <div class="product-long-item-wrapper">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="product-long-item">
+
+                                        <div class="row equal-height shrink-auto-md gap-15">
+
+                                            <div class="col-12 col-shrink">
+                                            </div>
+
+                                            <div class="col-12 col-auto">
+
+                                                <div class="col-inner d-flex flex-column">
+
+                                                    <div class="content-top">
+
+                                                        <div class="d-flex">
+
+                                                            <div>
+                                                                <h5><a>@item.GetSourceName To @item.GetDestinationName</a></h5>
+                                                            </div>
+
+                                                            <div class="ml-auto">
+                                                                <div class="price">
+                                                                    <div class="float-right">
+                                                                        One Way
+                                                                        <span class="text-secondary">@Math.Round(item.Price).ToString("N0") $ - €@Math.Round(item.Price2).ToString("N0")</span>
+
+
+                                                                        Two Way
+                                                                        <span class="text-secondary">@Math.Round(item.twoWayPrice).ToString("N0") $ - €@Math.Round(item.twoWayPrice2).ToString("N0")</span>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="content">
+                                                        <p>@ViewBag.count passenger and this route has @(item.Capacity == 0 ? "noset" : item.Capacity.ToString()) seat available</p>
+                                                    </div>
+                                                    @{
+                                                        // for get name day of week
+                                                        string days = item.DepartureDays;
+                                                        if (item.DepartureDays.Contains(",7"))
+                                                        {
+                                                            days = item.DepartureDays.Replace(",7", ",0"); // for get sunday if day contatin 7
+                                                        }
+                                                        var departurdays = string.Join(",",
+                                                        from g in days.Split(new char[] { ',' })
+                                                        select Enum.GetName(typeof(DayOfWeek), Convert.ToInt32(g)));
+
+                                                    }
+                                                    <div class="content-bottom mt-auto">
+                                                        <div class="d-flex align-items-center">
+                                                            <div>
+                                                                <p><i class="far fa-clock mt-10"></i><strong>@departurdays</strong> &nbsp;  &nbsp;</p>
+                                                            </div>
+                                                            <form asp-action="BookForm" asp-controller="Reservation" method="post">
+                                                                <input type="hidden" name="id" value=@item.id />
+                                                                <input type="hidden" name="adult" value=@ViewBag.adult />
+                                                                <input type="hidden" name="count" value=@ViewBag.count />
+                                                                <input type="hidden" name="child" value=@ViewBag.Child />
+                                                                <input type="hidden" name="child2" value=@ViewBag.Child2 />
+                                                                <input type="hidden" name="child7" value=@ViewBag.Child7 />
+                                                                <input type="hidden" name="student" value=@ViewBag.student />
+                                                                <input type="hidden" name="tripDate" value=@ViewBag.tripDate />
+                                                                <div class="ml-auto">
+                                                                    <button type="submit" class="btn btn-primary btn-sm btn-wide">Book</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

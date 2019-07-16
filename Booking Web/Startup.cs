@@ -105,9 +105,9 @@ namespace Booking_Web
                 map.CreateMap<Tbl_Country, ViewModel_Country>();
                 map.CreateMap<Tbl_City, ViewModel_City>();
                 map.CreateMap<Tbl_PathWay, ViewModel_PathWay>();
-                map.CreateMap<Tbl_Reserve, ViewModel_Reserve>();
                 map.CreateMap<Tbl_Users, ViewModel_Agents>();
                 map.CreateMap<Tbl_Routes, ViewModel_Routes>();
+                map.CreateMap<Tbl_NewReseve, ViewModel_Reserv>();
             });  // this line Use AutoMapper for map Model to View Model
 
             services.AddTransient<AccountController>();

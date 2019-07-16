@@ -164,11 +164,6 @@ namespace Booking_Web.Controllers
         {
             try
             {
-                var factores = Db.FactoreRepository.Get(a => a.PathwayId_FG == id).ToList();
-                if (factores.Any())
-                {
-                    return Json(0);
-                }
                 Db.RoutRepositori.Delete(id);
                 await Db.RoutRepositori.Save();
                 return Json(1);

@@ -40,7 +40,6 @@ namespace DAL.Model.Tables
         public string Status { get; set; }
         #region Relations
         public ICollection<Tbl_Factore> tbl_Factores { get; set; }
-        public ICollection<Tbl_Reserve> tbl_Reserves { get; set; }
         #endregion
     }
 }
