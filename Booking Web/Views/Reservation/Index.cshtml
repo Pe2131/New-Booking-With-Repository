@@ -64,9 +64,15 @@
                                                     </optgroup>
                                                 }
                                             </select>
-                                            <select id="ToCity" name="dest" class="form-group col-12" placeholder="Subject" required>
-                                            </select>
+                                            <select id="ToCity" name="dest" class="form-group col-12" placeholder="Subject" required></select>
                                             <input type="text" id="dateStart-flight" name="date" class="datepicker-here" data-position="right top" data-language='en' placeholder="dd/mm/yy" required>
+                                            <div class=" row">
+                                                <label class="col-4" style="padding-top:17px;">
+                                                    <input type="checkbox" id="2way">
+                                                    <span>2Way</span>
+                                                </label>
+                                                <input type="text" id="dateStart-flight2" name="backdate" class="datepicker-here col-8" data-position="right top" data-language='en' placeholder="dd/mm/yy" required style="display:none;">
+                                            </div>
                                             <div class=" row">
                                                 <span class="col-7" style="padding-top:20px;">adult:</span>
                                                 <input type="number" name="adult" id="adult" class="form-control col-4" style="text-align:center;" min="0" value="0" placeholder="Enter adult Count">
@@ -98,7 +104,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                 
+
                                 </div>
                             </div>
                         </div>
@@ -202,6 +208,27 @@
     <script src="~/js/datepicker.en.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
+        $(document).ready(function () {
+            $("#2way").click(function () {
+                var ToCityId = $('#ToCity').val();
+                if ($("#2way").prop("checked") && ToCityId != null) {
+                    if (ToCityId != null) {
+                        $.ajax({
+                            url: "/Routes/GetDeparture/",
+                            data: { id: ToCityId },
+                            type: "Get",
+                            cache: false,
+                            success: function (data) {
+                                GetEnableDayFor2Way(data);
+                            }
+                        });
+                    }
+                    $("#dateStart-flight2").show();
+                } else {
+                    $("#dateStart-flight2").hide();
+                }
+            });
+        });
         function SumCount() {
             var countadult = parseInt($('#adult').val());
             var countbaybe = parseInt($('#child').val());
@@ -215,9 +242,11 @@
             if (count == 0) {
                 return false;
             }
-            else {
-                return true;
+            if ($("#2way").prop("checked") && $("#dateStart-flight2").val() == null || $("#dateStart-flight2").val() == '') {
+                return false;
             }
+            return true;
+
         }
         function openReservForm(id) {
             $.ajax({
@@ -270,7 +299,32 @@
             });
             $('#dateStart-flight').datepicker({
                 autoClose: true,
-                 minDate: new Date(),
+                minDate: new Date(),
+                onRenderCell: function (date, cellType) {
+                    if (cellType == 'day') {
+                        var day = date.getDay(),
+                            isDisabled = disabledDays.indexOf(day) != -1;
+                        return {
+                            disabled: isDisabled
+                        }
+                    }
+                }
+            });
+        }
+        function GetEnableDayFor2Way(days) {
+            var DaysWeek = [0, 1, 2, 3, 4, 5, 6]
+            var disabledDays = [];
+            // Make  disabled day by array in below
+            var enabldays = days.split(',').map(Number); // map for convert string number to int number
+            // enabldays = enabldays.map(function (val) { return --val; });
+            enabldays.forEach(function (item, i) { if (item == 7) enabldays[i] = 0; }); // beacouse days week start from 0to 6 replace 7 to 0
+            console.log(enabldays);
+            jQuery.grep(DaysWeek, function (el) {
+                if (jQuery.inArray(el, enabldays) == -1) disabledDays.push(el);
+            });
+            $('#dateStart-flight2').datepicker({
+                autoClose: true,
+                minDate: new Date(),
                 onRenderCell: function (date, cellType) {
                     if (cellType == 'day') {
                         var day = date.getDay(),

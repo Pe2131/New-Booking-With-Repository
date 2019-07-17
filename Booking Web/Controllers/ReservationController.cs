@@ -60,7 +60,7 @@ namespace Booking_Web.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddReservation(ViewModel_Prepay model, string adult, string child, string child2, string child7, string student)
+        public async Task<IActionResult> AddReservation(ViewModel_Prepay model, string adult, string child, string child2, string child7, string student, string backdate = "", int backwayRoutId = 0)
         {
             try
             {
@@ -69,6 +69,7 @@ namespace Booking_Web.Controllers
                 {
                     RoutesTools routesTools = new RoutesTools();
                     Tbl_NewReseve reseve = new Tbl_NewReseve();
+                    List<Tbl_NewReseve> resevesList = new List<Tbl_NewReseve>();
                     reseve.AdultName = adult;
                     reseve.Adult = model.adultcount;
                     reseve.ChildupTo2 = model.childcount;
@@ -89,7 +90,7 @@ namespace Booking_Web.Controllers
                     reseve.RouteId = model.RoutId;
                     reseve.TripdDate = utility.ConvertStaringToDate(model.tripDate, "dd/MM/yyyy");
                     reseve.Status = "1";
-                    Db.NewReservRepositori.Insert(reseve);
+                    resevesList.Add(reseve);
                     int CheckReservCount = routesTools.CheckReservCount(model.tripDate, model.RoutId);
                     if (CheckReservCount != 0)
                     {
@@ -105,9 +106,50 @@ namespace Booking_Web.Controllers
                         reservCount.RoutId_FG = model.RoutId;
                         Db.ReservCountRepositori.Insert(reservCount);
                     }
-                    await Db.NewReservRepositori.Save();
+                    if (backdate != "" && backwayRoutId != 0)
+                    {
+                        Tbl_NewReseve backreseve = new Tbl_NewReseve();
+                        backreseve.AdultName = adult;
+                        backreseve.Adult = model.adultcount;
+                        backreseve.ChildupTo2 = model.childcount;
+                        backreseve.ChildupTo2Name = child;
+                        backreseve.Childup2To7 = model.child7count;
+                        backreseve.Childup2To7Names = child2;
+                        backreseve.Childup7To12 = model.child7count;
+                        backreseve.Childup7To12Names = child7;
+                        backreseve.StudentOrRetirs = model.studentCount;
+                        backreseve.studentOrRetirsName = student;
+                        backreseve.SumCount = model.sumcount;
+                        backreseve.SumPrice = model.sumprice;
+                        backreseve.AgentId = Db.UserRepository.Get(a => a.Email == User.Identity.Name).SingleOrDefault().Id;
+                        backreseve.Email = model.Email;
+                        backreseve.Fullname = model.Fullname;
+                        backreseve.Mobile = model.Mobile;
+                        backreseve.ReservedDate = DateTime.Now;
+                        backreseve.RouteId = backwayRoutId;
+                        backreseve.TripdDate = utility.ConvertStaringToDate(backdate, "dd/MM/yyyy");
+                        backreseve.Status = "1";
+                        resevesList.Add(backreseve);
+                        int CheckbackReservCount = routesTools.CheckReservCount(backdate, backwayRoutId);
+                        if (CheckbackReservCount != 0)
+                        {
+                            var Reservcount = Db.ReservCountRepositori.GetById(CheckbackReservCount);
+                            Reservcount.count = Reservcount.count + model.sumcount;
+                            Db.ReservCountRepositori.Update(Reservcount);
+                        }
+                        else
+                        {
+                            Tbl_ReservCount reservCount = new Tbl_ReservCount();
+                            reservCount.count = model.sumcount;
+                            reservCount.ReservDate = utility.ConvertStaringToDate(backdate, "dd/MM/yyyy");
+                            reservCount.RoutId_FG = backwayRoutId;
+                            Db.ReservCountRepositori.Insert(reservCount);
+                        }
+                        Db.NewReservRepositori.InsertRange(resevesList);
+                        await Db.NewReservRepositori.Save();
+                    }
                     TempData["Style"] = "alert alert-success text-center";
-                    TempData["Message"] = ModelState.GetErrors();
+                    TempData["Message"] = "reserve process successfully done";
                     return View();
                 }
                 else
@@ -262,12 +304,27 @@ namespace Booking_Web.Controllers
         //    //}
         //    return Json(1);
         //}
-        public IActionResult SearchRoutes(int source, int dest, string date, int count, int adult, int child, int child2, int child7, int student)
+        public IActionResult SearchRoutes(int source, int dest, string date, int count, int adult, int child, int child2, int child7, int student, string backdate = null)
         {
             try
             {
                 List<ViewModel_Routes> model = new List<ViewModel_Routes>();
+                ViewModel_Routes backWayModel = new ViewModel_Routes();
                 RoutesTools routesTools = new RoutesTools();
+                if (backdate != null)
+                {
+                    backWayModel = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(dest, source, backdate)).FirstOrDefault();
+                    if (backWayModel == null)
+                    {
+                        TempData["Style"] = "alert alert-warning text-center";
+                        TempData["Message"] = "back way that you select is not exict <br/> if you want continue or back and select another date";
+                    }
+                    else
+                    {
+                        ViewBag.backdate = backdate;
+                        ViewBag.backwayRoutId = backWayModel.id;
+                    }
+                }
                 model = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
                 int RoutesCapacity =
                 ViewBag.count = count;
@@ -292,7 +349,7 @@ namespace Booking_Web.Controllers
             }
         }
 
-        public IActionResult bookForm(int id, int count, int adult, int child = 0, int child2 = 0, int child7 = 0, int student = 0, string tripDate = "")
+        public IActionResult bookForm(int id, int count, int adult, int child = 0, int child2 = 0, int child7 = 0, int student = 0, string tripDate = "", string backdate = "", int backwayRoutId = 0)
         {
             try
             {
@@ -321,6 +378,8 @@ namespace Booking_Web.Controllers
                 ViewBag.Student = student;
                 ViewBag.tripDate = tripDate;
                 ViewBag.RoutId = id;
+                ViewBag.backdate = backdate;
+                ViewBag.backwayRoutId = backwayRoutId;
                 return View(model);
 
             }
@@ -332,11 +391,26 @@ namespace Booking_Web.Controllers
                 return View("Error", error);
             }
         }
-        public IActionResult confirmation(ViewModel_Prepay model)
+        public IActionResult confirmation(ViewModel_Prepay model, string backdate = "", int backwayRoutId = 0)
         {
             try
             {
                 RoutesTools routesTools = new RoutesTools();
+                if (backdate != "" && backwayRoutId != 0)
+                {
+                    if (!routesTools.CnfirmReservDatTime(backwayRoutId, backdate))
+                    {
+                        TempData["Style"] = "alert alert-warning text-center";
+                        TempData["Message"] = "date is worng please correct it";
+                        return View(model);
+                    }
+                    if (model.sumcount > routesTools.RoutsCapacity(backdate, backwayRoutId))
+                    {
+                        TempData["Style"] = "alert alert-warning text-center";
+                        TempData["Message"] = "there is no seat exict in back route!! <br/> if you continue reserv one way ticket";
+                        return View(model);
+                    }
+                }
                 if (!routesTools.CnfirmReservDatTime(model.RoutId, model.tripDate))
                 {
                     TempData["Style"] = "alert alert-warning text-center";
@@ -371,8 +445,16 @@ namespace Booking_Web.Controllers
                     {
                         ViewBag.student = utility.StringArrayToString(model.student);
                     }
-
-                    model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, false, model.RoutId);
+                    ViewBag.backdate = backdate;
+                    ViewBag.backwayRoutId = backwayRoutId;
+                    if (backdate != "" && backwayRoutId != 0)
+                    {
+                        model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, true, model.RoutId);
+                    }
+                    else
+                    {
+                        model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, false, model.RoutId);
+                    }
                     return View(model);
                 }
                 else

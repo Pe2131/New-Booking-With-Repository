@@ -55,7 +55,10 @@ namespace DAL
         {
             _dbset.Add(entity);
         }
-
+        public virtual void InsertRange (List<TEntity> entity)
+        {
+            _dbset.AddRange(entity);
+        }
         public virtual void Update(TEntity entity)
         {
             _dbset.Attach(entity);
