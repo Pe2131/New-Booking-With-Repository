@@ -25,7 +25,7 @@ namespace Booking_Web.Controllers
         {
             ViewModel_Index model = new ViewModel_Index();
             var cities = db.CityRepository.Get().ToList();
-            var countries = db.CountryRepository.Get().ToList().OrderByDescending(a=>a.Id);
+            var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
             model.cities = Mapper.Map<List<ViewModel_City>>(cities);
             model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
             model.setting = db.SettingRepository.Get().FirstOrDefault();
@@ -135,17 +135,32 @@ namespace Booking_Web.Controllers
         /// <param name="date"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public IActionResult Search(int source, int dest, string date, int count, int adult, int child, int child2, int child7, int student)
+        public IActionResult Search(int source, int dest, string date, int count, int adult, int child, int child2, int child7, int student, string backdate = null)
         {
             try
             {
                 ViewModel_Search model = new ViewModel_Search();
+                ViewModel_Routes backWayModel = new ViewModel_Routes();
                 RoutesTools routesTools = new RoutesTools();
+                if (backdate != null)
+                {
+                    backWayModel = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(dest, source, backdate)).FirstOrDefault();
+                    if (backWayModel == null)
+                    {
+                        TempData["Style"] = "alert alert-warning text-center";
+                        TempData["Message"] = "back way that you select is not exict <br/> if you want continue or back and select another date";
+                    }
+                    else
+                    {
+                        ViewBag.backdate = backdate;
+                        ViewBag.backwayRoutId = backWayModel.id;
+                    }
+                }
+                model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
                 var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
-                model.PathWays = Mapper.Map<List<ViewModel_Routes>>(routesTools.searchRoutes(source, dest, date));
                 model.Countries = Mapper.Map<List<ViewModel_Country>>(countries);
-                int RoutesCapacity = 
+                int RoutesCapacity =
                 ViewBag.count = count;
                 ViewBag.adult = adult;
                 ViewBag.Child = child;
@@ -167,6 +182,7 @@ namespace Booking_Web.Controllers
                 return View("Error", error);
             }
         }
+
         [HttpGet]
         public IActionResult ContactUs()
         {
@@ -236,7 +252,7 @@ namespace Booking_Web.Controllers
             try
             {
                 ViewModel_Search model = new ViewModel_Search();
-                var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive").ToList().GroupBy(a=>a.Source_FG).OrderByDescending(a=>a.Count()).SelectMany(a=>a).ToList();  //for sort by count of source_Fg
+                var Routes = db.RoutRepositori.Get(a => a.Status != "Deactive").ToList().GroupBy(a => a.Source_FG).OrderByDescending(a => a.Count()).SelectMany(a => a).ToList();  //for sort by count of source_Fg
                 var countries = db.CountryRepository.Get().ToList().OrderByDescending(a => a.Id);
                 model.cities = Mapper.Map<List<ViewModel_City>>(db.CityRepository.Get().ToList());
                 model.PathWays = Mapper.Map<List<ViewModel_Routes>>(Routes);
@@ -253,7 +269,7 @@ namespace Booking_Web.Controllers
                 return View("Error", error);
             }
         }
-        public IActionResult bookForm(int id, int count, int adult, int child = 0, int child2 = 0, int child7 = 0, int student = 0,string tripDate="")
+        public IActionResult bookForm(int id, int count, int adult, int child = 0, int child2 = 0, int child7 = 0, int student = 0, string tripDate = "", string backdate = "", int backwayRoutId = 0)
         {
             try
             {
@@ -282,6 +298,8 @@ namespace Booking_Web.Controllers
                 ViewBag.Student = student;
                 ViewBag.tripDate = tripDate;
                 ViewBag.RoutId = id;
+                ViewBag.backdate = backdate;
+                ViewBag.backwayRoutId = backwayRoutId;
                 return View(model);
 
             }
@@ -293,17 +311,46 @@ namespace Booking_Web.Controllers
                 return View("Error", error);
             }
         }
-        public IActionResult Prepay(ViewModel_Prepay model)
+
+        public IActionResult Prepay(ViewModel_Prepay model, string backdate = "", int backwayRoutId = 0)
         {
             try
             {
+                RoutesTools routesTools = new RoutesTools();
+                if (backdate != "" && backwayRoutId != 0)
+                {
+                    if (!routesTools.CnfirmReservDatTime(backwayRoutId, backdate))
+                    {
+                        TempData["Style"] = "alert alert-warning text-center";
+                        TempData["Message"] = "date is worng please correct it";
+                        return View(model);
+                    }
+                    if (model.sumcount > routesTools.RoutsCapacity(backdate, backwayRoutId))
+                    {
+                        TempData["Style"] = "alert alert-warning text-center";
+                        TempData["Message"] = "there is no seat exict in back route!! <br/> if you continue reserv one way ticket";
+                        return View(model);
+                    }
+                }
+                if (!routesTools.CnfirmReservDatTime(model.RoutId, model.tripDate))
+                {
+                    TempData["Style"] = "alert alert-warning text-center";
+                    TempData["Message"] = "date is worng please correct it";
+                    return View(model);
+                }
+                if (model.sumcount > routesTools.RoutsCapacity(model.tripDate, model.RoutId))
+                {
+                    TempData["Style"] = "alert alert-warning text-center";
+                    TempData["Message"] = "there is no seat exict!!";
+                    return View(model);
+                }
                 if (model.sumcount == model.adultcount + model.childcount + model.child2count + model.child7count + model.studentCount)
                 {
                     if (model.adult != null)
                     {
                         ViewBag.AdultName = utility.StringArrayToString(model.adult);
                     }
-                    if (model.child!=null)
+                    if (model.child != null)
                     {
                         ViewBag.Childname = utility.StringArrayToString(model.child);
                     }
@@ -317,10 +364,18 @@ namespace Booking_Web.Controllers
                     }
                     if (model.student != null)
                     {
-                        ViewBag.student= utility.StringArrayToString(model.student);
+                        ViewBag.student = utility.StringArrayToString(model.student);
                     }
-                    RoutesTools routesTools = new RoutesTools();
-                    model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, false, model.RoutId);
+                    ViewBag.backdate = backdate;
+                    ViewBag.backwayRoutId = backwayRoutId;
+                    if (backdate != "" && backwayRoutId != 0)
+                    {
+                        model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, true, model.RoutId);
+                    }
+                    else
+                    {
+                        model.sumprice = routesTools.calculatPrice(model.sumcount, model.adultcount, model.childcount, model.child2count, model.child7count, model.studentCount, false, model.RoutId);
+                    }
                     return View(model);
                 }
                 else

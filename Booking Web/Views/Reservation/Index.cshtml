@@ -71,7 +71,7 @@
                                                     <input type="checkbox" id="2way">
                                                     <span>2Way</span>
                                                 </label>
-                                                <input type="text" id="dateStart-flight2" name="backdate" class="datepicker-here col-8" data-position="right top" data-language='en' placeholder="dd/mm/yy" required style="display:none;">
+                                                <input type="text" id="dateStart-flight2" name="backdate" class="datepicker-here col-8" data-position="right top" data-language='en' placeholder="dd/mm/yy"  style="display:none;">
                                             </div>
                                             <div class=" row">
                                                 <span class="col-7" style="padding-top:20px;">adult:</span>
@@ -242,7 +242,8 @@
             if (count == 0) {
                 return false;
             }
-            if ($("#2way").prop("checked") && $("#dateStart-flight2").val() == null || $("#dateStart-flight2").val() == '') {
+            if ($("#2way").prop("checked") && $("#dateStart-flight2").val() == null || $("#2way").prop("checked") && $("#dateStart-flight2").val() == '')
+            {
                 return false;
             }
             return true;

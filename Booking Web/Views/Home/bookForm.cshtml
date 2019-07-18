@@ -60,7 +60,7 @@
 
                 <div class="content-wrapper">
 
-                    <div class="success-box">
+                    @*<div class="success-box">
 
                         <div class="icon" style="background:#f7d125;border:#f7d125;">
 
@@ -73,7 +73,7 @@
 
                         </div>
 
-                    </div>
+                    </div>*@
 
                     <form class="payment-form-wrapper" asp-action="Prepay" asp-controller="Home" method="post">
                         <input type="hidden" name="RoutId" value=@ViewBag.RoutId />
@@ -84,6 +84,8 @@
                         <input type="hidden" name="child7count" value=@ViewBag.Child7 />
                         <input type="hidden" name="studentCount" value=@ViewBag.Student />
                         <input type="hidden" name="tripDate" value=@ViewBag.tripDate />
+                        <input type="hidden" name="backdate" value=@ViewBag.backdate />
+                        <input type="hidden" name="backwayRoutId" value=@ViewBag.backwayRoutId />
                         <h3 class="heading-title"><span>Billing Information</span></h3>
                         <p class="post-heading">Two before narrow not relied how except moment myself.</p>
 
