@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -10,6 +11,7 @@ using DAL.Model;
 using DAL.Model.Tables;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static Booking_Web.Utility.NormalUtility;
 
 namespace Booking_Web.Controllers
 {
@@ -89,7 +91,7 @@ namespace Booking_Web.Controllers
                     reseve.ReservedDate = DateTime.Now;
                     reseve.RouteId = model.RoutId;
                     reseve.TripdDate = utility.ConvertStaringToDate(model.tripDate, "dd/MM/yyyy");
-                    reseve.Status = "1";
+                    reseve.Status = ReservationStause.agentReserv.ToString();
                     resevesList.Add(reseve);
                     int CheckReservCount = routesTools.CheckReservCount(model.tripDate, model.RoutId);
                     if (CheckReservCount != 0)
@@ -128,7 +130,7 @@ namespace Booking_Web.Controllers
                         backreseve.ReservedDate = DateTime.Now;
                         backreseve.RouteId = backwayRoutId;
                         backreseve.TripdDate = utility.ConvertStaringToDate(backdate, "dd/MM/yyyy");
-                        backreseve.Status = "1";
+                        backreseve.Status = ReservationStause.agentReserv.ToString();
                         resevesList.Add(backreseve);
                         int CheckbackReservCount = routesTools.CheckReservCount(backdate, backwayRoutId);
                         if (CheckbackReservCount != 0)
@@ -145,9 +147,10 @@ namespace Booking_Web.Controllers
                             reservCount.RoutId_FG = backwayRoutId;
                             Db.ReservCountRepositori.Insert(reservCount);
                         }
-                        Db.NewReservRepositori.InsertRange(resevesList);
-                        await Db.NewReservRepositori.Save();
+
                     }
+                    Db.NewReservRepositori.InsertRange(resevesList);
+                    await Db.NewReservRepositori.Save();
                     TempData["Style"] = "alert alert-success text-center";
                     TempData["Message"] = "reserve process successfully done";
                     return View();
@@ -186,7 +189,7 @@ namespace Booking_Web.Controllers
             }
             else
             {
-                var result = Db.NewReservRepositori.Get(a => a.AgentId == userid & a.Status != "Deleted", a => a.OrderByDescending(b => b.Id), "Tbl_Users,Tbl_Routes").OrderByDescending(a => a.Id).ToList();
+                var result = Db.NewReservRepositori.Get(a => a.AgentId == userid & a.Status != ReservationStause.Deleted.ToString(), a => a.OrderByDescending(b => b.Id), "Tbl_Users,Tbl_Routes").OrderByDescending(a => a.Id).ToList();
                 var model = Mapper.Map<List<ViewModel_Reserv>>(result);
                 foreach (var item in model)
                 {
@@ -280,30 +283,37 @@ namespace Booking_Web.Controllers
         //    //}
         //    return View();
         //}
-        //public async Task<JsonResult> Delete(int id)
-        //{
-        //    //try
-        //    //{
-        //    //    var reserv = Db.ReservRepositori.GetById(id);
-        //    //    if (reserv.Status != "Deleted")
-        //    //    {
-        //    //        var path = Db.PathWayRepository.GetById(reserv.PathId);
-        //    //        path.Capacity = path.Capacity + reserv.SumCount;
-        //    //        reserv.Status = "Deleted";
-        //    //        Db.PathWayRepository.Update(path);
-        //    //        Db.ReservRepositori.Update(reserv);
-        //    //        await Db.ReservRepositori.Save();
-        //    //        return Json(1);
-        //    //    }
-        //    //    return Json(1);
-        //    //}
-        //    //catch (Exception e)
-        //    //{
+        [HttpGet]
+        public async Task<JsonResult> Delete(int id)
+        {
+            try
+            {
+                var reserv = Db.NewReservRepositori.GetById(id);
+                RoutesTools routesTools = new RoutesTools();
+                if (reserv.Status != ReservationStause.Deleted.ToString())
+                {
+                    CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+                    string date = reserv.TripdDate.ToString("dd/MM/yyyy");
+                    var CheckReservCount = routesTools.CheckReservCount(date, reserv.RouteId);
+                    if (CheckReservCount != 0)
+                    {
+                        var Reservcount = Db.ReservCountRepositori.GetById(CheckReservCount);
+                        Reservcount.count = Reservcount.count - reserv.SumCount;
+                        Db.ReservCountRepositori.Update(Reservcount);
+                    }
+                    reserv.Status = ReservationStause.Deleted.ToString();
+                    Db.NewReservRepositori.Update(reserv);
+                    await Db.NewReservRepositori.Save();
+                    return Json(1);
+                }
+                return Json(1);
+            }
+            catch (Exception e)
+            {
 
-        //    //    throw e.InnerException;
-        //    //}
-        //    return Json(1);
-        //}
+                throw e.InnerException;
+            }
+        }
         public IActionResult SearchRoutes(int source, int dest, string date, int count, int adult, int child, int child2, int child7, int student, string backdate = null)
         {
             try

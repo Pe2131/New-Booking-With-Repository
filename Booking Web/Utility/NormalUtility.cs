@@ -11,6 +11,13 @@ namespace Booking_Web.Utility
     public class NormalUtility
     {
         private UnitOfWork db = new UnitOfWork();
+        public enum ReservationStause
+        {
+            paid=100,
+            agentReserv=1,
+            Deleted = -1,
+            PrePaid=2,
+        }
         public DateTime ConvertStringToDate(string date)
         {
             try
